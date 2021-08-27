@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kind ML</title>
+    <script>
+        function checkPost() {
+            document.getElementById('response').innerHTML = "Checking your text, please wait...."
+            let myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+            text = document.getElementById("inputText").value
+            let raw = JSON.stringify({
+                "text": text
+            });
+
+            let requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+
+            fetch("/detect", requestOptions)
+                .then(response => {
+                    response.json().then(function(data) {
+                        console.log("The data that was returned " ,data.result)
+                        let pos = data.result['not-offensive']
+                        let neg = data.result['offensive']
+                        parseFloat(neg) > parseFloat(pos) ?
+                        document.getElementById('response').innerHTML = "That's not a very nice thing to say 😾 "
+                        : document.getElementById('response').innerHTML = "Great, you can post that!"
+                        });
+                    })
+                .catch(error => console.log('error', error));
+        }
+    </script>
+</head>
+
+<body>
+    <div id="client">
+        <h2>Hello there, let's check what you're about to post</h2>
+        <div>
+            <span>
+                <input type="text" name="input" id="inputText">
+                <input type="button" value="Check" onclick="checkPost()">
+            </span>
+            <div>
+                <h3 id="response"></h3>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
