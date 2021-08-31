@@ -25,34 +25,29 @@
                 />
               </v-col>
             </v-row>
-            <v-row v-if="sentimentResult"> 
-              <v-col cols="12" >
+            <v-row v-if="sentimentResult">
+              <v-col cols="12">
                 <p class="headline text-center text-md-center justify-center">
                   {{ sentimentMessage }}
-                 
                 </p>
                 <div class="headline text-center text-md-center justify-center">
                   <v-btn
-                v-for="(social, i) in socials"
-                :key="i"
-                :color="social.color"
-                class="white--text "
-                fab
-                icon
-                small
-                @click="openSocialTab(social.url)"
-              >
-                <v-icon>{{ social.icon }}</v-icon>
-              </v-btn>
+                    v-for="(social, i) in socials"
+                    :key="i"
+                    :color="social.color"
+                    class="white--text"
+                    fab
+                    icon
+                    small
+                    @click="openSocialTab(social.url)"
+                  >
+                    <v-icon>{{ social.icon }}</v-icon>
+                  </v-btn>
                 </div>
-                 
               </v-col>
             </v-row>
             <v-row>
-              <v-col cols="12" class="justify-center">
-
-              </v-col>
-              
+              <v-col cols="12" class="justify-center"> </v-col>
             </v-row>
           </v-card-text>
           <v-card-actions>
@@ -101,19 +96,19 @@ export default {
       sentimentMessage: "",
       socials: [
         {
-          icon: 'mdi-facebook',
-          color: 'indigo',
-          url: 'https://fb.com'
+          icon: "mdi-facebook",
+          color: "indigo",
+          url: "https://fb.com",
         },
         {
-          icon: 'mdi-twitter',
-          color: 'cyan darken-1',
-          url: 'https://twitter.com'
+          icon: "mdi-twitter",
+          color: "cyan darken-1",
+          url: "https://twitter.com",
         },
         {
-          icon: 'mdi-instagram',
-          color: 'red lighten-3',
-          url: 'https://instagram.com'
+          icon: "mdi-instagram",
+          color: "red lighten-3",
+          url: "https://instagram.com",
         },
       ],
     };
@@ -152,8 +147,8 @@ export default {
       // Result happy face: https://assets7.lottiefiles.com/packages/lf20_sgzw5ogf.json
     },
 
-    openSocialTab(url){
-      window.open(url,'_blank')
+    openSocialTab(url) {
+      window.open(url, "_blank");
     },
 
     initAnimation() {
