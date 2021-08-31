@@ -44,7 +44,16 @@ export default {
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    
+      proxy: true // Can be also an object with default options
+    
+
+   
+  },
+  proxy: {
+    '/api/': {target:'http://localhost:8080', pathRewrite: {'^/api/': ''}},
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {

@@ -5,7 +5,8 @@
         <v-card>
           <v-card-title class=""> </v-card-title>
           <v-card-text>
-            <p class="headline text-center text-md-center">KINDLY</p>
+            <div class="text-h2 text-center text-md-center">KINDLY</div>
+            <v-spacer />
             <v-col cols="12">
               <v-text-field
                 v-model="text"
@@ -13,6 +14,24 @@
                 outlined
               ></v-text-field>
             </v-col>
+            <v-row>
+              <v-col cols="12">
+                <lottie
+                  v-if="sentimentResult"
+                  :width="100"
+                  :height="100"
+                  :options="lottieOptions"
+                  v-on:animCreated="handleAnimation"
+                />
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12">
+                <p class="headline text-center text-md-center">
+                  {{ sentimentMessage }}
+                </p>
+              </v-col>
+            </v-row>
           </v-card-text>
           <v-card-actions>
             <!-- width and height are optional 
@@ -24,16 +43,6 @@
               :options="lottieOptions"
               v-on:animCreated="handleAnimation"
             />
-            <div>
-              <lottie
-                v-if="sentimentResult"
-                :width="100"
-                :height="100"
-                :options="lottieOptions"
-                v-on:animCreated="handleAnimation"
-              />
-              <p>{{ sentimentMessage }}</p>
-            </div>
 
             <v-spacer />
             <v-btn
@@ -52,7 +61,7 @@
 </template>
 <script>
 import Lottie from "vue-lottie/src/lottie.vue";
-import * as animationData from "../assets/animation.json";
+import * as loadingAnimation from "../assets/animation.json";
 import * as positiveAnimation from "../assets/happy.json";
 import * as negativeAnimation from "../assets/sad.json";
 export default {
@@ -63,7 +72,7 @@ export default {
     return {
       text: "",
       loading: false,
-      lottieOptions: { animationData: animationData.default },
+      lottieOptions: { animationData: loadingAnimation.default },
       animationSpeed: 1,
       anim: null,
       sentimentResult: false,
@@ -73,27 +82,45 @@ export default {
   methods: {
     async obtainSentiment() {
       let vm = this;
-      this.loading = true;
-      let sentiment = await this.$axios.post("localhost:8080/detect", {
-        text: vm.text,
-      });
-      if (vm.sentimentResult) {
-        let pos = data.result["not-offensive"];
-        let neg = sentiment.result["offensive"];
-        if (
-          parseFloat(sentiment.result["offensive"]) >
-          parseFloat(sentiment.result["offensive"])
-        ) {
-          vm.lottieOptions = { animationData: positiveAnimation.default },
-          vm.sentimentMessage = "That's not a very nice thing to say 😾 ";
-        } else {
-          vm.lottieOptions = { animationData: negativeAnimation.default },
-           vm.sentimentMessage =  "Great, you can post that!";
+
+      vm.initAnimation();
+
+      if (vm.text) {
+        this.loading = true;
+
+        vm.sentimentResult = await this.$axios.post("/api/detect", {
+          text: vm.text,
+        });
+
+        vm.loading = false;
+
+        if (vm.sentimentResult) {
+          let pos = vm.sentimentResult.data.result["not-offensive"];
+          let neg = vm.sentimentResult.data.result["offensive"];
+          if (
+            parseFloat(vm.sentimentResult.data.result["offensive"]) >
+            parseFloat(vm.sentimentResult.data.result["not-offensive"])
+          ) {
+            (vm.lottieOptions = { animationData: negativeAnimation.default }),
+              (vm.sentimentMessage = "That's not a very nice thing to say 😾 ");
+          } else {
+            (vm.lottieOptions = { animationData: positiveAnimation.default }),
+              (vm.sentimentMessage = "Great, you can post that!");
+          }
         }
       }
       // Result sad face : https://assets10.lottiefiles.com/packages/lf20_pojzngga.json
       // Result happy face: https://assets7.lottiefiles.com/packages/lf20_sgzw5ogf.json
     },
+
+    initAnimation() {
+      let vm = this;
+      vm.anim = null;
+      (vm.lottieOptions = { animationData: loadingAnimation.default }),
+        (vm.sentimentResult = false);
+      vm.sentimentMessage = "";
+    },
+
     handleAnimation(anim) {
       this.anim = anim;
     },
