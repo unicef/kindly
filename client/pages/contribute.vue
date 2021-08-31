@@ -6,11 +6,11 @@
         <v-subheader>Write something very mean</v-subheader>
       </v-col>
       <v-col cols="8">
-        <v-text-field
+        <v-textarea
           label="Arrrgh"
           v-model = meanStatement
           prefix="😡"
-        ></v-text-field>
+        ></v-textarea>
       </v-col>
     </v-row>
 
@@ -19,10 +19,10 @@
         <v-subheader>Write something nice</v-subheader>
       </v-col>
       <v-col cols="8">
-        <v-text-field
+        <v-textarea
           v-model=niceStatement
           prefix="🙂"
-        ></v-text-field>
+        ></v-textarea>
       </v-col>
     </v-row>
     <v-card-actions>
