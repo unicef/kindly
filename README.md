@@ -1,4 +1,6 @@
 # kindly
+<img width="529" alt="Screenshot 2021-08-31 at 12 55 44 PM" src="https://user-images.githubusercontent.com/1917416/131507344-51205784-42aa-40a3-9fff-31f40b54566e.png">
+
 
 # Development
 Please make sure that your development environment has the following prerequisites:
