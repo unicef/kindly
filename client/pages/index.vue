@@ -55,6 +55,13 @@
           https://medium.com/@fonto.design/using-lottie-in-nuxt-js-554949d19063-->
             <lottie
               v-if="loading"
+              :width="200"
+              :height="200"
+              :options="lottieOptions_waiting"
+              v-on:animCreated="handleAnimation"
+            />
+            <lottie
+              v-if="loading"
               :width="100"
               :height="100"
               :options="lottieOptions"
@@ -81,6 +88,7 @@ import Lottie from "vue-lottie/src/lottie.vue";
 import * as loadingAnimation from "../assets/animation.json";
 import * as positiveAnimation from "../assets/happy.json";
 import * as negativeAnimation from "../assets/sad.json";
+import * as waitingAnimation from "../assets/waiting.json";
 export default {
   components: {
     lottie: Lottie,
@@ -90,6 +98,7 @@ export default {
       text: "",
       loading: false,
       lottieOptions: { animationData: loadingAnimation.default },
+      lottieOptions_waiting: { animationData: waitingAnimation.default },
       animationSpeed: 1,
       anim: null,
       sentimentResult: false,
@@ -145,6 +154,7 @@ export default {
       }
       // Result sad face : https://assets10.lottiefiles.com/packages/lf20_pojzngga.json
       // Result happy face: https://assets7.lottiefiles.com/packages/lf20_sgzw5ogf.json
+      // Waiting https://assets10.lottiefiles.com/packages/lf20_de8uqc1b.json
     },
 
     openSocialTab(url) {
