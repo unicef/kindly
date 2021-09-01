@@ -30,8 +30,9 @@
                 <p class="headline text-center text-md-center justify-center">
                   {{ sentimentMessage }}
                 </p>
-                <div class="headline text-center text-md-center justify-center">
+                <div class="headline text-center text-md-center justify-center" v-if="sentimentResult && positive">
                   <v-btn
+                  
                     v-for="(social, i) in socials"
                     :key="i"
                     :color="social.color"
@@ -97,6 +98,7 @@ export default {
     return {
       text: "",
       loading: false,
+      positive: false,
       lottieOptions: { animationData: loadingAnimation.default },
       lottieOptions_waiting: { animationData: waitingAnimation.default },
       animationSpeed: 1,
@@ -149,6 +151,7 @@ export default {
           } else {
             (vm.lottieOptions = { animationData: positiveAnimation.default }),
               (vm.sentimentMessage = "Great, you can post that!");
+              vm.positive=true;
           }
         }
       }
@@ -164,6 +167,7 @@ export default {
     initAnimation() {
       let vm = this;
       vm.anim = null;
+      vm.positive = false;
       (vm.lottieOptions = { animationData: loadingAnimation.default }),
         (vm.sentimentResult = false);
       vm.sentimentMessage = "";
