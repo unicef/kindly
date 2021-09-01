@@ -1,4 +1,6 @@
 # kindly
+<img width="580" alt="Screenshot 2021-08-31 at 1 10 33 PM" src="https://user-images.githubusercontent.com/1917416/131702644-a18d56fb-1404-469f-9386-5afe3bf32021.png">
+
 
 ## Build Setup
 
