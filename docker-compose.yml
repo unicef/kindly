@@ -23,7 +23,17 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./client
+    depends_on: 
+      - api
+    volumes: 
+      - ./client
+    ports: 
+      - 5001:3000
   api:
     build:
       dockerfile: Dockerfile
       context: ./api
+    volumes: 
+      -  ./api
+    ports: 
+      - 5002:8080
