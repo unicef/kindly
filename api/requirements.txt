@@ -13,3 +13,4 @@ mwparserfromhell
 waitress
 transformers
 gunicorn
+flask

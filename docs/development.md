@@ -11,8 +11,33 @@ Please make sure that your development environment has the following prerequisit
     - Install pytorch by going to (their website)[https://pytorch.org/get-started/locally/] to know how to do it with your operating system. However, for this mac configuration in this project you can use `pip` by running `pip install torch torchvision`
 
 ## Running Locally
+
 From the root of the application, run the python server using the following command `python api/flasksample.py`
 
 In a new terminal tab `cd` into the client folder and and run the following commands
 - `npm i`
 - `npm run dev`
+
+## Docker
+
+### Requirements
+
+* [Docker](https://docs.docker.com/install/overview/)
+* [Docker Compose](https://docs.docker.com/compose/install/)
+
+### Installation
+
+Run:
+
+```bash
+docker-compose build
+
+```
+
+### Running
+
+Run (and stop with `Ctrl-C`):
+
+```bash
+docker-compose up
+```
