@@ -106,7 +106,7 @@ POST /
 curl http://localhost:8080/detect
 curl \
   -X POST \
-  -H "Accept: application/json" \
+  -H "Content-Type: application/json" \
   http://localhost:8080/detect \
   -d '{"text":"this movie is great"}'
 ```
