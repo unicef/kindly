@@ -12,5 +12,7 @@ ipython-beautifulSoup[bs4,notebook]
 mwparserfromhell
 waitress
 transformers
+torch
+torchvision
 gunicorn
 flask

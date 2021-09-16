@@ -10,19 +10,15 @@ WORKDIR /usr/src/app
 # Copying this separately prevents re-running npm install on every code change.
 COPY . ./
 
+# The default port for production in Nuxt is 3000 as such it has to be declared and exposed
 ENV PORT=3000
 EXPOSE 3000
-
-ENV NUXT_HOST=0.0.0.0
-ENV NUXT_PORT=3000
 
 # Install production dependencies.
 RUN npm install 
 
 # build client
 RUN npm run build
-
-RUN ls -a
 
 # Run the web service on container startup.
 CMD [ "npm", "start" ]
