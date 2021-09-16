@@ -80,9 +80,49 @@ Status: 200 OK
 ```
 ```json
 {
-	"dpgs": "https://api.digitalpublicgoods.net/dpgs",
-	"dpg/{dpg}": "https://api.digitalpublicgoods.net/dpg/{dpg}/",
-	"nominees": "https://api.digitalpublicgoods.net/nominees",
-	"nominee/{nominee}": "https://api.digitalpublicgoods.net/nominee/{nominee}"
+    "detect": "/detect"
 }
+```
+
+### Send text for detection endpoints
+
+Send a piece of text and through this API to determine if it is offensive to post or not.
+
+```
+POST /
+```
+
+```PAYLOAD```
+```
+{
+    "text":"this movie is great"
+}
+```
+#### Code Samples
+
+**Shell**
+
+```bash
+curl http://localhost:8080/detect
+curl \
+  -X POST \
+  -H "Accept: application/json" \
+  http://localhost:8080/detect \
+  -d '{"text":"this movie is great"}'
+```
+
+#### Default Response
+
+```
+Status: 200 OK
+```
+```json
+{
+    "result": {
+        "not-offensive": "0.8308081",
+        "offensive": "0.1691919"
+        },
+    "text": "this movie is great"
+}
+
 ```
