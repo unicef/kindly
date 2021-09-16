@@ -103,7 +103,6 @@ POST /
 **Shell**
 
 ```bash
-curl http://localhost:8080/detect
 curl \
   -X POST \
   -H "Content-Type: application/json" \
