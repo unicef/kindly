@@ -40,7 +40,7 @@ Build the demo client with docker by running
 docker build --pull --rm -f "client/Dockerfile" -t kindly_client_demo:latest "client"
 ```
 
-A container image of the demo client is also found on [Dockerhub](https://hub.docker.com/r/nathanfletcher/kindly_client_demo)
+A container image of the client is also found on [Dockerhub](https://hub.docker.com/r/nathanfletcher/kindly_client)
 
 ### Running
 
