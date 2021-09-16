@@ -12,7 +12,7 @@ from waitress import serve
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
-def welcome():
+def apiGlossary():
     glossary = {
         "detect": "/detect",
         # "train": "/train" #this is yet to be completed

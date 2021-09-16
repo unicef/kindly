@@ -55,3 +55,34 @@ Run the demo client using docker with this command:
 ```bash
 docker run --rm -it  -p 3000:3000/tcp kindly_client:latest
 ```
+
+## Reference
+
+### List all available endpoints
+
+List all endpoints available through this API.
+
+```
+GET /
+```
+#### Code Samples
+
+**Shell**
+
+```bash
+curl http://localhost:8080/
+```
+
+#### Default Response
+
+```
+Status: 200 OK
+```
+```json
+{
+	"dpgs": "https://api.digitalpublicgoods.net/dpgs",
+	"dpg/{dpg}": "https://api.digitalpublicgoods.net/dpg/{dpg}/",
+	"nominees": "https://api.digitalpublicgoods.net/nominees",
+	"nominee/{nominee}": "https://api.digitalpublicgoods.net/nominee/{nominee}"
+}
+```
