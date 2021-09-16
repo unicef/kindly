@@ -37,7 +37,7 @@ A container image of this API is also found on [Dockerhub](https://hub.docker.co
 Build the demo client with docker by running 
 
 ```bash
-docker build --pull --rm -f "client/Dockerfile" -t kindly_client_demo:latest "client"
+docker build --pull --rm -f "client/Dockerfile" -t kindly_client:latest "client"
 ```
 
 A container image of the client is also found on [Dockerhub](https://hub.docker.com/r/nathanfletcher/kindly_client)
