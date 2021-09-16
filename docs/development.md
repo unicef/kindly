@@ -27,18 +27,31 @@ In a new terminal tab `cd` into the client folder and and run the following comm
 ### Installation
 
 Build the API with docker by running 
-`docker build --pull --rm -f "api/Dockerfile" -t kindly_api:latest "api"`
+
+```bash
+docker build --pull --rm -f "api/Dockerfile" -t kindly_api:latest "api"
+```
 
 A container image of this API is also found on [Dockerhub](https://hub.docker.com/r/nathanfletcher/kindly_api)
 
 Build the demo client with docker by running 
-`docker build --pull --rm -f "client/Dockerfile" -t kindly_client_demo:latest "client"`
+
+```bash
+docker build --pull --rm -f "client/Dockerfile" -t kindly_client_demo:latest "client"
+```
+
 A container image of the demo client is also found on [Dockerhub](https://hub.docker.com/r/nathanfletcher/kindly_client_demo)
 
 ### Running
 
 Run the API using docker with this command:
-`docker run --rm -it  -p 8080:8080/tcp kindly_api:latest`
+
+```bash
+docker run --rm -it  -p 8080:8080/tcp kindly_api:latest
+```
 
 Run the demo client using docker with this command:
-`docker run --rm -it  -p 3000:3000/tcp kindly_client:latest`
+
+```bash
+docker run --rm -it  -p 3000:3000/tcp kindly_client:latest
+```
