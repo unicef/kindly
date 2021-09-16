@@ -23,21 +23,15 @@ In a new terminal tab `cd` into the client folder and and run the following comm
 ### Requirements
 
 * [Docker](https://docs.docker.com/install/overview/)
-* [Docker Compose](https://docs.docker.com/compose/install/)
 
 ### Installation
 
-Run:
+Build the API with docker by running 
+`docker build --pull --rm -f "api/Dockerfile" -t kindly_api:latest "api"`
 
-```bash
-docker-compose build
-
-```
+A container image of this API is also found on [Dockerhub](https://hub.docker.com/r/nathanfletcher/kindly_api)
 
 ### Running
 
-Run (and stop with `Ctrl-C`):
-
-```bash
-docker-compose up
-```
+Run the API using docker with this command:
+`docker run --rm -it  -p 8080:8080/tcp kindly_api:latest`
