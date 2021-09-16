@@ -11,8 +11,15 @@ from waitress import serve
 
 app = Flask(__name__)
 
-
 @app.route('/', methods=['GET', 'POST'])
+def welcome():
+    glossary = {
+        "detect": "/detect",
+        # "train": "/train" #this is yet to be completed
+    }
+    return glossary
+
+@app.route('/test-ui', methods=['GET', 'POST'])
 def welcome():
     return render_template("index.html")
 
