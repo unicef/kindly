@@ -29,7 +29,7 @@ In a new terminal tab `cd` into the client folder and and run the following comm
 Build the API with docker by running 
 
 ```bash
-docker build --pull --rm -f "api/Dockerfile" -t kindly_api:latest "api"
+docker build -f "api/Dockerfile" -t kindly_api:latest "api"
 ```
 
 A container image of this API is also found on [Dockerhub](https://hub.docker.com/r/nathanfletcher/kindly_api)
@@ -37,7 +37,7 @@ A container image of this API is also found on [Dockerhub](https://hub.docker.co
 Build the demo client with docker by running 
 
 ```bash
-docker build --pull --rm -f "client/Dockerfile" -t kindly_client:latest "client"
+docker build -f "client/Dockerfile" -t kindly_client:latest "client"
 ```
 
 A container image of the client is also found on [Dockerhub](https://hub.docker.com/r/nathanfletcher/kindly_client)
