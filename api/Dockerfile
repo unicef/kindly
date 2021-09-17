@@ -1,5 +1,5 @@
 # Using the Python 3.9.1 image as it is a requirement for Tensorflow.
-FROM tensorflow/tensorflow:2.5.1
+FROM tensorflow/tensorflow:2.6.0
 
 # Change working directory (will create if it does not exist)
 WORKDIR /flask
