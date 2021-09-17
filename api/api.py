@@ -60,25 +60,23 @@ def process(inputText):
     # Tasks:
     # emoji, emotion, hate, irony, offensive, sentiment
     # stance/abortion, stance/atheism, stance/climate, stance/feminist, stance/hillary
-    task = 'offensive'
+
     # MODEL = AutoModelForSequenceClassification.from_pretrained("cardiffnlp/twitter-roberta-base-offensive")
     # tokenizer = AutoTokenizer.from_pretrained("cardiffnlp/twitter-roberta-base-offensive")
     # download label mapping
     labels = []
-    mapping_link = f"https://raw.githubusercontent.com/cardiffnlp/tweeteval/main/datasets/{task}/mapping.txt"
-    with urllib.request.urlopen(mapping_link) as f:
-        html = f.read().decode('utf-8').split("\n")
+    mapping_link = f"model/mapping.txt"
+    with open(mapping_link) as f:
+        html = f.read().split("\n")
         csvreader = csv.reader(html, delimiter='\t')
     labels = [row[1] for row in csvreader if len(row) > 1]
 
     # PT
-    model = AutoModelForSequenceClassification.from_pretrained(
-        "cardiffnlp/twitter-roberta-base-offensive")
+    model = AutoModelForSequenceClassification.from_pretrained('./model')
     # model.save_pretrained(MODEL)
     text = inputText
     text = preprocess(text)
-    tokenizer = AutoTokenizer.from_pretrained(
-        "cardiffnlp/twitter-roberta-base-offensive")
+    tokenizer = AutoTokenizer.from_pretrained('./model')
     encoded_input = tokenizer(text, return_tensors='pt')
     output = model(**encoded_input)
 

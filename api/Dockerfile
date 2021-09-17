@@ -10,6 +10,15 @@ ADD requirements.txt /flask
 # Install all application dependencies
 RUN pip install -r requirements.txt
 
+# Add code to cache ML model inside image
+ADD get_model.py /flask
+
+# Download model into ./model
+RUN python get_model.py
+
+# Download ML mappings
+RUN curl -LJ https://raw.githubusercontent.com/cardiffnlp/tweeteval/main/datasets/offensive/mapping.txt -o model/mapping.txt
+
 # Copy source code files
 ADD api.py /flask
 ADD templates /flask/templates
