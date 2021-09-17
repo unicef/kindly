@@ -1,9 +1,9 @@
-from transformers import AutoModelForQuestionAnswering, AutoTokenizer
+from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
 def get_model(model):
   """Loads model from Hugginface model hub"""
   try:
-    model = AutoModelForQuestionAnswering.from_pretrained(model)
+    model = AutoModelForSequenceClassification.from_pretrained(model)
     model.save_pretrained('./model')
   except Exception as e:
     raise(e)
