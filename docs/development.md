@@ -12,7 +12,19 @@ Please make sure that your development environment has the following prerequisit
 
 ## Running Locally
 
-From the root of the application, run the python server using the following command `python api/flasksample.py`
+From the `api/` folder:
+
+1. First download a local copy of the ML model:
+
+```bash
+python get_model.py
+``` 
+
+2. Run the python server using the following command:
+
+```bash
+python api/flasksample.py
+```
 
 In a new terminal tab `cd` into the client folder and and run the following commands
 - `npm i`
