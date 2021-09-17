@@ -9,6 +9,8 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from flask import render_template
 from waitress import serve
 
+REMOTE_MAPPING = 'https://raw.githubusercontent.com/cardiffnlp/tweeteval/main/datasets/offensive/mapping.txt'
+
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
@@ -65,11 +67,17 @@ def process(inputText):
     # tokenizer = AutoTokenizer.from_pretrained("cardiffnlp/twitter-roberta-base-offensive")
     # download label mapping
     labels = []
-    mapping_link = f"model/mapping.txt"
-    with open(mapping_link) as f:
+    local_mapping = f"model/mapping.txt"
+    if os.path.isfile(local_mapping):
+        f = open(local_mapping)
         html = f.read().split("\n")
+    else:
+        f = urllib.request.urlopen(REMOTE_MAPPING)
+        html = f.read().decode('utf-8').split("\n")
+    with f:
         csvreader = csv.reader(html, delimiter='\t')
-    labels = [row[1] for row in csvreader if len(row) > 1]
+        labels = [row[1] for row in csvreader if len(row) > 1]
+    f.close()
 
     # PT
     model = AutoModelForSequenceClassification.from_pretrained('./model')
