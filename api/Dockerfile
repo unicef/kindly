@@ -1,14 +1,14 @@
 # Using the Python 3.9.1 image as it is a requirement for Tensorflow.
-FROM python:3.9.1
+FROM tensorflow/tensorflow:2.6.0
 
 # Change working directory (will create if it does not exist)
 WORKDIR /flask
 
 # Copy list of required dependecies to the container image.
-ADD requirements.txt /flask
+ADD requirements.docker.txt /flask
 
 # Install all application dependencies
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.docker.txt
 
 # Add code to cache ML model inside image
 ADD get_model.py /flask
