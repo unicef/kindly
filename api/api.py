@@ -11,22 +11,27 @@ from waitress import serve
 
 app = Flask(__name__)
 
-
 @app.route('/', methods=['GET', 'POST'])
+def apiGlossary():
+    glossary = {
+        "detect": "/detect",
+        # "train": "/train" #this is yet to be completed
+    }
+    return glossary
+
+@app.route('/test-ui', methods=['GET', 'POST'])
 def welcome():
     return render_template("index.html")
 
 
-@app.route('/detect', methods=['GET', 'POST'])
+@app.route('/detect', methods=['POST'])
 def detect():
     # Model loaded from https://huggingface.co/cardiffnlp/twitter-roberta-base-offensive/tree/main
-    thejson = {}
-    if request.method == "POST":
-        thejson = request.json
+    thejson = request.json
+    if 'text' in thejson:
         thejson['result'] = process(thejson['text'])
-    else: 
-        thejson['text'] = "Good night 😊"
-        thejson['result'] = process(thejson['text'])
+    else:
+        return "Invalid Parameters", 400
         
     return thejson
 
