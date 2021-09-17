@@ -12,7 +12,7 @@ RUN pip install -r requirements.txt
 
 # Copy source code files
 ADD api.py /flask
-ADD templates /flask
+ADD templates /flask/templates
 
 # Exposing 8080 because it is the port used for the API
 EXPOSE 8080
