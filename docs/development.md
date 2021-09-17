@@ -32,6 +32,8 @@ Build the API with docker by running
 docker build -f "api/Dockerfile" -t kindly_api:latest "api"
 ```
 
+> ⚠️  If the build errors out with `executor failed running: exit code: 137`, you are likely running out of memory. Initial installations of Docker come preconfigured by allocating 2GB of memory to Docker. You need to adjust that setting by going to **Docker Settings -> Advanced** and increasing the memory available
+
 A container image of this API is also found on [Dockerhub](https://hub.docker.com/r/nathanfletcher/kindly_api)
 
 Build the demo client with docker by running 
