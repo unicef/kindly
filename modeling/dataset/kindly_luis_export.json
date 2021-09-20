@@ -1,0 +1,662 @@
+{
+  "luis_schema_version": "7.0.0",
+  "intents": [
+    {
+      "name": "bully",
+      "features": [
+        {
+          "featureName": "Bad Words",
+          "isRequired": false
+        },
+        {
+          "featureName": "Good Words",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "name": "ignore",
+      "features": [
+        {
+          "featureName": "Bad Words",
+          "isRequired": false
+        },
+        {
+          "featureName": "Good Words",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "name": "insult",
+      "features": [
+        {
+          "featureName": "Bad Words",
+          "isRequired": false
+        },
+        {
+          "featureName": "Good Words",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "name": "None",
+      "features": [
+        {
+          "featureName": "Bad Words",
+          "isRequired": false
+        },
+        {
+          "featureName": "Good Words",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "name": "teasing",
+      "features": [
+        {
+          "featureName": "Bad Words",
+          "isRequired": false
+        },
+        {
+          "featureName": "Good Words",
+          "isRequired": false
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "name": "bullying_danger",
+      "children": [],
+      "roles": [],
+      "features": [
+        {
+          "featureName": "Bad Words",
+          "isRequired": false
+        },
+        {
+          "featureName": "Good Words",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "name": "bullying_words",
+      "children": [],
+      "roles": [],
+      "features": [
+        {
+          "featureName": "Bad Words",
+          "isRequired": false
+        },
+        {
+          "featureName": "Good Words",
+          "isRequired": false
+        }
+      ]
+    }
+  ],
+  "hierarchicals": [],
+  "composites": [],
+  "closedLists": [],
+  "prebuiltEntities": [
+    {
+      "name": "keyPhrase",
+      "roles": []
+    },
+    {
+      "name": "money",
+      "roles": []
+    },
+    {
+      "name": "personName",
+      "roles": []
+    }
+  ],
+  "utterances": [
+    {
+      "text": "back off",
+      "intent": "insult",
+      "entities": []
+    },
+    {
+      "text": "baseball was horrible",
+      "intent": "ignore",
+      "entities": []
+    },
+    {
+      "text": "don't come to school, will kill you",
+      "intent": "bully",
+      "entities": [
+        {
+          "entity": "bullying_danger",
+          "startPos": 27,
+          "endPos": 30,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "go kill yourself",
+      "intent": "bully",
+      "entities": [
+        {
+          "entity": "bullying_danger",
+          "startPos": 3,
+          "endPos": 6,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "haha",
+      "intent": "ignore",
+      "entities": []
+    },
+    {
+      "text": "haha you're such a ugly little kid",
+      "intent": "insult",
+      "entities": []
+    },
+    {
+      "text": "hello",
+      "intent": "ignore",
+      "entities": []
+    },
+    {
+      "text": "how are you",
+      "intent": "ignore",
+      "entities": []
+    },
+    {
+      "text": "i don't like the game",
+      "intent": "ignore",
+      "entities": []
+    },
+    {
+      "text": "i hate that movie",
+      "intent": "ignore",
+      "entities": []
+    },
+    {
+      "text": "i hate you",
+      "intent": "insult",
+      "entities": [
+        {
+          "entity": "bullying_danger",
+          "startPos": 2,
+          "endPos": 5,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "i have gun",
+      "intent": "bully",
+      "entities": [
+        {
+          "entity": "bullying_danger",
+          "startPos": 7,
+          "endPos": 9,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "i have so much homework im going to die",
+      "intent": "ignore",
+      "entities": []
+    },
+    {
+      "text": "i hope you die",
+      "intent": "bully",
+      "entities": [
+        {
+          "entity": "bullying_words",
+          "startPos": 11,
+          "endPos": 13,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "i love hanging out with you. want to hang out next week? we could go bowling, or to the mall. whatever you want to do!",
+      "intent": "ignore",
+      "entities": []
+    },
+    {
+      "text": "i love you",
+      "intent": "ignore",
+      "entities": []
+    },
+    {
+      "text": "i loved movie, hero was fat",
+      "intent": "None",
+      "entities": []
+    },
+    {
+      "text": "i was watching movie yesterday",
+      "intent": "ignore",
+      "entities": []
+    },
+    {
+      "text": "i will hurt you in school today.",
+      "intent": "bully",
+      "entities": [
+        {
+          "entity": "bullying_danger",
+          "startPos": 7,
+          "endPos": 10,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "i will not leave you",
+      "intent": "bully",
+      "entities": [
+        {
+          "entity": "bullying_danger",
+          "startPos": 11,
+          "endPos": 15,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "idiot",
+      "intent": "insult",
+      "entities": [
+        {
+          "entity": "bullying_words",
+          "startPos": 0,
+          "endPos": 4,
+          "children": []
+        },
+        {
+          "entity": "bullying_danger",
+          "startPos": 0,
+          "endPos": 4,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "it is absolutely amazing learning more about you. but i have so much homework so i have to finish that as soon as possible. maybe we can hang out another time? it's fine if you can't, we'll see each other at school anyway!",
+      "intent": "ignore",
+      "entities": []
+    },
+    {
+      "text": "late bloomer",
+      "intent": "teasing",
+      "entities": []
+    },
+    {
+      "text": "leave me alone",
+      "intent": "insult",
+      "entities": [
+        {
+          "entity": "bullying_words",
+          "startPos": 9,
+          "endPos": 13,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "movie",
+      "intent": "ignore",
+      "entities": []
+    },
+    {
+      "text": "movie sucks",
+      "intent": "ignore",
+      "entities": []
+    },
+    {
+      "text": "movies suck",
+      "intent": "ignore",
+      "entities": []
+    },
+    {
+      "text": "really? i d",
+      "intent": "ignore",
+      "entities": []
+    },
+    {
+      "text": "sleepyhead",
+      "intent": "teasing",
+      "entities": []
+    },
+    {
+      "text": "sports",
+      "intent": "ignore",
+      "entities": []
+    },
+    {
+      "text": "that movie was nor good",
+      "intent": "ignore",
+      "entities": []
+    },
+    {
+      "text": "that movie was so bad. it sucked so much. i don't even understand why they killed that guy, he deserved to live/",
+      "intent": "ignore",
+      "entities": [
+        {
+          "entity": "bullying_words",
+          "startPos": 26,
+          "endPos": 31,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "wake up",
+      "intent": "teasing",
+      "entities": []
+    },
+    {
+      "text": "we will have more people come on shortly",
+      "intent": "ignore",
+      "entities": []
+    },
+    {
+      "text": "well that is still shitty of him",
+      "intent": "bully",
+      "entities": [
+        {
+          "entity": "bullying_danger",
+          "startPos": 19,
+          "endPos": 24,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "you are",
+      "intent": "ignore",
+      "entities": []
+    },
+    {
+      "text": "you are a fool",
+      "intent": "bully",
+      "entities": [
+        {
+          "entity": "bullying_words",
+          "startPos": 10,
+          "endPos": 13,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "you are a moron",
+      "intent": "bully",
+      "entities": []
+    },
+    {
+      "text": "you are always a late bloomer",
+      "intent": "teasing",
+      "entities": []
+    },
+    {
+      "text": "you are an idiot",
+      "intent": "bully",
+      "entities": [
+        {
+          "entity": "bullying_words",
+          "startPos": 11,
+          "endPos": 15,
+          "children": []
+        },
+        {
+          "entity": "bullying_danger",
+          "startPos": 11,
+          "endPos": 15,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "you are annoying",
+      "intent": "insult",
+      "entities": [
+        {
+          "entity": "bullying_danger",
+          "startPos": 8,
+          "endPos": 15,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "you are big jerk",
+      "intent": "insult",
+      "entities": [
+        {
+          "entity": "bullying_words",
+          "startPos": 12,
+          "endPos": 15,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "you are fat",
+      "intent": "bully",
+      "entities": []
+    },
+    {
+      "text": "you are fat and ugly",
+      "intent": "bully",
+      "entities": []
+    },
+    {
+      "text": "you are fat, i hate you",
+      "intent": "bully",
+      "entities": [
+        {
+          "entity": "bullying_danger",
+          "startPos": 15,
+          "endPos": 18,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "you are finished",
+      "intent": "bully",
+      "entities": [
+        {
+          "entity": "bullying_danger",
+          "startPos": 8,
+          "endPos": 15,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "you are nice",
+      "intent": "ignore",
+      "entities": []
+    },
+    {
+      "text": "you are not funny",
+      "intent": "teasing",
+      "entities": []
+    },
+    {
+      "text": "you are really fat",
+      "intent": "insult",
+      "entities": [
+        {
+          "entity": "bullying_words",
+          "startPos": 15,
+          "endPos": 17,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "you are rude",
+      "intent": "insult",
+      "entities": [
+        {
+          "entity": "bullying_danger",
+          "startPos": 8,
+          "endPos": 11,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "you are stupid",
+      "intent": "bully",
+      "entities": [
+        {
+          "entity": "bullying_danger",
+          "startPos": 8,
+          "endPos": 13,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "you blacky",
+      "intent": "insult",
+      "entities": [
+        {
+          "entity": "bullying_words",
+          "startPos": 4,
+          "endPos": 9,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "you deserve to die",
+      "intent": "bully",
+      "entities": []
+    },
+    {
+      "text": "you deserve to go out and play",
+      "intent": "ignore",
+      "entities": []
+    },
+    {
+      "text": "you fat",
+      "intent": "insult",
+      "entities": [
+        {
+          "entity": "bullying_words",
+          "startPos": 4,
+          "endPos": 6,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "you look like an idiot",
+      "intent": "bully",
+      "entities": [
+        {
+          "entity": "bullying_words",
+          "startPos": 17,
+          "endPos": 21,
+          "children": []
+        },
+        {
+          "entity": "bullying_danger",
+          "startPos": 17,
+          "endPos": 21,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "you make me laugh a lot",
+      "intent": "ignore",
+      "entities": [
+        {
+          "entity": "bullying_words",
+          "startPos": 12,
+          "endPos": 16,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "you nut",
+      "intent": "insult",
+      "entities": [
+        {
+          "entity": "bullying_words",
+          "startPos": 4,
+          "endPos": 6,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "you silly",
+      "intent": "insult",
+      "entities": []
+    },
+    {
+      "text": "you suck so much",
+      "intent": "insult",
+      "entities": [
+        {
+          "entity": "bullying_words",
+          "startPos": 4,
+          "endPos": 7,
+          "children": []
+        }
+      ]
+    },
+    {
+      "text": "you're ugly and fat",
+      "intent": "bully",
+      "entities": []
+    },
+    {
+      "text": "you're ugly and stupid",
+      "intent": "bully",
+      "entities": []
+    }
+  ],
+  "versionId": "0.1",
+  "name": "Kindly_FINAL",
+  "desc": "Kindly Bullying LUIS Final version.",
+  "culture": "en-us",
+  "tokenizerVersion": "1.0.0",
+  "patternAnyEntities": [],
+  "regex_entities": [],
+  "phraselists": [
+    {
+      "name": "Bad Words",
+      "mode": true,
+      "words": "stupid,idiot,fool,moron,ugly,dumb,silly,ignorant,pathetic,idiotic,lazy,bad,brainless,awful,horrible,mindless,horrendous,disgusting,mindlessly,hideous,revolting",
+      "activated": true,
+      "enabledForAllModels": true
+    },
+    {
+      "name": "Good Words",
+      "mode": true,
+      "words": "nice,kind,lovely,considerate,funny,good,gentle,beautiful,caring,sweet,intelligent,honest,friendly,fun,knowledgeable,generous,passionate,compassionate,smart,helpful,sincere,creative,energetic,enthusiastic,trustworthy,polite,courteous,respectful,confident,patient,supportive,cheerful",
+      "activated": true,
+      "enabledForAllModels": true
+    }
+  ],
+  "regex_features": [],
+  "patterns": [
+    {
+      "pattern": "you are {bullying_danger}",
+      "intent": "bully"
+    }
+  ],
+  "settings": []
+}
