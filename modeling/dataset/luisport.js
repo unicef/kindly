@@ -1,3 +1,5 @@
+/* This script is what was used to extract data from the kindly_luis_export.json file */
+
 const fs = require('fs')
 let louis = require('./kindly_luis_export.json')
 let utterances = louis.utterances;
