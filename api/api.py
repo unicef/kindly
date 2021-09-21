@@ -20,11 +20,11 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def apiGlossary():
+    checkHeaders()
     glossary = {
         "detect": "/detect",
         # "train": "/train" #this is yet to be completed
     }
-    checkHeaders()
     return glossary
 
 @app.route('/test-ui', methods=['GET', 'POST'])
@@ -34,6 +34,7 @@ def welcome():
 
 @app.route('/detect', methods=['POST'])
 def detect():
+    checkHeaders()
     # Model loaded from https://huggingface.co/cardiffnlp/twitter-roberta-base-offensive/tree/main
     thejson = request.json
     if 'text' in thejson:
@@ -45,6 +46,7 @@ def detect():
 
 @app.route("/train")
 def train():
+    checkHeaders()
     train_path = request.args.get("data", "data/train.csv")
     epochs = request.args.get("epochs", 10)
     emotion.train(train_path, epochs)
