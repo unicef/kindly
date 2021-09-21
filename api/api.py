@@ -1,13 +1,18 @@
 from flask import Flask
 from flask import jsonify
 from flask import request
+from flask import abort
+import flask
 import numpy as np
 import urllib
 import csv
 import os
+from dotenv import load_dotenv
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from flask import render_template
 from waitress import serve
+import json
+load_dotenv()
 
 REMOTE_MAPPING = 'https://raw.githubusercontent.com/cardiffnlp/tweeteval/main/datasets/offensive/mapping.txt'
 
@@ -19,6 +24,7 @@ def apiGlossary():
         "detect": "/detect",
         # "train": "/train" #this is yet to be completed
     }
+    checkHeaders()
     return glossary
 
 @app.route('/test-ui', methods=['GET', 'POST'])
@@ -50,6 +56,26 @@ def preprocess(text):
         t = 'http' if t.startswith('http') else t
         new_text.append(t)
     return " ".join(new_text)
+
+def checkHeaders():
+    headers = flask.request.headers
+    print(os.getenv('TOKEN_KEYS'))
+    print("Request headers:\n" + str(headers))
+    if os.getenv('TOKEN_KEYS') is not None:
+        print("keys  dey")
+        tokens = json.loads(os.getenv('TOKEN_KEYS'))
+        if headers.get("Authorization") is not None:
+            print("Auth present")
+            print(os.getenv('TOKEN_KEYS'))
+            extractBearerToken = headers['Authorization']
+            token = extractBearerToken.split(" ")
+            if tokens.get(token[1]) is None:
+                abort(403)
+        else:
+            print("suppose to abort")
+            abort(403)
+
+
 
 
 def softmax(x):
