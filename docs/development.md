@@ -17,7 +17,7 @@ The current sample template can be found in the `.env.template` file.
 The key used is `TOKEN_KEYS` and it is a JSON object of token keys with a value of who owns that key as seen below.
 
 ```
-TOKEN_KEYS = '{"aasdf1234":"third_party_1", "a]gghrydf1234":"third_party_2", "klasjdflkja" : "third_party_3"}'
+TOKEN_KEYS = '{"aasdf1234":"third_party_1", "a]gghrydf1234":"third_party_1", "klasjdflkja" : "third_party_3"}'
 ```
 
 If this environment variable is set, always make sure that all requests to the api have an `Authorization` header with `'Bearer <token>'` value.
