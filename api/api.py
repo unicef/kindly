@@ -1,13 +1,18 @@
 from flask import Flask
 from flask import jsonify
 from flask import request
+from flask import abort
+from flask import request as flask_request
 import numpy as np
 import urllib
 import csv
 import os
+from dotenv import load_dotenv
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from flask import render_template
 from waitress import serve
+import json
+load_dotenv()
 
 REMOTE_MAPPING = 'https://raw.githubusercontent.com/cardiffnlp/tweeteval/main/datasets/offensive/mapping.txt'
 
@@ -15,6 +20,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def apiGlossary():
+    checkHeaders()
     glossary = {
         "detect": "/detect",
         # "train": "/train" #this is yet to be completed
@@ -28,6 +34,7 @@ def welcome():
 
 @app.route('/detect', methods=['POST'])
 def detect():
+    checkHeaders()
     # Model loaded from https://huggingface.co/cardiffnlp/twitter-roberta-base-offensive/tree/main
     thejson = request.json
     if 'text' in thejson:
@@ -39,6 +46,7 @@ def detect():
 
 @app.route("/train")
 def train():
+    checkHeaders()
     train_path = request.args.get("data", "data/train.csv")
     epochs = request.args.get("epochs", 10)
     emotion.train(train_path, epochs)
@@ -50,6 +58,18 @@ def preprocess(text):
         t = 'http' if t.startswith('http') else t
         new_text.append(t)
     return " ".join(new_text)
+
+def checkHeaders():
+    headers = flask_request.headers
+    if os.getenv('TOKEN_KEYS') is not None:
+        tokens = json.loads(os.getenv('TOKEN_KEYS'))
+        if headers.get("Authorization") is not None:
+            extractBearerToken = headers['Authorization']
+            token = extractBearerToken.split(" ")
+            if tokens.get(token[1]) is None:
+                abort(403)
+        else:
+            abort(403)
 
 
 def softmax(x):
