@@ -2,7 +2,7 @@ from flask import Flask
 from flask import jsonify
 from flask import request
 from flask import abort
-import flask
+from flask import request as flask_request
 import numpy as np
 import urllib
 import csv
@@ -60,7 +60,7 @@ def preprocess(text):
     return " ".join(new_text)
 
 def checkHeaders():
-    headers = flask.request.headers
+    headers = flask_request.headers
     if os.getenv('TOKEN_KEYS') is not None:
         tokens = json.loads(os.getenv('TOKEN_KEYS'))
         if headers.get("Authorization") is not None:
