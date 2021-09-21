@@ -50,6 +50,17 @@ axios(config)
 
 ```
 
+And the same example using curl:
+```bash
+curl \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer aasdf1234" \
+  http://localhost:8080/detect \
+  -d '{"text":"I love you so much"}'
+
+```
+
 Unauthorized keys in the request will return a `403` HTTP error.
 
 *Note: For developmental purposes, the API will still run if this environment variable is not set when running locally as described below*
