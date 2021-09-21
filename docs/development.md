@@ -10,21 +10,21 @@ Please make sure that your development environment has the following prerequisit
     - `pip install -r requirements.txt`
     - Install pytorch by going to (their website)[https://pytorch.org/get-started/locally/] to know how to do it with your operating system. However, for this mac configuration in this project you can use `pip` by running `pip install torch torchvision`
 
-
-
 ### Environment Variables
+
 You can set Authorization headers using environment variables
 The current sample template can be found in the `.env.template` file.
 The key used is `TOKEN_KEYS` and it is a JSON object of token keys with a value of who owns that key as seen below.
 
 ```
-TOKEN_KEYS = '{"aasdf1234":"third_party1", "a]gghrydf1234":"third_party1", "klasjdflkja" : "third_party2"}'
+TOKEN_KEYS = '{"aasdf1234":"third_party_1", "a]gghrydf1234":"third_party_2", "klasjdflkja" : "third_party_3"}'
 ```
 
 If this environment variable is set, always make sure that all requests to the api have an `Authorization` header with `'Bearer <token>'` value.
 
 Below is an example using Axios in NodeJS
-```
+
+```js
 var axios = require('axios');
 var data = JSON.stringify({
   "text": "I love you so much"
@@ -50,11 +50,11 @@ axios(config)
 
 ```
 
-Unauthorized keys in the request will return a `403`
+Unauthorized keys in the request will return a `403` HTTP error.
 
-*For developmental purposes, the API will still run if this environment variable is not set when running locally as described below*
+*Note: For developmental purposes, the API will still run if this environment variable is not set when running locally as described below*
+
 ## Running Locally
-
 
 From the `api/` folder:
 
