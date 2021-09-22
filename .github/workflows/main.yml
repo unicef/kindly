@@ -35,5 +35,5 @@ jobs:
           context: ./api
           file: ./api/Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/kindly_api:latest
           labels: ${{ steps.meta.outputs.labels }}
