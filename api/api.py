@@ -18,7 +18,10 @@ load_dotenv()
 REMOTE_MAPPING = 'https://raw.githubusercontent.com/cardiffnlp/tweeteval/main/datasets/offensive/mapping.txt'
 
 app = Flask(__name__)
-cors = CORS(app, resources={r"/*": {"origins": ["https://unicef.org","https://kindly-client.azurewebsites.net","http://localhost:5000"]}})
+
+allowed_origins = ["https://unicef.org","https://kindly-client.azurewebsites.net","http://localhost:5000"]
+
+cors = CORS(app, resources={r"/*": {"origins": allowed_origins}})
 
 @app.route('/', methods=['GET', 'POST'])
 def apiGlossary():

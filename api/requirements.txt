@@ -1,5 +1,6 @@
 gunicorn==20.1.0
 flask==2.0.1
+Flask-Cors==3.0.10
 ipython-autotime==0.3.1
 ipython-beautifulSoup[bs4,notebook]==0.3
 joblib==1.0.1
