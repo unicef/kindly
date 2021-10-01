@@ -66,16 +66,19 @@ def preprocess(text):
 
 def checkHeaders():
     headers = flask_request.headers
-    print(headers)
-    if os.getenv('TOKEN_KEYS') is not None:
-        tokens = json.loads(os.getenv('TOKEN_KEYS'))
-        if headers.get("Authorization") is not None:
-            extractBearerToken = headers['Authorization']
-            token = extractBearerToken.split(" ")
-            if tokens.get(token[1]) is None:
+    
+    if headers.get('Origin') in allowed_origins:
+        if os.getenv('TOKEN_KEYS') is not None:
+            tokens = json.loads(os.getenv('TOKEN_KEYS'))
+            if headers.get("Authorization") is not None:
+                extractBearerToken = headers['Authorization']
+                token = extractBearerToken.split(" ")
+                if tokens.get(token[1]) is None:
+                    abort(403)
+            else:
                 abort(403)
-        else:
-            abort(403)
+    else:
+        abort(403)
 
 
 def softmax(x):
