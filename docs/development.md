@@ -6,8 +6,10 @@ Please make sure that your development environment has the following prerequisit
     - Using a command-line terminal of your choice, `cd` into the api folder.
     - Run the following commands to complete your environment
     - `pip install --upgrade pip`
-    - `pip install tensorflow`
     - `pip install -r requirements.txt`
+
+    ⚠️ *This configuration is known to work with Python 3.8.0. Other versions of Python may have different dependencies, which will require different versions of `requirements.txt`, for example, if you have Python 3.6, try the following instead: `pip install -r requirements.python-3.6.8.txt`. We will add more configuration files as we try other versions.*
+
     - Install pytorch by going to (their website)[https://pytorch.org/get-started/locally/] to know how to do it with your operating system. However, for this mac configuration in this project you can use `pip` by running `pip install torch torchvision`
 
 ### Environment Variables
