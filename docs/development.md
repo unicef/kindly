@@ -80,7 +80,7 @@ python get_model.py
 2. Run the python server using the following command:
 
 ```bash
-python api/flasksample.py
+python api.py
 ```
 
 In a new terminal tab `cd` into the client folder and and run the following commands
