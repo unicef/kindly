@@ -1,0 +1,66 @@
+<html>
+<head />
+<body>
+
+<style>
+@keyframes spinner {
+  to {transform: rotate(360deg);}
+}
+ 
+.spinner:before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  border-top-color: #000;
+  animation: spinner .6s linear infinite;
+}
+</style>
+
+<script>
+	function runKindly(e) {
+		document.getElementById("kindlyOutput").classList.add('spinner');
+
+		fetch("https://kindly-client.azurewebsites.net/api/detect", {
+	  		method: 'POST',
+	  		mode: 'cors',
+	  		cache: 'no-cache',
+	  		credentials: 'same-origin',
+			headers: {
+				'Content-Type': 'application/json',
+				// 'Authorization': 'Bearer YOUR-TOKEN-GOES-HERE'
+			},
+	    	body: JSON.stringify({text: document.getElementById("kindlyInput").value}),
+		})
+		.then(response => response.json())
+		.then(data => {
+			console.log('Success:', data);
+
+			document.getElementById("kindlyOutput").classList.remove('spinner');
+			if(parseFloat(data.result["offensive"]) > parseFloat(data.result["not-offensive"])) {
+				document.getElementById("kindlyOutput").innerHTML  = "Cyberbullying intent detected - " + (parseFloat(data.result["offensive"])*100).toFixed(2) + "% likelihood"
+			} else {
+				document.getElementById("kindlyOutput").innerHTML  = "No cyberbullying intent detected - " + (parseFloat(data.result["not-offensive"])*100).toFixed(2) + "% likelihood"
+			}
+		})
+		.catch((error) => {
+			document.getElementById("kindlyOutput").classList.remove('spinner');
+			document.getElementById("kindlyOutput").innerHTML = "An error occurred."
+		  	console.error('Error:', error);
+		});
+	}
+</script>
+
+<textarea id="kindlyInput" maxlength="256"></textarea>
+<button onclick="runKindly()" style="display:block">Submit</button>
+<div id="kindlyOutput"></div>
+
+</body>
+</html>
