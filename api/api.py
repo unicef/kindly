@@ -3,6 +3,7 @@ from flask import jsonify
 from flask import request
 from flask import abort
 from flask import request as flask_request
+from flask_cors import CORS
 import numpy as np
 import urllib
 import csv
@@ -17,6 +18,10 @@ load_dotenv()
 REMOTE_MAPPING = 'https://raw.githubusercontent.com/cardiffnlp/tweeteval/main/datasets/offensive/mapping.txt'
 
 app = Flask(__name__)
+
+allowed_origins = ["https://unicef.org","https://kindly-client.azurewebsites.net"]
+
+cors = CORS(app, resources={r"/*": {"origins": allowed_origins}})
 
 @app.route('/', methods=['GET', 'POST'])
 def apiGlossary():
@@ -61,15 +66,19 @@ def preprocess(text):
 
 def checkHeaders():
     headers = flask_request.headers
-    if os.getenv('TOKEN_KEYS') is not None:
-        tokens = json.loads(os.getenv('TOKEN_KEYS'))
-        if headers.get("Authorization") is not None:
-            extractBearerToken = headers['Authorization']
-            token = extractBearerToken.split(" ")
-            if tokens.get(token[1]) is None:
+    
+    if headers.get('Origin') in allowed_origins:
+        if os.getenv('TOKEN_KEYS') is not None:
+            tokens = json.loads(os.getenv('TOKEN_KEYS'))
+            if headers.get("Authorization") is not None:
+                extractBearerToken = headers['Authorization']
+                token = extractBearerToken.split(" ")
+                if tokens.get(token[1]) is None:
+                    abort(403)
+            else:
                 abort(403)
-        else:
-            abort(403)
+    else:
+        abort(403)
 
 
 def softmax(x):
