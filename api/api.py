@@ -21,7 +21,7 @@ app = Flask(__name__)
 
 allowed_origins = ["https://unicef.org","https://kindly-client.azurewebsites.net","https://kindly-api.azurewebsites.net"]
 
-cors = CORS(app, resources={r"/*": {"origins": allowed_origins}})
+cors = CORS(app, resources={r"/*"})
 
 @app.route('/', methods=['GET', 'POST'])
 def apiGlossary():
