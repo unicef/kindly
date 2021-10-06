@@ -34,7 +34,7 @@
 	  		cache: 'no-cache',
 	  		credentials: 'same-origin',
 			headers: {
-				'Content-Type': 'application/json',
+				'Content-Type': 'application/json'
 			},
 	    	body: JSON.stringify({text: document.getElementById("kindlyInput").value}),
 		})
@@ -46,7 +46,7 @@
 			if(parseFloat(data.result["offensive"]) > parseFloat(data.result["not-offensive"])) {
 				document.getElementById("kindlyOutput").innerHTML  = "Cyberbullying intent detected - " + (parseFloat(data.result["offensive"])*100).toFixed(2) + "% likelihood"
 			} else {
-				document.getElementById("kindlyOutput").innerHTML  = "No cyberbullying intent detected" + (parseFloat(data.result["not-offensive"])*100).toFixed(2) + "% likelihood"
+				document.getElementById("kindlyOutput").innerHTML  = "No cyberbullying intent detected - " + (parseFloat(data.result["not-offensive"])*100).toFixed(2) + "% likelihood"
 			}
 		})
 		.catch((error) => {
