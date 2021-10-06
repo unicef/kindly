@@ -39,8 +39,6 @@ def welcome():
 
 @app.route('/detect', methods=['POST'])
 def detect():
-    # if checkHeaders() > 300:
-    #     abort(403,description="You're not autorised to perfom this action")
     checkHeaders()
     # Model loaded from https://huggingface.co/cardiffnlp/twitter-roberta-base-offensive/tree/main
     thejson = request.json
