@@ -34,7 +34,8 @@
 	  		cache: 'no-cache',
 	  		credentials: 'same-origin',
 			headers: {
-				'Content-Type': 'application/json'
+				'Content-Type': 'application/json',
+				// 'Authorization': 'Bearer YOUR-TOKEN-GOES-HERE'
 			},
 	    	body: JSON.stringify({text: document.getElementById("kindlyInput").value}),
 		})
