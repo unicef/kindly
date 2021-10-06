@@ -39,6 +39,8 @@ def welcome():
 
 @app.route('/detect', methods=['POST'])
 def detect():
+    # if checkHeaders() > 300:
+    #     abort(403,description="You're not autorised to perfom this action")
     checkHeaders()
     # Model loaded from https://huggingface.co/cardiffnlp/twitter-roberta-base-offensive/tree/main
     thejson = request.json
@@ -66,16 +68,14 @@ def preprocess(text):
 
 def checkHeaders():
     headers = flask_request.headers
-    tokens = json.loads(os.getenv('TOKEN_KEYS'))
-    
+    tokens = json.loads(os.getenv('TOKEN_KEYS')) #this will throw an error upon request if no token keys are present in the environment at all
+
     if headers.get("Authorization") is not None:     #checking for authorization
         extractBearerToken = headers['Authorization']
         token = extractBearerToken.split(" ")
         if tokens.get(token[1]) is None:
             abort(403)
     elif headers.get('Origin') not in allowed_origins:    #checking for origin
-        abort(403)
-    else:
         abort(403)
 
 
