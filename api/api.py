@@ -66,17 +66,15 @@ def preprocess(text):
 
 def checkHeaders():
     headers = flask_request.headers
+    tokens = json.loads(os.getenv('TOKEN_KEYS'))
     
-    if headers.get('Origin') in allowed_origins:
-        if os.getenv('TOKEN_KEYS') is not None:
-            tokens = json.loads(os.getenv('TOKEN_KEYS'))
-            if headers.get("Authorization") is not None:
-                extractBearerToken = headers['Authorization']
-                token = extractBearerToken.split(" ")
-                if tokens.get(token[1]) is None:
-                    abort(403)
-            else:
-                abort(403)
+    if headers.get("Authorization") is not None:     #checking for authorization
+        extractBearerToken = headers['Authorization']
+        token = extractBearerToken.split(" ")
+        if tokens.get(token[1]) is None:
+            abort(403)
+    elif headers.get('Origin') not in allowed_origins:    #checking for origin
+        abort(403)
     else:
         abort(403)
 
