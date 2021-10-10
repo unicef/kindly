@@ -10,7 +10,7 @@ Please make sure that your development environment has the following prerequisit
 
     ⚠️ *This configuration is known to work with Python 3.8.0. Other versions of Python may have different dependencies, which will require different versions of `requirements.txt`, for example, if you have Python 3.6, try the following instead: `pip install -r requirements.python-3.6.8.txt`. We will add more configuration files as we try other versions.*
 
-    - Install pytorch by going to (their website)[https://pytorch.org/get-started/locally/] to know how to do it with your operating system. However, for this mac configuration in this project you can use `pip` by running `pip install torch torchvision`
+    - Install pytorch by going to (their website)[https://pytorch.org/get-started/locally/] to know how to do it with your operating system. However, for this mac configuration in this project you can use `pip` by running `pip install torch torchvision` 
 
 ### Environment Variables
 
@@ -66,6 +66,9 @@ curl \
 Unauthorized keys in the request will return a `403` HTTP error.
 
 *Note: For developmental purposes, the API will still run if this environment variable is not set when running locally as described below*
+
+Alternatively,to test the codebase add your localhost:port URL to the list of `allowed_origins` in the api.py file.
+
 
 ## Running Locally
 
