@@ -22,6 +22,8 @@ The key used is `TOKEN_KEYS` and it is a JSON object of token keys with a value 
 TOKEN_KEYS = '{"aasdf1234":"third_party_1", "a]gghrydf1234":"third_party_1", "klasjdflkja" : "third_party_3"}'
 ```
 
+ `Note:` Create a new `.env` file in root directory and copy above mentioned list(TOKEN_KEYS) into that file. Also, add your `localhost:port` to `allowed_origins` list inside `api/api.py`.
+
 If this environment variable is set, always make sure that all requests to the api have an `Authorization` header with `'Bearer <token>'` value.
 
 Below is an example using Axios in NodeJS
