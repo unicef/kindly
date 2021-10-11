@@ -2,5 +2,6 @@ client/node_modules
 client/.nuxt
 client/static
 api/model
+api/env
 model/
 .env
