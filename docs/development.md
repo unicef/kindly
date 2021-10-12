@@ -128,14 +128,18 @@ Test requests using the following 2 methods. Python server must be running and y
 
 Your client HTTP requests to the API must include an `Authorization` header with a `'Bearer <token>'` value:
 
+Locate the ./kindly/static/index.html file in your directory. Open the file and uncomment the line 38. Replace YPUR-TOKEN-GOES-HERE with one of the tokens in .env
+
 ```
 "Authorization": "Bearer YOUR-TOKEN-GOES-HERE'"
 
 ```
 
+Still within the file, change line 31 to point to your local IP address and listening port (for example: http://localhost:3000/detect)
+
 Unauthorized keys in the request will return a `403` HTTP error.
 
-Below is an example using curl:
+ Below is an example using curl:
 ```bash
 curl \
   -X POST \
@@ -183,3 +187,4 @@ axios(config)
 });
 
 ```
+
