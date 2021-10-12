@@ -64,7 +64,7 @@ For development purposes, you can add your localhost to the list of allowed_orig
 
 ### Allowed Origins
 
-Add the client address `http://localhost:3000` to the [allowed_origins](https://github.com/unicef/kindly/blob/7ee69561eaa53a77074b71ebcf876a8c29bb5878/api/api.py#L22), so that it reads:
+Add the client address `http://localhost:3000` to the [allowed_origins](https://github.com/unicef/kindly/blob/7ee69561eaa53a77074b71ebcf876a8c29bb5878/api/api.py#L22), in `api/api.py`, so that it reads:
 
 ```python
 allowed_origins = ["https://unicef.org","https://kindly-client.azurewebsites.net","https://kindly-api.azurewebsites.net", "http://localhost:3000"]
@@ -73,7 +73,7 @@ allowed_origins = ["https://unicef.org","https://kindly-client.azurewebsites.net
 
 ### Environment Variables
 
-Alternatively, you can set Authorization headers using environment variables. This repository provides a sample template `.env.template` file in the root folde that you need to copy into a new file:
+Alternatively, you can set Authorization headers using environment variables. This repository provides a sample template `.env.template` file in the root folder that you need to copy into a new file:
 
 ```bash
 cp .env.template .env
@@ -97,7 +97,7 @@ From the `api/` folder:
   source env/bin/activate
   ```
 
-2. Download a local copy of the ML model (you only have to run this once):
+2. Download a local copy of the ML model (you only have to run this the first time if `api/model` is empty):
 
   ```bash
   python get_model.py
@@ -112,6 +112,7 @@ From the `api/` folder:
 4. On a different terminal window/tab, `cd` into the client folder and and run the following command:
 
   ```bash
+  cd ../client
   npm run dev
   
   ```
