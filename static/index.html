@@ -28,14 +28,14 @@
 	function runKindly(e) {
 		document.getElementById("kindlyOutput").classList.add('spinner');
 
-		fetch("http://localhost:3000/detect", {
+		fetch("http://localhost:port/detect", {
 	  		method: 'POST',
 	  		mode: 'cors',
 	  		cache: 'no-cache',
 	  		credentials: 'same-origin',
 			headers: {
 				'Content-Type': 'application/json',
-				'Authorization': 'Bearer a]gghrydf1234',
+				//'Authorization': 'Bearer YOUR-TOKEN-GOES-HERE',
 			},
 	    	body: JSON.stringify({text: document.getElementById("kindlyInput").value}),
 		})
