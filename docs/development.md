@@ -78,6 +78,7 @@ allowed_origins = ["https://unicef.org","https://kindly-client.azurewebsites.net
 ### Environment Variables
 
 You can set Authorization headers using environment variables. This repository provides a sample template `.env.template` file in the root folde that you need to copy into a new file. The code below will create a copy to the `.env` folder:
+Alternatively, you can set Authorization headers using environment variables. This repository provides a sample template `.env.template` file in the root folde that you need to copy into a new file:
 
 ```bash
 cp .env.template .env
@@ -123,6 +124,7 @@ From the `api/` folder:
 ## Making Request with Authorization Tokens
 
 Test requests using the following 2 methods. Python server must be running and you must have an `.env` file with the `TOKEN_KEYS`.
+### Making Request with Authorization Tokens
 
 Your client HTTP requests to the API must include an `Authorization` header with a `'Bearer <token>'` value:
 
@@ -132,6 +134,16 @@ Your client HTTP requests to the API must include an `Authorization` header with
 ```
 
 Unauthorized keys in the request will return a `403` HTTP error.
+
+Below is an example using curl:
+```bash
+curl \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer aasdf1234" \
+  http://localhost:8080/detect \
+  -d '{"text":"I love you so much"}'
+
 
 Below is an example using curl:
 ```bash
