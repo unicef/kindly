@@ -79,6 +79,7 @@ allowed_origins = ["https://unicef.org","https://kindly-client.azurewebsites.net
 
 You can set Authorization headers using environment variables. This repository provides a sample template `.env.template` file in the root folde that you need to copy into a new file. The code below will create a copy to the `.env` folder:
 Alternatively, you can set Authorization headers using environment variables. This repository provides a sample template `.env.template` file in the root folde that you need to copy into a new file:
+You can set Authorization headers using environment variables. This repository provides a sample template `.env.template` file in the root folde that you need to copy into a new file. The code below will create a copy to the `.env` folder:
 
 ```bash
 cp .env.template .env
@@ -129,6 +130,11 @@ Test requests using the following 2 methods. Python server must be running and y
 Your client HTTP requests to the API must include an `Authorization` header with a `'Bearer <token>'` value:
 
 Locate the ./kindly/static/index.html file in your directory. Open the file and uncomment the line 38. Replace YPUR-TOKEN-GOES-HERE with one of the tokens in .env
+## Making Request with Authorization Tokens
+
+Test requests using the following 2 methods. Python server must be running and you must have an `.env` file with the `TOKEN_KEYS`.
+
+Your client HTTP requests to the API must include an `Authorization` header with a `'Bearer <token>'` value:
 
 ```
 "Authorization": "Bearer YOUR-TOKEN-GOES-HERE'"
