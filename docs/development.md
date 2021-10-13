@@ -77,9 +77,7 @@ allowed_origins = ["https://unicef.org","https://kindly-client.azurewebsites.net
 
 ### Environment Variables
 
-You can set Authorization headers using environment variables. This repository provides a sample template `.env.template` file in the root folde that you need to copy into a new file. The code below will create a copy to the `.env` folder:
-Alternatively, you can set Authorization headers using environment variables. This repository provides a sample template `.env.template` file in the root folde that you need to copy into a new file:
-You can set Authorization headers using environment variables. This repository provides a sample template `.env.template` file in the root folde that you need to copy into a new file. The code below will create a copy to the `.env` folder:
+You can set Authorization headers using environment variables. This repository provides a sample template `.env.template` file in the root folde that you need to copy into a new file. The code below will create a copy to the `.env` within the folder:
 
 ```bash
 cp .env.template .env
@@ -89,7 +87,7 @@ cp .env.template .env
 The key used is `TOKEN_KEYS` and it is a JSON object of token keys with a value of who owns that key as seen below.
 
 ```
-TOKEN_KEYS = '{"aasdf1234":"third_party_1", "a]gghrydf1234":"third_party_1", "klasjdflkja" : "third_party_3"}'
+TOKEN_KEYS = '{"aasdf1234":"third_party_1", "a]gghrydf1234":"third_party_2", "klasjdflkja" : "third_party_3"}'
 ```
 
 ## Running Locally
