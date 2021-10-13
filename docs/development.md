@@ -28,11 +28,15 @@ Please make sure that your development environment has the following prerequisit
   ```
 
 3. Activate your virtual environment (you will run this step everytime you want to do work in your local development environment):
-
+   - Linux/OSX:
   ```bash
   source env/bin/activate
-  
   ```
+  - Windows:
+  ```shell 
+   your-base-directory\kindly\api> .\env\Scripts\activate.bat
+
+  ``` 
 
 4. Upgrade your local version of `pip`:
 
