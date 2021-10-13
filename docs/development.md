@@ -34,6 +34,11 @@ Please make sure that your development environment has the following prerequisit
   source env/bin/activate
   
   ```
+  for windows
+  ```shell 
+   your-base-directory\kindly\api> .\env\Scripts\activate.bat
+
+  ``` 
 
 4. Upgrade your local version of `pip`:
 
@@ -77,7 +82,7 @@ allowed_origins = ["https://unicef.org","https://kindly-client.azurewebsites.net
 
 ### Environment Variables
 
-You can set Authorization headers using environment variables. This repository provides a sample template `.env.template` file in the root folde that you need to copy into a new file. The code below will create a copy to the `.env` folder:
+You can set Authorization headers using environment variables. This repository provides a sample template `.env.template` file in the root folder that you need to copy into a new file. The code below will create a copy to the `.env` folder:
 
 ```bash
 cp .env.template .env
