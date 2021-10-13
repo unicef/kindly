@@ -19,7 +19,7 @@ REMOTE_MAPPING = 'https://raw.githubusercontent.com/cardiffnlp/tweeteval/main/da
 
 app = Flask(__name__)
 
-allowed_origins = os.getenv('ALLOWED_ORIGINS')
+allowed_origins = json.loads(os.environ['ALLOWED_ORIGINS'])
 
 cors = CORS(app, resources={r"/*"})
 
