@@ -29,7 +29,6 @@ allowed_origins = json.loads(os.environ['ALLOWED_ORIGINS']) if os.getenv('ALLOWE
 cors = CORS(app, resources={r"/*"})
 
 #for execution time testing
-is_benchmark = False
 function_exec_time={}
 
 
@@ -51,11 +50,8 @@ def welcome():
 
 @app.route('/detect', methods=['POST'])
 def detect():
-    global is_benchmark
-    global function_exec_time
-
-    t0=0
-    if is_benchmark :
+    if __debug__:
+        global function_exec_time
         t0=timeit.default_timer()
 
     checkHeaders()
@@ -67,7 +63,7 @@ def detect():
         return "Invalid Parameters", 400
     
 
-    if is_benchmark:
+    if __debug__:
         function_exec_time['detect()']=timeit.default_timer()-t0
         thejson['benchmark'] = function_exec_time
     
@@ -85,10 +81,8 @@ def train():
 
     
 def preprocess(text):
-    global is_benchmark
-    global function_exec_time
-    t0=0
-    if is_benchmark :
+    if __debug__:
+        global function_exec_time
         t0=timeit.default_timer()
 
     new_text = []
@@ -97,16 +91,13 @@ def preprocess(text):
         t = 'http' if t.startswith('http') else t
         new_text.append(t)
 
-    if is_benchmark:
+    if __debug__:
         function_exec_time['preprocess()']=timeit.default_timer()-t0
     return " ".join(new_text)
 
 def checkHeaders():
-
-    global is_benchmark
-    t0=0
-
-    if is_benchmark :
+ 
+    if __debug__:
         t0=timeit.default_timer()
 
     headers = flask_request.headers
@@ -123,7 +114,7 @@ def checkHeaders():
     if headers.get("Benchmark") is not None:
         is_benchmark = True
 
-    if is_benchmark:
+    if __debug__:
         function_exec_time['checkheaders()']=timeit.default_timer()-t0
 
 
@@ -143,11 +134,8 @@ def process(input_text):
     # from_pretrained("cardiffnlp/twitter-roberta-base-offensive")
     # tokenizer = AutoTokenizer.from_pretrained("cardiffnlp/twitter-roberta-base-offensive")
     # download label mapping
-    global is_benchmark
-    global function_exec_time
-    t0=0
-    
-    if is_benchmark :
+    if __debug__:
+        global function_exec_time
         t0=timeit.default_timer()
 
     labels = []
@@ -189,7 +177,7 @@ def process(input_text):
         score = scores[ranking[i]]
         results[labels[ranking[i]]] = str(score)
 
-    if is_benchmark:
+    if __debug__:
         function_exec_time['process']=timeit.default_timer()-t0
 
     return results
