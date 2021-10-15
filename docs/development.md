@@ -85,7 +85,7 @@ The key used is `TOKEN_KEYS` and it is a JSON object of token keys with a value 
 TOKEN_KEYS = '{"aasdf1234":"third_party_1", "a]gghrydf1234":"third_party_1", "klasjdflkja" : "third_party_3"}'
 ```
 Make sure to update the `allowed_origins` list as specified below.
-#### Allowed Origins
+### Allowed Origins
 
 Add the client address `http://localhost:3000` to the [allowed_origins](https://github.com/unicef/kindly/blob/7ee69561eaa53a77074b71ebcf876a8c29bb5878/api/api.py#L22), so that it reads:
 
