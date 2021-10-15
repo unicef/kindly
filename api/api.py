@@ -19,7 +19,7 @@ REMOTE_MAPPING = 'https://raw.githubusercontent.com/cardiffnlp/tweeteval/main/da
 
 app = Flask(__name__)
 
-allowed_origins = ["https://unicef.org","https://kindly-client.azurewebsites.net","https://kindly-api.azurewebsites.net","http://localhost:3000"]
+allowed_origins = ["https://unicef.org","https://kindly-client.azurewebsites.net","https://kindly-api.azurewebsites.net"]
 
 cors = CORS(app, resources={r"/*"})
 
