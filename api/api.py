@@ -149,7 +149,7 @@ def process(input_text):
     
     if is_benchmark :
         t0=timeit.default_timer()
-        
+
     labels = []
     if os.path.isfile("model/mapping.txt"):
         file_path = open("model/mapping.txt",encoding="utf8")
@@ -198,3 +198,5 @@ def process(input_text):
 if __name__ == '__main__':
     # app.run(host='0.0.0.0', port=8080)
     serve(app, host='0.0.0.0', port=8080)
+
+    
