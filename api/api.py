@@ -13,15 +13,23 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from flask import render_template
 from waitress import serve
 import json
+import timeit
+
 load_dotenv()
 
 REMOTE_MAPPING = 'https://raw.githubusercontent.com/cardiffnlp/tweeteval/main/datasets/offensive/mapping.txt'
 
 app = Flask(__name__)
 
-allowed_origins = ["https://unicef.org","https://kindly-client.azurewebsites.net","https://kindly-api.azurewebsites.net"]
+allowed_origins = ["https://unicef.org","https://kindly-client.azurewebsites.net","https://kindly-api.azurewebsites.net", "http://localhost:3000"]
+
 
 cors = CORS(app, resources={r"/*"})
+
+#for execution time testing
+is_benchmark = False
+function_exec_time={}
+
 
 @app.route('/', methods=['GET', 'POST'])
 def apiGlossary():
@@ -39,13 +47,27 @@ def welcome():
 
 @app.route('/detect', methods=['POST'])
 def detect():
+    global is_benchmark
+    global function_exec_time
+
+    t0=0
+    if is_benchmark :
+        t0=timeit.default_timer()
+
     checkHeaders()
     # Model loaded from https://huggingface.co/cardiffnlp/twitter-roberta-base-offensive/tree/main
     thejson = request.json
     if 'text' in thejson:
-        thejson['result'] = process(thejson['text'])
+        thejson['result'] =process(thejson['text'])
     else:
         return "Invalid Parameters", 400
+    
+
+    if is_benchmark:
+        function_exec_time['detect()']=timeit.default_timer()-t0
+        thejson['benchmark'] = function_exec_time
+    
+    
         
     return thejson
 
@@ -55,16 +77,34 @@ def train():
     train_path = request.args.get("data", "data/train.csv")
     epochs = request.args.get("epochs", 10)
     emotion.train(train_path, epochs)
+
+
     
 def preprocess(text):
+    global is_benchmark
+    global function_exec_time
+    t0=0
+    if is_benchmark :
+        t0=timeit.default_timer()
+
     new_text = []
     for t in text.split(" "):
         t = '@user' if t.startswith('@') and len(t) > 1 else t
         t = 'http' if t.startswith('http') else t
         new_text.append(t)
+
+    if is_benchmark:
+        function_exec_time['preprocess()']=timeit.default_timer()-t0
     return " ".join(new_text)
 
 def checkHeaders():
+
+    global is_benchmark
+    t0=0
+
+    if is_benchmark :
+        t0=timeit.default_timer()
+
     headers = flask_request.headers
     tokens = json.loads(os.getenv('TOKEN_KEYS')) #this will throw an error upon request if no token keys are present in the environment at all
 
@@ -73,8 +113,14 @@ def checkHeaders():
         token = extractBearerToken.split(" ")
         if tokens.get(token[1]) is None:
             abort(403)
+    
     elif headers.get('Origin') not in allowed_origins:    #checking for origin
         abort(403)
+    if headers.get("Benchmark") is not None:
+        is_benchmark = True
+
+    if is_benchmark:
+        function_exec_time['checkheaders()']=timeit.default_timer()-t0
 
 
 def softmax(x):
@@ -91,6 +137,13 @@ def process(inputText):
     # MODEL = AutoModelForSequenceClassification.from_pretrained("cardiffnlp/twitter-roberta-base-offensive")
     # tokenizer = AutoTokenizer.from_pretrained("cardiffnlp/twitter-roberta-base-offensive")
     # download label mapping
+    global is_benchmark
+    global function_exec_time
+    t0=0
+    
+    if is_benchmark :
+        t0=timeit.default_timer()
+        
     labels = []
     local_mapping = f"model/mapping.txt"
     if os.path.isfile(local_mapping):
@@ -132,6 +185,9 @@ def process(inputText):
         l = labels[ranking[i]]
         s = scores[ranking[i]]
         results[labels[ranking[i]]] = str(s)
+
+    if is_benchmark:
+        function_exec_time['process']=timeit.default_timer()-t0
 
     return results
 
