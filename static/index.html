@@ -28,7 +28,7 @@
 	function runKindly(e) {
 		document.getElementById("kindlyOutput").classList.add('spinner');
 
-		fetch("http://localhost:3000/detect", {
+		fetch("https://kindly-api.azurewebsites.net/detect", {
 	  		method: 'POST',
 	  		mode: 'cors',
 	  		cache: 'no-cache',
