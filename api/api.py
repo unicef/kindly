@@ -111,8 +111,7 @@ def checkHeaders():
     
     elif headers.get('Origin') not in allowed_origins:    #checking for origin
         abort(403)
-    if headers.get("Benchmark") is not None:
-        is_benchmark = True
+ 
 
     if __debug__:
         function_exec_time['checkheaders()']=timeit.default_timer()-t0
