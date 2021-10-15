@@ -1,7 +1,6 @@
 # Development
 
-This file documents how to set up and run the code in this repository in your local development environment. For a production environment using Docker images, refer to the [deployment]
-(deployment.md) documentation and the [API Documentation](api.md).
+This file documents how to set up and run the code in this repository in your local development environment. For a production environment using Docker images, refer to the [deployment](deployment.md) documentation and the [API Documentation](api.md).
 
 ## Requirements
 
@@ -29,11 +28,15 @@ Please make sure that your development environment has the following prerequisit
   ```
 
 3. Activate your virtual environment (you will run this step everytime you want to do work in your local development environment):
-
+   - Linux/OSX:
   ```bash
   source env/bin/activate
-  
   ```
+  - Windows:
+  ```shell 
+   your-base-directory\kindly\api> .\env\Scripts\activate.bat
+
+  ``` 
 
 4. Upgrade your local version of `pip`:
 
@@ -62,9 +65,8 @@ The code for this repository defaults to the production environment configuratio
 
 For development purposes, you can add your localhost to the list of allowed_origins or include an authorization token in your request as documented in the two subsections below.
 
-**Note:**
-If you haven't created a new `.env` folder with the `TOKEN_KEYS`, you will recieve a `500` error when trying to submit words to check on the site.
-If keys are unauthorized it will return a `403` HTTP error.
+*Note: If you haven't created a new `.env` file with the `TOKEN_KEYS`, you will recieve a `500` error when trying to submit words to check on the site.
+If keys are unauthorized it will return a `403` HTTP error.*
 
 ### Allowed Origins
 
@@ -77,7 +79,9 @@ allowed_origins = ["https://unicef.org","https://kindly-client.azurewebsites.net
 
 ### Environment Variables
 
-You can set Authorization headers using environment variables. This repository provides a sample template `.env.template` file in the root folde that you need to copy into a new file. The code below will create a copy to the `.env` within the folder:
+
+You can set Authorization headers using environment variables. This repository provides a sample template `.env.template` file in the root folder that you need to copy into a new file. The code below will create a copy to the `.env` file:
+
 
 ```bash
 cp .env.template .env
