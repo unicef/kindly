@@ -73,7 +73,7 @@ If keys are unauthorized it will return a `403` HTTP error.*
 Add the client address `http://localhost:3000` to the [allowed_origins](https://github.com/unicef/kindly/blob/7ee69561eaa53a77074b71ebcf876a8c29bb5878/api/api.py#L22), so that it reads:
 
 ```python
-allowed_origins = ["https://unicef.org","https://kindly-client.azurewebsites.net","https://kindly-api.azurewebsites.net", "http://localhost:3000"]
+allowed_origins = ["https://unicef.org","https://kindly-client.azurewebsites.net","https://kindly-api.azurewebsites.net"]
 
 ```
 
@@ -91,7 +91,7 @@ cp .env.template .env
 The key used is `TOKEN_KEYS` and it is a JSON object of token keys with a value of who owns that key as seen below.
 
 ```
-TOKEN_KEYS = '{"aasdf1234":"third_party_1", "a]gghrydf1234":"third_party_2", "klasjdflkja" : "third_party_3"}'
+TOKEN_KEYS = '{"aasdf1234":"third_party_1", "a]gghrydf1234":"third_party_1", "klasjdflkja" : "third_party_3"}'
 ```
 
 ## Running Locally
