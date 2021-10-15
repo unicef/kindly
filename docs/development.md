@@ -1,7 +1,6 @@
 # Development
 
-This file documents how to set up and run the code in this repository in your local development environment. For a production environment using Docker images, refer to the [deployment]
-(deployment.md) documentation and the [API Documentation](api.md).
+This file documents how to set up and run the code in this repository in your local development environment. For a production environment using Docker images, refer to the [deployment](deployment.md) documentation and the [API Documentation](api.md).
 
 ## Requirements
 
@@ -29,11 +28,15 @@ Please make sure that your development environment has the following prerequisit
   ```
 
 3. Activate your virtual environment (you will run this step everytime you want to do work in your local development environment):
-
+   - Linux/OSX:
   ```bash
   source env/bin/activate
-  
   ```
+  - Windows:
+  ```shell 
+   your-base-directory\kindly\api> .\env\Scripts\activate.bat
+
+  ``` 
 
 4. Upgrade your local version of `pip`:
 
