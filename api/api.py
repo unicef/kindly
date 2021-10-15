@@ -143,7 +143,7 @@ def process(inputText):
     
     if is_benchmark :
         t0=timeit.default_timer()
-        
+
     labels = []
     local_mapping = f"model/mapping.txt"
     if os.path.isfile(local_mapping):
@@ -195,3 +195,5 @@ def process(inputText):
 if __name__ == '__main__':
     # app.run(host='0.0.0.0', port=8080)
     serve(app, host='0.0.0.0', port=8080)
+
+    
