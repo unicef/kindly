@@ -62,15 +62,14 @@ The code for this repository defaults to the production environment configuratio
 
 For development purposes, you can add your localhost to the list of allowed_origins or include an authorization token in your request as documented in the two subsections below.
 
-**Note:**
-If you haven't created a new `.env` folder with the `TOKEN_KEYS`, you will recieve a `500` error when trying to submit words to check on the site.
-If keys are unauthorized it will return a `403` HTTP error.
-
+*Note: If you haven't created a new `.env` file with the `TOKEN_KEYS`, you will recieve a `500` error when trying to submit words to check on the site.
+If keys are unauthorized it will return a `403` HTTP error.*
 
 ### Environment Variables
 
 Use environment variables to set the sensitive or development specific variables needed for the project.
-This repository provides a sample template `.env.template` file in the root folder that you need to copy into a new file. The code below will create a copy to the `.env` folder:
+This repository provides a sample template `.env.template` file in the root folder that you need to copy into a new file.
+The code below will create a copy to the `.env` folder:
 
 ```bash
 cp .env.template .env
