@@ -197,3 +197,16 @@ curl \
   http://localhost:8080/detect \
   -d '{"text":"I love you so much"}'
 ```
+## Testing
+
+Unit test for endpoints have been set up using pytest.
+
+To run tests from main directory:
+```bash
+pytest
+```
+`/detect` endpoint has 4 associated tests:
+`test_detect()` for success response from `/detect` endpoint
+`test_detect_403()` for `403` response if not authorised
+`test_detect_offensive()` to test for correct response from an offensive term
+`test_detect_not_offensive()` to test for correct response from a non-offensive term
