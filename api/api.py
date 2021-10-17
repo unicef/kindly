@@ -19,7 +19,7 @@ REMOTE_MAPPING = 'https://raw.githubusercontent.com/cardiffnlp/tweeteval/main/da
 
 app = Flask(__name__)
 
-allowed_origins = json.loads(os.environ['ALLOWED_ORIGINS']) if os.getenv('ALLOWED_ORIGINS') else '[]'
+allowed_origins = json.loads(os.environ['ALLOWED_ORIGINS']) if os.getenv('ALLOWED_ORIGINS') else []
 
 
 cors = CORS(app, resources={r"/*"})
@@ -67,7 +67,7 @@ def preprocess(text):
 
 def checkHeaders():
     headers = flask_request.headers
-    tokens = json.loads(os.getenv('TOKEN_KEYS')) if os.getenv('TOKEN_KEYS') else '[]' #this will throw an error upon request if no token keys are present in the environment at all
+    tokens = json.loads(os.getenv('TOKEN_KEYS')) if os.getenv('TOKEN_KEYS') else [] #this will throw an error upon request if no token keys are present in the environment at all
 
     if headers.get("Authorization") is not None:     #checking for authorization
         extractBearerToken = headers['Authorization']
