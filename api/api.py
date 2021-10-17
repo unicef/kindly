@@ -21,6 +21,7 @@ app = Flask(__name__)
 
 allowed_origins = json.loads(os.environ['ALLOWED_ORIGINS']) if os.getenv('ALLOWED_ORIGINS') else '[]'
 
+
 cors = CORS(app, resources={r"/*"})
 
 @app.route('/', methods=['GET', 'POST'])
