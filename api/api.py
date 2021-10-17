@@ -19,7 +19,7 @@ REMOTE_MAPPING = 'https://raw.githubusercontent.com/cardiffnlp/tweeteval/main/da
 
 app = Flask(__name__)
 
-allowed_origins = ["https://unicef.org","https://kindly-client.azurewebsites.net","https://kindly-api.azurewebsites.net"]
+allowed_origins = ["https://unicef.org","https://kindly-client.azurewebsites.net","https://kindly-api.azurewebsites.net","http://172.24.64.1:3000"]
 
 cors = CORS(app, resources={r"/*"})
 
@@ -105,11 +105,11 @@ def process(inputText):
     f.close()
 
     # PT
-    model = AutoModelForSequenceClassification.from_pretrained('./model')
+    model = AutoModelForSequenceClassification.from_pretrained('./api/model/')
     # model.save_pretrained(MODEL)
     text = inputText
     text = preprocess(text)
-    tokenizer = AutoTokenizer.from_pretrained('./model')
+    tokenizer = AutoTokenizer.from_pretrained('./api/model')
     encoded_input = tokenizer(text, return_tensors='pt')
     output = model(**encoded_input)
 
