@@ -1,32 +1,152 @@
 # Development
 
+This file documents how to set up and run the code in this repository in your local development environment. For a production environment using Docker images, refer to the [deployment](deployment.md) documentation and the [API Documentation](api.md).
+
+## Requirements
+
 Please make sure that your development environment has the following prerequisites:
 - NodeJS 16
 - Python 3
-    - Using a command-line terminal of your choice, `cd` into the api folder.
-    - Run the following commands to complete your environment
-    - `pip install --upgrade pip`
-    - `pip install -r requirements.txt`
 
-    ⚠️ *This configuration is known to work with Python 3.8.0. Other versions of Python may have different dependencies, which will require different versions of `requirements.txt`, for example, if you have Python 3.6, try the following instead: `pip install -r requirements.python-3.6.8.txt`. We will add more configuration files as we try other versions.*
+## Installation
 
-    - Install pytorch by going to (their website)[https://pytorch.org/get-started/locally/] to know how to do it with your operating system. However, for this mac configuration in this project you can use `pip` by running `pip install torch torchvision`
+1. Clone this repo:
+   - SSL:
+   ```bash
+   git clone git@github.com:unicef/kindly.git
+   ```
+   - HTTPS:
+   ```bash
+   git clone https://github.com/unicef/kindly.git
+   ```
+2. Using a command-line terminal of your choice, `cd` into the api folder and create a [Python Virtual Environment](https://docs.python.org/3/library/venv.html):
+
+  ```bash
+  cd kindly/api
+  python3 -m venv env
+  
+  ```
+
+3. Activate your virtual environment (you will run this step everytime you want to do work in your local development environment):
+   - Linux/OSX:
+  ```bash
+  source env/bin/activate
+  ```
+  - Windows:
+  ```shell 
+   your-base-directory\kindly\api> .\env\Scripts\activate.bat
+
+  ``` 
+
+4. Upgrade your local version of `pip`:
+
+  ```bash
+  pip install --upgrade pip
+  ```
+
+5. Install the api dependencies:
+
+  ```bash
+  pip install -r requirements.txt
+  ```
+
+  ⚠️ *This configuration is known to work with Python 3.8.0. Other versions of Python may have different dependencies, which will require different versions of `requirements.txt`, for example, if you have Python 3.6, try the following instead: `pip install -r requirements.python-3.6.8.txt`. We will add more configuration files as we try other versions.*
+
+6. Change into the client folder to install the client dependencies:
+
+  ```bash
+  cd ../client
+  npm i
+  ```
+
+## Configuration
+
+The code for this repository defaults to the production environment configuration, where the API server is configured to only allow requests from a set of [allowed origins](https://github.com/unicef/kindly/blob/7ee69561eaa53a77074b71ebcf876a8c29bb5878/api/api.py#L22) or accept requests that include an Authorization Bearer token set in production.
+
+For development purposes, you can add your localhost to the list of allowed_origins or include an authorization token in your request as documented in the two subsections below.
+
+*Note: If you haven't created a new `.env` file with the `TOKEN_KEYS`, you will recieve a `500` error when trying to submit words to check on the site.
+If keys are unauthorized it will return a `403` HTTP error.*
+
+### Allowed Origins
+
+Add the client address `http://localhost:3000` to the [allowed_origins](https://github.com/unicef/kindly/blob/7ee69561eaa53a77074b71ebcf876a8c29bb5878/api/api.py#L22), so that it reads:
+
+```python
+allowed_origins = ["https://unicef.org","https://kindly-client.azurewebsites.net","https://kindly-api.azurewebsites.net", "http://localhost:3000"]
+
+```
 
 ### Environment Variables
 
-You can set Authorization headers using environment variables
-The current sample template can be found in the `.env.template` file.
+You can set Authorization headers using environment variables. This repository provides a sample template `.env.template` file in the root folder that you need to copy into a new file. The code below will create a copy to the `.env` file:
+
+```bash
+cp .env.template .env
+
+```
+
 The key used is `TOKEN_KEYS` and it is a JSON object of token keys with a value of who owns that key as seen below.
 
 ```
 TOKEN_KEYS = '{"aasdf1234":"third_party_1", "a]gghrydf1234":"third_party_1", "klasjdflkja" : "third_party_3"}'
 ```
 
- `Note:` Create a new `.env` file in root directory and copy above mentioned list(TOKEN_KEYS) into that file. Also, add your `localhost:port` to `allowed_origins` list inside `api/api.py`.
+## Running Locally
 
-If this environment variable is set, always make sure that all requests to the api have an `Authorization` header with `'Bearer <token>'` value.
+From the `api/` folder:
 
-Below is an example using Axios in NodeJS
+1. First activate your Python Virtual Environment that you created in the [Installation](#Installation) section above:
+
+  ```bash
+  cd api
+  source env/bin/activate
+  ```
+
+2. Download a local copy of the ML model (you only have to run this once):
+
+  ```bash
+  python get_model.py
+  ``` 
+
+3. Run the python server using the following command:
+
+  ```bash
+  python api.py
+  ```
+
+4. On a different terminal window/tab, `cd` into the client folder and and run the following command:
+
+  ```bash
+  npm run dev
+  
+  ```
+
+## Making Request with Authorization Tokens
+
+Test requests using the following 2 methods. Python server must be running and you must have an `.env` file with the `TOKEN_KEYS`.
+
+Your client HTTP requests to the API must include an `Authorization` header with a `'Bearer <token>'` value:
+
+```
+"Authorization": "Bearer YOUR-TOKEN-GOES-HERE'"
+
+```
+
+Unauthorized keys in the request will return a `403` HTTP error.
+
+Below is an example using curl:
+```bash
+curl \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer aasdf1234" \
+  http://localhost:8080/detect \
+  -d '{"text":"I love you so much"}'
+
+```
+
+And the same example using Axios in NodeJS
 
 ```js
 var axios = require('axios');
@@ -51,150 +171,5 @@ axios(config)
 .catch(function (error) {
   console.log(error);
 });
-
-```
-
-And the same example using curl:
-```bash
-curl \
-  -X POST \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer aasdf1234" \
-  http://localhost:8080/detect \
-  -d '{"text":"I love you so much"}'
-
-```
-
-Unauthorized keys in the request will return a `403` HTTP error.
-
-*Note: For developmental purposes, the API will still run if this environment variable is not set when running locally as described below*
-
-## Running Locally
-
-From the `api/` folder:
-
-1. First download a local copy of the ML model:
-
-```bash
-python get_model.py
-``` 
-
-2. Run the python server using the following command:
-
-```bash
-python api.py
-```
-
-In a new terminal tab `cd` into the client folder and and run the following commands
-- `npm i`
-- `npm run dev`
-
-## Docker
-
-### Requirements
-
-* [Docker](https://docs.docker.com/install/overview/)
-
-### Installation
-
-Build the API with docker by running 
-
-```bash
-docker build -f "api/Dockerfile" -t kindly_api:latest "api"
-```
-
-> ⚠️  If the build errors out with `executor failed running: exit code: 137`, you are likely running out of memory. Initial installations of Docker come preconfigured by allocating 2GB of memory to Docker. You need to adjust that setting by going to **Docker Settings -> Advanced** and increasing the memory available
-
-A container image of this API is also found on [Dockerhub](https://hub.docker.com/r/nathanfletcher/kindly_api)
-
-Build the demo client with docker by running 
-
-```bash
-docker build -f "client/Dockerfile" -t kindly_client:latest "client"
-```
-
-A container image of the client is also found on [Dockerhub](https://hub.docker.com/r/nathanfletcher/kindly_client)
-
-### Running
-
-Run the API using docker with this command:
-
-```bash
-docker run --rm -it  -p 8080:8080/tcp kindly_api:latest
-```
-
-Run the demo client using docker with this command:
-
-```bash
-docker run --rm -it  -p 3000:3000/tcp kindly_client:latest
-```
-
-## Reference
-
-### List all available endpoints
-
-List all endpoints available through this API.
-
-```
-GET /
-```
-#### Code Samples
-
-**Shell**
-
-```bash
-curl http://localhost:8080/
-```
-
-#### Default Response
-
-```
-Status: 200 OK
-```
-```json
-{
-    "detect": "/detect"
-}
-```
-
-### Send text for detection endpoints
-
-Send a piece of text and through this API to determine if it is offensive to post or not.
-
-```
-POST /
-```
-
-```PAYLOAD```
-```
-{
-    "text":"this movie is great"
-}
-```
-#### Code Samples
-
-**Shell**
-
-```bash
-curl \
-  -X POST \
-  -H "Content-Type: application/json" \
-  http://localhost:8080/detect \
-  -d '{"text":"this movie is great"}'
-```
-
-#### Default Response
-
-```
-Status: 200 OK
-```
-```json
-{
-    "result": {
-        "not-offensive": "0.8308081",
-        "offensive": "0.1691919"
-        },
-    "text": "this movie is great"
-}
 
 ```
