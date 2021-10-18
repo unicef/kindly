@@ -5,4 +5,4 @@ api/model
 api/env
 model/
 .env
-*.pyc 
+*.pyc
