@@ -21,43 +21,48 @@ Please make sure that your development environment has the following prerequisit
    ```
 2. Using a command-line terminal of your choice, `cd` into the api folder and create a [Python Virtual Environment](https://docs.python.org/3/library/venv.html):
 
-  ```bash
-  cd kindly/api
-  python3 -m venv env
+   ```bash
+   cd kindly/api
+   python3 -m venv env
   
-  ```
+   ```
 
 3. Activate your virtual environment (you will run this step everytime you want to do work in your local development environment):
    - Linux/OSX:
-  ```bash
-  source env/bin/activate
-  ```
-  - Windows:
-  ```shell 
-   your-base-directory\kindly\api> .\env\Scripts\activate.bat
+    ```bash
+    git clone git@github.com:unicef/kindly.git
 
-  ``` 
+    ```
+     
+   -  Windows:
+    
+       Switch to cmd prompt as git bash won't run activate.bat file.Then run this command: 
+      
+   ```shell 
+   .\env\Scripts\activate.bat
+
+   ``` 
 
 4. Upgrade your local version of `pip`:
 
-  ```bash
-  pip install --upgrade pip
-  ```
+   ```bash
+   pip install --upgrade pip
+   ```
 
 5. Install the api dependencies:
 
-  ```bash
-  pip install -r requirements.txt
-  ```
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-  ⚠️ *This configuration is known to work with Python 3.8.0. Other versions of Python may have different dependencies, which will require different versions of `requirements.txt`, for example, if you have Python 3.6, try the following instead: `pip install -r requirements.python-3.6.8.txt`. We will add more configuration files as we try other versions.*
+   ⚠️ *This configuration is known to work with Python 3.8.0. Other versions of Python may have different dependencies, which will require different versions of `requirements.txt`, for example, if you have Python 3.6, try the following instead: `pip install -r requirements.python-3.6.8.txt`. We will add more configuration files as we try other versions. Till then don't use Python 3.10 as there will be some numpy dependancy issue.*
 
 6. Change into the client folder to install the client dependencies:
 
-  ```bash
-  cd ../client
-  npm i
-  ```
+   ```bash
+   cd ../client
+   npm i
+   ```
 
 ## Configuration
 
@@ -78,19 +83,29 @@ allowed_origins = ["https://unicef.org","https://kindly-client.azurewebsites.net
 ```
 
 ### Environment Variables
+* Linux/OSX:
 
-You can set Authorization headers using environment variables. This repository provides a sample template `.env.template` file in the root folder that you need to copy into a new file. The code below will create a copy to the `.env` file:
+  You can set Authorization headers using environment variables. This repository provides a sample template `.env.template` file in the root folder that you need to copy into a new file. The code below will create a copy to the `.env` file:
 
-```bash
-cp .env.template .env
+  ```bash
+  cp .env.template .env
 
-```
+  ```
 
-The key used is `TOKEN_KEYS` and it is a JSON object of token keys with a value of who owns that key as seen below.
 
-```
-TOKEN_KEYS = '{"aasdf1234":"third_party_1", "a]gghrydf1234":"third_party_1", "klasjdflkja" : "third_party_3"}'
-```
+
+  The key used is `TOKEN_KEYS` and it is a JSON object of token keys with a value of who owns that key as seen below.
+
+  ```
+  TOKEN_KEYS = '{"aasdf1234":"third_party_1","a]gghrydf1234":"third_party_1","klasjdflkja":"third_party_3"}'
+  ```
+
+ * Windows:
+
+    In cmd.exe use this command:
+    ```
+    setx TOKEN_KEYS {\"aasdf1234\":\"third_party_1\",\"a]gghrydf1234\":\"third_party_1\\"klasjdflkja\":\"third_party_3\"}
+    ```
 
 ## Running Locally
 
@@ -98,29 +113,29 @@ From the `api/` folder:
 
 1. First activate your Python Virtual Environment that you created in the [Installation](#Installation) section above:
 
-  ```bash
-  cd api
-  source env/bin/activate
-  ```
+   ```bash
+   cd api
+   source env/bin/activate
+   ```
 
 2. Download a local copy of the ML model (you only have to run this once):
 
-  ```bash
-  python get_model.py
-  ``` 
+   ```bash
+   python get_model.py
+   ``` 
 
 3. Run the python server using the following command:
 
-  ```bash
-  python api.py
-  ```
+   ```bash
+   python api.py
+   ```
 
 4. On a different terminal window/tab, `cd` into the client folder and and run the following command:
 
-  ```bash
-  npm run dev
+   ```bash
+   npm run dev
   
-  ```
+   ```
 
 ## Making Request with Authorization Tokens
 
