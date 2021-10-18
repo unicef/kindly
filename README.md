@@ -83,8 +83,10 @@ The following projects have also leveraged different forms of technology to comb
 
 ## :memo: License
 
-* Software License TBD
-* Data License TBD
+This repository contains both software and data, and a different license applies to each.
+
+* **Software** included in this repository is licensed under the [GNU Affero General Public License v3.0](LICENSE)
+* **Data** included in this repository is licensed under the [Creative Commons Attribution-ShareAlike 4.0](LICENSE.data.md)
 
 ## 🙏 Acknowledgements
 
