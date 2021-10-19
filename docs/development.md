@@ -68,6 +68,26 @@ For development purposes, you can add your localhost to the list of allowed_orig
 *Note: If you haven't created a new `.env` file with the `TOKEN_KEYS`, you will recieve a `500` error when trying to submit words to check on the site.
 If keys are unauthorized it will return a `403` HTTP error.*
 
+### Environment Variables
+
+Use environment variables to set the sensitive or development specific variables needed for the project.
+This repository provides a sample template `.env.template` file in the root folder that you need to copy into a new file.
+The code below will create a copy to the `.env` folder:
+
+```bash
+cp .env.template .env
+
+```
+
+Once in your `.env` file you can update any urls, or authentication header keys if needed.
+Only change for now should be **Allowed Origins**
+
+The key used is `TOKEN_KEYS` and it is a JSON object of token keys with a value of who owns that key as seen below.
+
+```
+TOKEN_KEYS = '{"aasdf1234":"third_party_1", "a]gghrydf1234":"third_party_1", "klasjdflkja" : "third_party_3"}'
+```
+Make sure to update the `allowed_origins` list as specified below.
 ### Allowed Origins
 
 Add the client address `http://localhost:3000` to the [allowed_origins](https://github.com/unicef/kindly/blob/7ee69561eaa53a77074b71ebcf876a8c29bb5878/api/api.py#L22), so that it reads:
@@ -75,21 +95,6 @@ Add the client address `http://localhost:3000` to the [allowed_origins](https://
 ```python
 allowed_origins = ["https://unicef.org","https://kindly-client.azurewebsites.net","https://kindly-api.azurewebsites.net", "http://localhost:3000"]
 
-```
-
-### Environment Variables
-
-You can set Authorization headers using environment variables. This repository provides a sample template `.env.template` file in the root folder that you need to copy into a new file. The code below will create a copy to the `.env` file:
-
-```bash
-cp .env.template .env
-
-```
-
-The key used is `TOKEN_KEYS` and it is a JSON object of token keys with a value of who owns that key as seen below.
-
-```
-TOKEN_KEYS = '{"aasdf1234":"third_party_1", "a]gghrydf1234":"third_party_1", "klasjdflkja" : "third_party_3"}'
 ```
 
 ## Running Locally
@@ -122,7 +127,7 @@ From the `api/` folder:
   
   ```
 
-## Making Request with Authorization Tokens
+## Test Making Requests with Authorization Tokens
 
 Test requests using the following 2 methods. Python server must be running and you must have an `.env` file with the `TOKEN_KEYS`.
 
