@@ -127,7 +127,7 @@ From the `api/` folder:
   
   ```
 
-## Making Request with Authorization Tokens
+## Test Making Requests with Authorization Tokens
 
 Test requests using the following 2 methods. Python server must be running and you must have an `.env` file with the `TOKEN_KEYS`.
 
