@@ -3,7 +3,7 @@ import pytest
 import unittest
 import json
 
-from api import app, checkHeaders, detect
+from api import app
 
 app.testing = True
 headers = json.loads(os.environ['HEADERS'])
