@@ -3,10 +3,10 @@ import pytest
 import unittest
 import json
 
-from api.api import app, checkHeaders, detect
+from api import app, checkHeaders, detect
 
 app.testing = True
-headers = {'Authorization': 'Bearer aasdf1234', 'Content-Type': 'application/json'}
+headers = json.loads(os.environ['HEADERS'])
 
 def test_detect():
     """ Testing success for /detect endpoint"""
@@ -19,7 +19,7 @@ def test_detect_403():
     """ Testing 403 error if no correct headers"""
     offensive_text = {'text': 'test'}
     with app.test_client() as c:
-        response = c.post('/detect', json=offensive_text, base_url = 'http://localhost:8080/')
+        response = c.post('/detect', json=offensive_text, base_url = 'http://localhost:3000/')
         assert response.status_code == 403
 
 def test_detect_offensive():

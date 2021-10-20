@@ -106,11 +106,11 @@ def process(inputText):
     f.close()
 
     # PT
-    model = AutoModelForSequenceClassification.from_pretrained('./api/model')
+    model = AutoModelForSequenceClassification.from_pretrained('./model')
     # model.save_pretrained(MODEL)
     text = inputText
     text = preprocess(text)
-    tokenizer = AutoTokenizer.from_pretrained('./api/model')
+    tokenizer = AutoTokenizer.from_pretrained('./model')
     encoded_input = tokenizer(text, return_tensors='pt')
     output = model(**encoded_input)
 

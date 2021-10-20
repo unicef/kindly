@@ -201,7 +201,7 @@ curl \
 
 Unit test for endpoints have been set up using pytest.
 
-To run tests from main directory:
+To run tests from within the `api/` folder:
 ```bash
 pytest
 ```
