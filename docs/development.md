@@ -205,8 +205,19 @@ To run tests from within the `api/` folder:
 ```bash
 pytest
 ```
-`/detect` endpoint has 4 associated tests:
+`'/'` endpoint has 2 associated tests:
+`test_api_glossary()` for success response from `'/'` endpoint
+`test_api_glossary_403()` for `403` response if not authorised
+
+`'/test-ui'` has 1 associated test:
+`test_welcome()` for success response from `'/test-ui'` endpoint
+
+`'/detect'` endpoint has 4 associated tests:
 `test_detect()` for success response from `/detect` endpoint
 `test_detect_403()` for `403` response if not authorised
 `test_detect_offensive()` to test for correct response from an offensive term
 `test_detect_not_offensive()` to test for correct response from a non-offensive term
+
+`'/train'` endpoint, tests pending
+
+`test_404()` for `404` error with invalid endpoint
