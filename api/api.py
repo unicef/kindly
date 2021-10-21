@@ -55,13 +55,13 @@ def detect():
 
     return thejson
 
-@app.route("/train")
-def train():
-    '''Function that gets the train data and epochs'''
-    check_headers()
-    train_path = request.args.get("data", "data/train.csv")
-    epochs = request.args.get("epochs", 10)
-    emotion.train(train_path, epochs)
+# @app.route("/train")
+# def train():
+#     '''Function that gets the train data and epochs'''
+#     check_headers()
+#     train_path = request.args.get("data", "data/train.csv")
+#     epochs = request.args.get("epochs", 10)
+#     emotion.train(train_path, epochs)
 
 def preprocess(texts):
     '''Function that processes the texts'''
@@ -104,10 +104,8 @@ def process(input_text):
     # tokenizer = AutoTokenizer.from_pretrained("cardiffnlp/twitter-roberta-base-offensive")
     # download label mapping
     labels = []
-    mapping_file = "model/mapping.txt"
-    local_mapping = f'{mapping_file}'
-    if os.path.isfile(local_mapping):
-        file_path = open(local_mapping,encoding="utf8")
+    if os.path.isfile("model/mapping.txt"):
+        file_path = open("model/mapping.txt",encoding="utf8")
         html = file_path.read().split("\n")
     else:
         file_path = urllib.request.urlopen(REMOTE_MAPPING)
@@ -118,12 +116,10 @@ def process(input_text):
     file_path.close()
 
     # PT
-    model = AutoModelForSequenceClassification.from_pretrained('./model')
+    model = AutoModelForSequenceClassification().from_pretrained('./model')
     # model.save_pretrained(MODEL)
-    text = input_text
-    text = preprocess(text)
     tokenizer = AutoTokenizer.from_pretrained('./model')
-    encoded_input = tokenizer(text, return_tensors='pt')
+    encoded_input = tokenizer(preprocess(input_text), return_tensors='pt')
     output = model(**encoded_input)
 
     scores = output[0][0].detach().numpy()

@@ -20,3 +20,4 @@ transformers==4.9.1
 waitress==2.0.0
 pylint == 2.11.1
 pre-commit == 2.15.0
+tokenizer==3.3.2
