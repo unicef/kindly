@@ -197,3 +197,18 @@ curl \
   http://localhost:8080/detect \
   -d '{"text":"I love you so much"}'
 ```
+
+## Setting up linting
+
+Pylint has been set up on the `api.py` and `get_model.py` 
+
+It enforces PEP8 coding standard,try to follow it as close as possible
+
+The pylint test can be run using `pylint [file]` command to check for errors
+
+Pylint gives information on errors and the line of codes giving errors making debugging easier
+
+Pre-commit hook has been set up to ensure that commits cannot be made if there are linting errors
+
+
+
