@@ -4,7 +4,8 @@ from transformers import AutoModelForSequenceClassification, AutoTokenizer
 def get_model(model):
     """Loads model from Hugginface model hub"""
     try:
-        model = AutoModelForSequenceClassification().from_pretrained(model)
+        # pylint: disable=no-value-for-parameter
+        model = AutoModelForSequenceClassification.from_pretrained(model)
         model.save_pretrained('./model')
     except Exception as error:
         raise error
