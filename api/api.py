@@ -115,8 +115,8 @@ def process(input_text):
         labels = [row[1] for row in csvreader if len(row) > 1]
     file_path.close()
 
-    # PT
-    model = AutoModelForSequenceClassification().from_pretrained('./model')
+    # pylint: disable=no-value-for-parameter
+    model = AutoModelForSequenceClassification.from_pretrained('./model')
     # model.save_pretrained(MODEL)
     tokenizer = AutoTokenizer.from_pretrained('./model')
     encoded_input = tokenizer(preprocess(input_text), return_tensors='pt')

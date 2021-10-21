@@ -200,15 +200,13 @@ curl \
 
 ## Setting up linting
 
-Pylint has been set up on the `api.py` and `get_model.py` 
+Pylint has been set up for all Python files in the `/api` folder. It enforces PEP8 coding standard, trying to follow it as close as possible. The pylint test can be run with the following command to check for errors:
 
-It enforces PEP8 coding standard,try to follow it as close as possible
+```bash
+pylint [file.py]
+```
 
-The pylint test can be run using `pylint [file]` command to check for errors
-
-Pylint gives information on errors and the line of codes giving errors making debugging easier
-
-Pre-commit hook has been set up to ensure that commits cannot be made if there are linting errors
+Pylint gives information on errors and their respective lines in the code to mak debugging easier. A pre-commit hook has been set up to ensure that commits cannot be made if there are linting errors.
 
 
 
