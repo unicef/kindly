@@ -11,11 +11,11 @@ Please make sure that your development environment has the following prerequisit
 ## Installation
 
 1. Clone this repo:
-   - SSL:
+   -  **SSL**  :
    ```bash
    git clone git@github.com:unicef/kindly.git
    ```
-   - HTTPS:
+   - **HTTPS**:
    ```bash
    git clone https://github.com/unicef/kindly.git
    ```
@@ -28,14 +28,14 @@ Please make sure that your development environment has the following prerequisit
    ```
 
 3. Activate your virtual environment (you will run this step everytime you want to do work in your local development environment):
-   - Linux/OSX:
+   - **Linux/OSX**:
 
     ```bash
-    git clone git@github.com:unicef/kindly.git
+    source env/bin/activate
 
     ```
      
-   -  Windows:
+   -  **Windows**:
     
        Switch to cmd prompt as git bash won't run activate.bat file.Then run this command: 
       
@@ -77,33 +77,41 @@ The code for this repository defaults to the production environment configuratio
 
 *⚠️&nbsp;&nbsp;Note: If you haven't created a new `.env` as per the instructions below, you will recieve a `500` error when trying to submit words to check on the site. If keys are unauthorized it will return a `403` HTTP error.*
 
-### Environment Variables
+
+### Environment Variables and Authorization Tokens
+
+ 
 * Linux/OSX:
 
 
-Use environment variables to set the configuration needed for the project. Environment variables can conveniently be configured through a `.env` file in the root folder of this repository. This repository provides a sample template `.env.template` file in the root folder that you need to copy into a new file. The code below will create a copy `.env.template` into `.env`:
+    Use environment variables to set the configuration needed for the project. Environment variables can conveniently be configured through a `.env` file in the root folder of this repository. This repository provides a sample template `.env.template` file in the root folder that you need to copy into a new file. The code below will create a copy `.env.template` into `.env`:
 
   ```bash
   cp .env.template .env
-
   ```
+    You can further edit your `.env` file you to update any urls, or authentication tokens if needed.
 
 
 
-Authorization tokens are configured through the environment variable named `TOKEN_KEYS`, and is a JSON object of token keys with a value of who owns that key as illustrated below.
 
-  The key used is `TOKEN_KEYS` and it is a JSON object of token keys with a value of who owns that key as seen below.
+    Authorization tokens are configured through the environment variable named `TOKEN_KEYS`, and is a JSON object of token keys with a value of who owns that key as illustrated below.
 
-  ```
-  TOKEN_KEYS = '{"aasdf1234":"third_party_1","a]gghrydf1234":"third_party_1","klasjdflkja":"third_party_3"}'
-  ```
 
- * Windows:
-
-    In cmd.exe use this command:
     ```
+    TOKEN_KEYS = '{"aasdf1234":"third_party_1","a]gghrydf1234":"third_party_1","klasjdflkja":"third_party_3"}'
+    ```
+
+ * **Windows**:
+
+    It is easier to configure environmet variables for Windows. In cmd.exe use this command:
+
+    ```shell
     setx TOKEN_KEYS {\"aasdf1234\":\"third_party_1\",\"a]gghrydf1234\":\"third_party_1\\"klasjdflkja\":\"third_party_3\"}
     ```
+    
+     It will create a new environment variable named `TOKEN_KEYS` and it will hold the JSON object of token keys with a value of who owns that key. 
+
+
 
 #### Allowed Origins
 
@@ -122,17 +130,21 @@ From the `api/` folder:
 
 1. First activate your Python Virtual Environment that you created in the [Installation](#Installation) section above:
   
-   - Linux/OSX:
-   ```bash
-   source env/bin/activate
-   ```
+   - **Linux/OSX**:
 
+    ```bash
+    source env/bin/activate
 
-   ```bash
-   cd api
-   source env/bin/activate
-   ```
+    ```
+     
+   -  **Windows**:
+    
+       Switch to cmd prompt as git bash won't run activate.bat file.Then run this command: 
+      
+   ```shell 
+   .\env\Scripts\activate.bat
 
+   ``` 
 
 2. Download a local copy of the ML model (you only have to run this once):
 
@@ -226,6 +238,3 @@ pylint [file.py]
 ```
 
 Pylint gives information on errors and their respective lines in the code to mak debugging easier. A pre-commit hook has been set up to ensure that commits cannot be made if there are linting errors.
-
-
-
