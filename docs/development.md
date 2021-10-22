@@ -197,6 +197,7 @@ curl \
   http://localhost:8080/detect \
   -d '{"text":"I love you so much"}'
 ```
+
 ## Testing
 
 Unit test for endpoints have been set up using pytest.
@@ -221,3 +222,14 @@ pytest
 `'/train'` endpoint, tests pending
 
 `test_404()` for `404` error with invalid endpoint
+
+
+## Setting up linting
+
+Pylint has been set up for all Python files in the `/api` folder. It enforces PEP8 coding standard, trying to follow it as close as possible. The pylint test can be run with the following command to check for errors:
+
+```bash
+pylint [file.py]
+```
+
+Pylint gives information on errors and their respective lines in the code to mak debugging easier. A pre-commit hook has been set up to ensure that commits cannot be made if there are linting errors.
