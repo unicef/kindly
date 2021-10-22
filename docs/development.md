@@ -29,6 +29,7 @@ Please make sure that your development environment has the following prerequisit
 
 3. Activate your virtual environment (you will run this step everytime you want to do work in your local development environment):
    - Linux/OSX:
+
     ```bash
     git clone git@github.com:unicef/kindly.git
 
@@ -55,7 +56,13 @@ Please make sure that your development environment has the following prerequisit
    pip install -r requirements.txt
    ```
 
-   ⚠️ *This configuration is known to work with Python 3.8.0. Other versions of Python may have different dependencies, which will require different versions of `requirements.txt`, for example, if you have Python 3.6, try the following instead: `pip install -r requirements.python-3.6.8.txt`. We will add more configuration files as we try other versions. Till then don't use Python 3.10 as there will be some numpy dependancy issue.*
+
+  ⚠️&nbsp;&nbsp;*This configuration is known to work with Python 3.8.0. Other versions of Python may have different dependencies, which will require different versions of `requirements.txt`, for example, if you have Python 3.6, try the following instead:*
+  ```bash
+  pip install -r requirements.python-3.6.8.txt
+  ```
+  *We will add more configuration files as we try other versions.*
+
 
 6. Change into the client folder to install the client dependencies:
 
@@ -66,26 +73,15 @@ Please make sure that your development environment has the following prerequisit
 
 ## Configuration
 
-The code for this repository defaults to the production environment configuration, where the API server is configured to only allow requests from a set of [allowed origins](https://github.com/unicef/kindly/blob/7ee69561eaa53a77074b71ebcf876a8c29bb5878/api/api.py#L22) or accept requests that include an Authorization Bearer token set in production.
+The code for this repository defaults to the production environment configuration, where the API server is configured to only allow requests from a set of **allowed origins** or accept requests that include an **Authorization Bearer token** set in production. Both settings are configured through environment variables, which you can configure locally in your development environment.
 
-For development purposes, you can add your localhost to the list of allowed_origins or include an authorization token in your request as documented in the two subsections below.
-
-*Note: If you haven't created a new `.env` file with the `TOKEN_KEYS`, you will recieve a `500` error when trying to submit words to check on the site.
-If keys are unauthorized it will return a `403` HTTP error.*
-
-### Allowed Origins
-
-Add the client address `http://localhost:3000` to the [allowed_origins](https://github.com/unicef/kindly/blob/7ee69561eaa53a77074b71ebcf876a8c29bb5878/api/api.py#L22), so that it reads:
-
-```python
-allowed_origins = ["https://unicef.org","https://kindly-client.azurewebsites.net","https://kindly-api.azurewebsites.net", "http://localhost:3000"]
-
-```
+*⚠️&nbsp;&nbsp;Note: If you haven't created a new `.env` as per the instructions below, you will recieve a `500` error when trying to submit words to check on the site. If keys are unauthorized it will return a `403` HTTP error.*
 
 ### Environment Variables
 * Linux/OSX:
 
-  You can set Authorization headers using environment variables. This repository provides a sample template `.env.template` file in the root folder that you need to copy into a new file. The code below will create a copy to the `.env` file:
+
+Use environment variables to set the configuration needed for the project. Environment variables can conveniently be configured through a `.env` file in the root folder of this repository. This repository provides a sample template `.env.template` file in the root folder that you need to copy into a new file. The code below will create a copy `.env.template` into `.env`:
 
   ```bash
   cp .env.template .env
@@ -93,6 +89,8 @@ allowed_origins = ["https://unicef.org","https://kindly-client.azurewebsites.net
   ```
 
 
+
+Authorization tokens are configured through the environment variable named `TOKEN_KEYS`, and is a JSON object of token keys with a value of who owns that key as illustrated below.
 
   The key used is `TOKEN_KEYS` and it is a JSON object of token keys with a value of who owns that key as seen below.
 
@@ -107,16 +105,34 @@ allowed_origins = ["https://unicef.org","https://kindly-client.azurewebsites.net
     setx TOKEN_KEYS {\"aasdf1234\":\"third_party_1\",\"a]gghrydf1234\":\"third_party_1\\"klasjdflkja\":\"third_party_3\"}
     ```
 
+#### Allowed Origins
+
+`ALLOWED_ORIGINS` is an array of the domains where a request can originate from that will be accepted by this API, such as:
+
+```python
+ALLOWED_ORIGINS = ["https://unicef.org","https://kindly-client.azurewebsites.net","https://kindly-api.azurewebsites.net", "http://localhost:3000"]
+
+```
+
+As you will notice from above, the provided `.env.template` already lists `http://localhost:3000`, which is where the client server runs.
+
 ## Running Locally
 
 From the `api/` folder:
 
 1. First activate your Python Virtual Environment that you created in the [Installation](#Installation) section above:
+  
+   - Linux/OSX:
+   ```bash
+   source env/bin/activate
+   ```
+
 
    ```bash
    cd api
    source env/bin/activate
    ```
+
 
 2. Download a local copy of the ML model (you only have to run this once):
 
@@ -137,7 +153,7 @@ From the `api/` folder:
   
    ```
 
-## Making Request with Authorization Tokens
+## Test Making Requests with Authorization Tokens
 
 Test requests using the following 2 methods. Python server must be running and you must have an `.env` file with the `TOKEN_KEYS`.
 
@@ -158,7 +174,6 @@ curl \
   -H "Authorization: Bearer aasdf1234" \
   http://localhost:8080/detect \
   -d '{"text":"I love you so much"}'
-
 ```
 
 And the same example using Axios in NodeJS
@@ -188,3 +203,29 @@ axios(config)
 });
 
 ```
+
+## Test Making Requests with Allowed Origin
+
+Below is an example using curl, where you can set your origin in the header of the request:
+
+```bash
+curl \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -H "Origin: http://localhost:3000" \
+  http://localhost:8080/detect \
+  -d '{"text":"I love you so much"}'
+```
+
+## Setting up linting
+
+Pylint has been set up for all Python files in the `/api` folder. It enforces PEP8 coding standard, trying to follow it as close as possible. The pylint test can be run with the following command to check for errors:
+
+```bash
+pylint [file.py]
+```
+
+Pylint gives information on errors and their respective lines in the code to mak debugging easier. A pre-commit hook has been set up to ensure that commits cannot be made if there are linting errors.
+
+
+
