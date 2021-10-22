@@ -198,6 +198,32 @@ curl \
   -d '{"text":"I love you so much"}'
 ```
 
+## Testing
+
+Unit test for endpoints have been set up using pytest.
+
+To run tests from within the `api/` folder:
+```bash
+pytest
+```
+`'/'` endpoint has 2 associated tests:
+`test_api_glossary()` for success response from `'/'` endpoint
+`test_api_glossary_403()` for `403` response if not authorised
+
+`'/test-ui'` has 1 associated test:
+`test_welcome()` for success response from `'/test-ui'` endpoint
+
+`'/detect'` endpoint has 4 associated tests:
+`test_detect()` for success response from `/detect` endpoint
+`test_detect_403()` for `403` response if not authorised
+`test_detect_offensive()` to test for correct response from an offensive term
+`test_detect_not_offensive()` to test for correct response from a non-offensive term
+
+`'/train'` endpoint, tests pending
+
+`test_404()` for `404` error with invalid endpoint
+
+
 ## Setting up linting
 
 Pylint has been set up for all Python files in the `/api` folder. It enforces PEP8 coding standard, trying to follow it as close as possible. The pylint test can be run with the following command to check for errors:
@@ -207,6 +233,3 @@ pylint [file.py]
 ```
 
 Pylint gives information on errors and their respective lines in the code to mak debugging easier. A pre-commit hook has been set up to ensure that commits cannot be made if there are linting errors.
-
-
-
