@@ -15,6 +15,12 @@ from waitress import serve
 import json
 import timeit
 
+#for execution time calculation of major functions
+if __debug__:
+    import timeit
+    function_exec_time={}
+
+
 load_dotenv()
 
 REMOTE_MAPPING = [
@@ -185,5 +191,3 @@ def process(input_text):
 if __name__ == '__main__':
     # app.run(host='0.0.0.0', port=8080)
     serve(app, host='0.0.0.0', port=8080)
-
-    
