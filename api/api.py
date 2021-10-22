@@ -13,6 +13,12 @@ from dotenv import load_dotenv
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from waitress import serve
 
+#for execution time calculation of major functions
+if __debug__:
+    import timeit
+    function_exec_time={}
+
+
 load_dotenv()
 
 REMOTE_MAPPING = [
@@ -26,10 +32,7 @@ allowed_origins = json.loads(os.environ['ALLOWED_ORIGINS']) if os.getenv('ALLOWE
 
 cors = CORS(app, resources={r"/*"})
 
-#for execution time calculation of major functions
-if __debug__:
-    import timeit
-    function_exec_time={}
+
 
 @app.route('/', methods=['GET', 'POST'])
 def api_glossary():
