@@ -156,7 +156,7 @@ def process(input_text):
     # pylint: disable=no-value-for-parameter # the class def seems inconsistent
     model = AutoModelForSequenceClassification.from_pretrained('./model')
     # model.save_pretrained(MODEL)
-    tokenizer = AutoTokenizer.from_pretrained("cardiffnlp/twitter-roberta-base-offensive")
+    tokenizer = AutoTokenizer.from_pretrained('./model')
     encoded_input = tokenizer(preprocess(input_text), return_tensors='pt')
     output = model(**encoded_input)
 
