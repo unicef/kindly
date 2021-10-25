@@ -23,4 +23,4 @@ jobs:
         python -m pip install -r api/requirements.txt
     - name: Test with pytest
       run: |
-        pytest
+        py.test --envfile api/.test.env
