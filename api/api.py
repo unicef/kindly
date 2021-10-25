@@ -103,12 +103,13 @@ def checkHeaders():
     if __debug__:
         t_0=timeit.default_timer()
 
-    headers = flask_request.headers
-    tokens = json.loads(os.getenv('TOKEN_KEYS')) #this will throw an error upon request if no token keys are present in the environment at all
-
-    if headers.get("Authorization") is not None:     #checking for authorization
-        extractBearerToken = headers['Authorization']
-        token = extractBearerToken.split(" ")
+    headers = request.headers
+    #this will throw an error upon request if no token keys are present in the environment at all
+    tokens = json.loads(os.getenv('TOKEN_KEYS')) if os.getenv('TOKEN_KEYS') else {}
+    #checking for authorization
+    if headers.get("Authorization") is not None:
+        extract_bearer_token = headers['Authorization']
+        token = extract_bearer_token.split(" ")
         if tokens.get(token[1]) is None:
             abort(403)
     
