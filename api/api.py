@@ -15,9 +15,7 @@ from waitress import serve
 
 load_dotenv()
 
-REMOTE_MAPPING = [
-    'https://raw.githubusercontent.com/cardiffnlp/tweeteval/main/datasets/offensive/mapping.txt'
-    ]
+REMOTE_MAPPING = 'https://raw.githubusercontent.com/cardiffnlp/tweeteval/main/datasets/offensive/mapping.txt'
 
 app = Flask(__name__)
 
