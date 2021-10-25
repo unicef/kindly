@@ -79,6 +79,11 @@ def check_headers():
     if headers.get("Authorization") is not None:
         extract_bearer_token = headers['Authorization']
         token = extract_bearer_token.split(" ")
+        print(tokens)
+        print(type(tokens))
+        print(token)
+        print(type(token))
+        print(tokens.get(token[1]))
         if tokens.get(token[1]) is None:
             abort(403)
     elif headers.get('Origin') not in allowed_origins:    #checking for origin
