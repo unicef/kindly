@@ -10,25 +10,25 @@ headers = json.loads(os.environ['HEADERS'])
 def test_api_glossary():
     """ Testing success for '/' endpoint"""
     with app.test_client() as client:
-        response = client.post('/', base_url = 'http://localhost:3000/', headers=headers)
+        response = client.post('/', base_url = 'http://localhost:8080/', headers=headers)
         assert response.status_code == 200
 
 def test_api_glossary_403():
     """ Testing 403 error if unauthorised"""
     with app.test_client() as client:
-        response = client.post('/', base_url = 'http://localhost:3000/')
+        response = client.post('/', base_url = 'http://localhost:8080/')
         assert response.status_code == 403
 
 def test_welcome():
     """ Testing success for '/test-ui' endpoint"""
     with app.test_client() as client:
-        response = client.post('/test-ui', base_url = 'http://localhost:3000/')
+        response = client.post('/test-ui', base_url = 'http://localhost:8080/')
         assert response.status_code == 200
 
 def test_404():
     """ Testing 404 response for invalid endpoint"""
     with app.test_client() as client:
-        response = client.post('/invalid', base_url = 'http://localhost:3000/')
+        response = client.post('/invalid', base_url = 'http://localhost:8080/')
         assert response.status_code == 404
 
 # Tests for /detect endpoint
@@ -38,7 +38,7 @@ def test_detect():
     offensive_text = {'text': 'test'}
     with app.test_client() as client:
         response = client.post('/detect', json=offensive_text,
-                            base_url = 'http://localhost:3000/', headers=headers)
+                            base_url = 'http://localhost:8080/', headers=headers)
         assert response.status_code == 200
 
 def test_detect_offensive():
@@ -50,7 +50,7 @@ def test_detect_offensive():
     offensive_text = {'text': "You're mean!"}
     with app.test_client() as client:
         response = client.post('/detect', json=offensive_text,
-                            base_url = 'http://localhost:3000/', headers=headers)
+                            base_url = 'http://localhost:8080/', headers=headers)
         json_data = response.get_json()
         score = json_data['result']
         score_not_offensive = float(score['not-offensive'])
@@ -67,7 +67,7 @@ def test_detect_not_offensive():
     not_offensive_text = {'text': "You're amazing!"}
     with app.test_client() as client:
         response = client.post('/detect', json=not_offensive_text,
-                            base_url = 'http://localhost:3000/', headers=headers)
+                            base_url = 'http://localhost:8080/', headers=headers)
         json_data = response.get_json()
         score = json_data['result']
         score_not_offensive = float(score['not-offensive'])
@@ -80,16 +80,15 @@ def test_detect_403():
     offensive_text = {'text': 'test'}
     with app.test_client() as client:
         response = client.post('/detect', json=offensive_text,
-                            base_url = 'http://localhost:3000/')
+                            base_url = 'http://localhost:8080/')
         assert response.status_code == 403
 
 def test_detect_400():
     """ Testing 400 error if invalid json input"""
     invalid_json = {'invalid': ""}
     with app.test_client() as client:
-        print(invalid_json)
         response = client.post('/detect', json=invalid_json,
-                            base_url = 'http://localhost:3000/', headers=headers)
+                            base_url = 'http://localhost:8080/', headers=headers)
         assert response.status_code == 400
 
 # Tests for /train endpoint
@@ -98,5 +97,5 @@ def test_detect_400():
 # def test_train():
 #     """ Testing success for /train endpoint"""
 #     with app.test_client() as client:
-#         response = client.get('/train', base_url = 'http://localhost:3000/', headers=headers)
+#         response = client.get('/train', base_url = 'http://localhost:8080/', headers=headers)
 #         assert response.status_code == 200
