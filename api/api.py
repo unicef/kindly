@@ -76,7 +76,7 @@ def check_headers():
     '''Function that confirms the headers and token keys'''
     headers = request.headers
     #this will throw an error upon request if no token keys are present in the environment at all
-    tokens = json.loads(os.getenv('TOKEN_KEYS')) if os.getenv('TOKEN_KEYS') else []
+    tokens = json.loads(os.getenv('TOKEN_KEYS')) if os.getenv('TOKEN_KEYS') else {}
     #checking for authorization
     if headers.get("Authorization") is not None:
         extract_bearer_token = headers['Authorization']
