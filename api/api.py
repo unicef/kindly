@@ -13,18 +13,23 @@ from dotenv import load_dotenv
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from waitress import serve
 
+#for execution time calculation of major functions
+if __debug__:
+    import timeit
+    FUNCTION_EXEC_TIME={}
+
+
 load_dotenv()
 
-REMOTE_MAPPING = [
-    'https://raw.githubusercontent.com/cardiffnlp/tweeteval/main/datasets/offensive/mapping.txt'
-    ]
+REMOTE_MAPPING = 'https://raw.githubusercontent.com/cardiffnlp'\
+                 '/tweeteval/main/datasets/offensive/mapping.txt'
 
 app = Flask(__name__)
 
 allowed_origins = json.loads(os.environ['ALLOWED_ORIGINS']) if os.getenv('ALLOWED_ORIGINS') else []
 
-
 cors = CORS(app, resources={r"/*"})
+
 
 @app.route('/', methods=['GET', 'POST'])
 def api_glossary():
@@ -45,6 +50,10 @@ def welcome():
 @app.route('/detect', methods=['POST'])
 def detect():
     '''Function that detects the text in json file'''
+    if __debug__:
+        global FUNCTION_EXEC_TIME  # pylint: disable=global-statement
+        t_0=timeit.default_timer()
+
     check_headers()
     # Model loaded from https://huggingface.co/cardiffnlp/twitter-roberta-base-offensive/tree/main
     thejson = request.json
@@ -52,6 +61,10 @@ def detect():
         thejson['result'] = process(thejson['text'])
     else:
         return "Invalid Parameters", 400
+
+    if __debug__:
+        FUNCTION_EXEC_TIME['detect()']=timeit.default_timer()-t_0
+        thejson['benchmark'] = FUNCTION_EXEC_TIME
 
     return thejson
 
@@ -65,18 +78,29 @@ def detect():
 
 def preprocess(texts):
     '''Function that processes the texts'''
+    if __debug__:
+        global FUNCTION_EXEC_TIME  # pylint: disable=global-statement
+        t_0=timeit.default_timer()
+
     new_text = []
     for text in texts.split(" "):
         text = '@user' if text.startswith('@') and len(text) > 1 else text
         text = 'http' if text.startswith('http') else text
         new_text.append(text)
+
+    if __debug__:
+        FUNCTION_EXEC_TIME['preprocess()']=timeit.default_timer()-t_0
+
     return " ".join(new_text)
 
 def check_headers():
     '''Function that confirms the headers and token keys'''
+    if __debug__:
+        t_0=timeit.default_timer()
+
     headers = request.headers
     #this will throw an error upon request if no token keys are present in the environment at all
-    tokens = json.loads(os.getenv('TOKEN_KEYS')) if os.getenv('TOKEN_KEYS') else []
+    tokens = json.loads(os.getenv('TOKEN_KEYS')) if os.getenv('TOKEN_KEYS') else {}
     #checking for authorization
     if headers.get("Authorization") is not None:
         extract_bearer_token = headers['Authorization']
@@ -85,6 +109,9 @@ def check_headers():
             abort(403)
     elif headers.get('Origin') not in allowed_origins:    #checking for origin
         abort(403)
+
+    if __debug__:
+        FUNCTION_EXEC_TIME['checkheaders()']=timeit.default_timer()-t_0
 
 
 def softmax(value):
@@ -103,9 +130,14 @@ def process(input_text):
     # from_pretrained("cardiffnlp/twitter-roberta-base-offensive")
     # tokenizer = AutoTokenizer.from_pretrained("cardiffnlp/twitter-roberta-base-offensive")
     # download label mapping
+    if __debug__:
+        global FUNCTION_EXEC_TIME  # pylint: disable=global-statement
+        t_0=timeit.default_timer()
+
     labels = []
     if os.path.isfile("model/mapping.txt"):
-        file_path = open("model/mapping.txt",encoding="utf8")
+        # pylint: disable=consider-using-with # because it is reused below
+        file_path = open("model/mapping.txt", encoding="utf8")
         html = file_path.read().split("\n")
     else:
         file_path = urllib.request.urlopen(REMOTE_MAPPING)
@@ -115,7 +147,7 @@ def process(input_text):
         labels = [row[1] for row in csvreader if len(row) > 1]
     file_path.close()
 
-    # pylint: disable=no-value-for-parameter
+    # pylint: disable=no-value-for-parameter # the class def seems inconsistent
     model = AutoModelForSequenceClassification.from_pretrained('./model')
     # model.save_pretrained(MODEL)
     tokenizer = AutoTokenizer.from_pretrained('./model')
@@ -141,6 +173,9 @@ def process(input_text):
         #l = labels[ranking[i]]
         score = scores[ranking[i]]
         results[labels[ranking[i]]] = str(score)
+
+    if __debug__:
+        FUNCTION_EXEC_TIME['process']=timeit.default_timer()-t_0
 
     return results
 
