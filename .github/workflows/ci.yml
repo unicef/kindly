@@ -23,6 +23,7 @@ jobs:
           python -m pip install -r api/requirements.txt
 
   test:
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
