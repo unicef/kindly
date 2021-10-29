@@ -23,7 +23,6 @@ jobs:
           python -m pip install -r api/requirements.python-3.6.8.txt
 
   test:
-    needs: build
     runs-on: ubuntu-latest
 
     steps:
