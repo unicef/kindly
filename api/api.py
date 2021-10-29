@@ -20,7 +20,6 @@ if __debug__:
     import timeit
     FUNCTION_EXEC_TIME={}
 
-
 load_dotenv()
 
 REMOTE_MAPPING = 'https://raw.githubusercontent.com/cardiffnlp'\
@@ -38,7 +37,7 @@ function_exec_time={}
 @app.route('/', methods=['GET', 'POST'])
 def api_glossary():
     '''function for the api glossary'''
-    check_headers()
+    checkHeaders()
     glossary = {
         "detect": "/detect",
         # "train": "/train" #this is yet to be completed
@@ -64,7 +63,6 @@ def detect():
         thejson['result'] =process(thejson['text'])
     else:
         return "Invalid Parameters", 400
-    
 
     if __debug__:
         FUNCTION_EXEC_TIME['detect()']=timeit.default_timer()-t_0
@@ -80,8 +78,6 @@ def detect():
 #     epochs = request.args.get("epochs", 10)
 #     emotion.train(train_path, epochs)
 
-
-    
 def preprocess(text):
     if __debug__:
         global FUNCTION_EXEC_TIME  # pylint: disable=global-statement
@@ -99,7 +95,6 @@ def preprocess(text):
     return " ".join(new_text)
 
 def checkHeaders():
- 
     if __debug__:
         t_0=timeit.default_timer()
 
@@ -112,19 +107,16 @@ def checkHeaders():
         token = extract_bearer_token.split(" ")
         if tokens.get(token[1]) is None:
             abort(403)
-    
     elif headers.get('Origin') not in allowed_origins:    #checking for origin
         abort(403)
 
     if __debug__:
         FUNCTION_EXEC_TIME['checkheaders()']=timeit.default_timer()-t_0
 
-
 def softmax(value):
     """ applies softmax to an input x"""
     e_x = np.exp(value - np.max(value))
     return e_x / e_x.sum()
-
 
 def process(input_text):
     '''Function that processes the input'''
@@ -184,7 +176,6 @@ def process(input_text):
         FUNCTION_EXEC_TIME['process']=timeit.default_timer()-t_0
 
     return results
-
 
 if __name__ == '__main__':
     # app.run(host='0.0.0.0', port=8080)
