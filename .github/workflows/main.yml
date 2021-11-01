@@ -24,7 +24,7 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.python-3.6.8.txt
       - name: Enforce code style
-         run: cd api && pylint *.py
+        run: cd api && pylint *.py
       - name: Add copy of model
         run: cd api && python get_model.py
       - name: Run unit tests
@@ -45,9 +45,8 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
       - name: Enforce code style
-         run: cd api && pylint *.py
+        run: cd api && pylint *.py
       - name: Add copy of model
         run: cd api && python get_model.py
       - name: Run unit tests
         run: cd api && pytest
-
