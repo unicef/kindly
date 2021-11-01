@@ -67,3 +67,4 @@ jobs:
           file: ./client/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/kindly_client:latest
+
