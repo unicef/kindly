@@ -24,24 +24,17 @@ Please make sure that your development environment has the following prerequisit
    ```bash
    cd kindly/api
    python3 -m venv env
-  
    ```
 
 3. Activate your virtual environment (you will run this step everytime you want to do work in your local development environment):
    - **Linux/OSX**:
-
     ```bash
     source env/bin/activate
-
     ```
      
-   -  **Windows**:
-    
-       Switch to cmd prompt as git bash won't run activate.bat file.Then run this command: 
-      
+   -  **Windows**: Switch to cmd prompt as git bash won't run activate.bat file. Then run this command:   
    ```shell 
-   .\env\Scripts\activate.bat
-
+   your-base-directory\kindly\api> .\env\Scripts\activate.bat
    ``` 
 
 4. Upgrade your local version of `pip`:
@@ -78,40 +71,23 @@ The code for this repository defaults to the production environment configuratio
 *⚠️&nbsp;&nbsp;Note: If you haven't created a new `.env` as per the instructions below, you will recieve a `500` error when trying to submit words to check on the site. If keys are unauthorized it will return a `403` HTTP error.*
 
 
-### Environment Variables and Authorization Tokens
+### Environment Variables
 
- 
-* Linux/OSX:
+Use environment variables to set the configuration needed for the project. Environment variables can conveniently be configured through a `.env` file in the root folder of this repository. This repository provides a sample template `.env.template` file in the root folder that you need to copy into a new file. The code below will create a copy `.env.template` into `.env`:
 
+```bash
+cp .env.template .env
+```
 
-    Use environment variables to set the configuration needed for the project. Environment variables can conveniently be configured through a `.env` file in the root folder of this repository. This repository provides a sample template `.env.template` file in the root folder that you need to copy into a new file. The code below will create a copy `.env.template` into `.env`:
+You can further edit your `.env` file you to update any urls, or authentication tokens if needed.
 
-  ```bash
-  cp .env.template .env
-  ```
-    You can further edit your `.env` file you to update any urls, or authentication tokens if needed.
+#### Authorization Tokens
 
+Authorization tokens are configured through the environment variable named `TOKEN_KEYS`, and is a JSON object of token keys with a value of who owns that key as illustrated below.
 
-
-
-    Authorization tokens are configured through the environment variable named `TOKEN_KEYS`, and is a JSON object of token keys with a value of who owns that key as illustrated below.
-
-
-    ```
-    TOKEN_KEYS = '{"aasdf1234":"third_party_1","a]gghrydf1234":"third_party_1","klasjdflkja":"third_party_3"}'
-    ```
-
- * **Windows**:
-
-    It is easier to configure environmet variables for Windows. In cmd.exe use this command:
-
-    ```shell
-    setx TOKEN_KEYS {\"aasdf1234\":\"third_party_1\",\"a]gghrydf1234\":\"third_party_1\\"klasjdflkja\":\"third_party_3\"}
-    ```
-    
-     It will create a new environment variable named `TOKEN_KEYS` and it will hold the JSON object of token keys with a value of who owns that key. 
-
-
+```
+TOKEN_KEYS = '{"aasdf1234":"third_party_1","a]gghrydf1234":"third_party_1","klasjdflkja":"third_party_3"}'
+```
 
 #### Allowed Origins
 
@@ -119,10 +95,19 @@ The code for this repository defaults to the production environment configuratio
 
 ```python
 ALLOWED_ORIGINS = ["https://unicef.org","https://kindly-client.azurewebsites.net","https://kindly-api.azurewebsites.net", "http://localhost:3000"]
-
 ```
 
 As you will notice from above, the provided `.env.template` already lists `http://localhost:3000`, which is where the client server runs.
+
+#### Windows Configuration of Environment Variables
+
+In Windows, instead of using `.env` files, one can configure environmet variables in `cmd.exe` with this command:
+
+```shell
+setx TOKEN_KEYS {\"aasdf1234\":\"third_party_1\",\"a]gghrydf1234\":\"third_party_1\\"klasjdflkja\":\"third_party_3\"}
+```
+
+The above command will create a new environment variable named `TOKEN_KEYS` and it will hold the JSON object of token keys with a value of who owns that key. 
 
 ## Running Locally
 
@@ -134,16 +119,12 @@ From the `api/` folder:
 
     ```bash
     source env/bin/activate
-
     ```
      
-   -  **Windows**:
-    
-       Switch to cmd prompt as git bash won't run activate.bat file.Then run this command: 
+   -  **Windows**: Switch to cmd prompt as git bash won't run `activate.bat` file. Then run this command: 
       
    ```shell 
-   .\env\Scripts\activate.bat
-
+   your-base-directory\kindly\api> .\env\Scripts\activate.bat
    ``` 
 
 2. Download a local copy of the ML model (you only have to run this once):
@@ -162,7 +143,6 @@ From the `api/` folder:
 
    ```bash
    npm run dev
-  
    ```
 
 ## Test Making Requests with Authorization Tokens
@@ -173,7 +153,6 @@ Your client HTTP requests to the API must include an `Authorization` header with
 
 ```
 "Authorization": "Bearer YOUR-TOKEN-GOES-HERE'"
-
 ```
 
 Unauthorized keys in the request will return a `403` HTTP error.
@@ -213,7 +192,6 @@ axios(config)
 .catch(function (error) {
   console.log(error);
 });
-
 ```
 
 ## Test Making Requests with Allowed Origin
