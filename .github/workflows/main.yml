@@ -9,7 +9,7 @@ on:
 
 jobs:
   
-  build_python_3.6.8:
+  build_python_3_6_8:
     runs-on: ubuntu-latest
 
     steps:
@@ -30,7 +30,7 @@ jobs:
       - name: Run unit tests
         run: cd api && pytest
 
-  build_python_3.8:
+  build_python_3_8:
     runs-on: ubuntu-latest
 
     steps:
