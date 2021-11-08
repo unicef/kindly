@@ -24,7 +24,7 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/unicef/kindly/edit/main/website/',
+          editUrl: 'https://github.com/unicef/kindly/edit/main/docs-website/',
           routeBasePath: '/',   // docs-only mode https://docusaurus.io/docs/docs-introduction#docs-only-mode
         },
         theme: {
