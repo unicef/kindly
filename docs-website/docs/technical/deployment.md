@@ -1,4 +1,8 @@
-## Docker
+---
+sidebar_position: 2
+---
+
+# Deployment
 
 This file documents the production set up for running the code in this repository using dockerized images. Refer to the [API Documentation](api.md) for the production endpoints. For a local development configuration, refer to the [development](development.md) documentation.
 
