@@ -4,7 +4,7 @@ Kindly aims to end cyberbullying and make students feel safer, by leveraging the
 
 ## 📚 Documentation
 
-Refer to the [Kindly Documentation Site](https://unicef.github.io/kindly) to learn more about the various aspects of this project, including the [architecture](https://unicef.github.io/kindly/architecture), doing [technical development](https://unicef.github.io/kindly/technical/development)) or the [API](https://unicef.github.io/kindly/api).
+Refer to the [Kindly Documentation Site](https://unicef.github.io/kindly) to learn more about the various aspects of this project, including the [architecture](https://unicef.github.io/kindly/architecture), doing [technical development](https://unicef.github.io/kindly/technical/development) or the [API](https://unicef.github.io/kindly/api).
 
 ## 💙 About UNICEF
 
