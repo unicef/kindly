@@ -1,4 +1,8 @@
-# API Documentation
+---
+sidebar_position: 5
+---
+
+# 📄 API Documentation
 
 ## List all available endpoints
 
@@ -26,12 +30,12 @@ Status: 200 OK
 }
 ```
 
-## Send text for detection endpoints
+## Cyberbullying detection
 
 Send a piece of text and through this API to determine if it is offensive to post or not.
 
 ```
-POST /
+POST /detect
 ```
 
 ```PAYLOAD```

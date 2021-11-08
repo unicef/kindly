@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Development
 
 This file documents how to set up and run the code in this repository in your local development environment. For a production environment using Docker images, refer to the [deployment](deployment.md) documentation and the [API Documentation](api.md).
