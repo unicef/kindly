@@ -30,9 +30,11 @@
                 <p class="headline text-center text-md-center justify-center">
                   {{ sentimentMessage }}
                 </p>
-                <div class="headline text-center text-md-center justify-center" v-if="sentimentResult && positive">
+                <div
+                  class="headline text-center text-md-center justify-center"
+                  v-if="sentimentResult && positive"
+                >
                   <v-btn
-                  
                     v-for="(social, i) in socials"
                     :key="i"
                     :color="social.color"
@@ -85,18 +87,18 @@
   </div>
 </template>
 <script>
-import Lottie from "vue-lottie/src/lottie.vue";
-import * as loadingAnimation from "../assets/animation.json";
-import * as positiveAnimation from "../assets/happy.json";
-import * as negativeAnimation from "../assets/sad.json";
-import * as waitingAnimation from "../assets/waiting.json";
+import Lottie from 'vue-lottie/src/lottie.vue'
+import * as loadingAnimation from '../assets/animation.json'
+import * as positiveAnimation from '../assets/happy.json'
+import * as negativeAnimation from '../assets/sad.json'
+import * as waitingAnimation from '../assets/waiting.json'
 export default {
   components: {
     lottie: Lottie,
   },
   data() {
     return {
-      text: "",
+      text: '',
       loading: false,
       positive: false,
       lottieOptions: { animationData: loadingAnimation.default },
@@ -104,54 +106,54 @@ export default {
       animationSpeed: 1,
       anim: null,
       sentimentResult: false,
-      sentimentMessage: "",
+      sentimentMessage: '',
       socials: [
         {
-          icon: "mdi-facebook",
-          color: "indigo",
-          url: "https://fb.com",
+          icon: 'mdi-facebook',
+          color: 'indigo',
+          url: 'https://fb.com',
         },
         {
-          icon: "mdi-twitter",
-          color: "cyan darken-1",
-          url: "https://twitter.com",
+          icon: 'mdi-twitter',
+          color: 'cyan darken-1',
+          url: 'https://twitter.com',
         },
         {
-          icon: "mdi-instagram",
-          color: "red lighten-3",
-          url: "https://instagram.com",
+          icon: 'mdi-instagram',
+          color: 'red lighten-3',
+          url: 'https://instagram.com',
         },
       ],
-    };
+    }
   },
   methods: {
     async obtainSentiment() {
-      let vm = this;
+      let vm = this
 
-      vm.initAnimation();
+      vm.initAnimation()
 
       if (vm.text) {
-        this.loading = true;
+        this.loading = true
 
-        vm.sentimentResult = await this.$axios.post("/api/detect", {
+        vm.sentimentResult = await this.$axios.post('/api/detect', {
           text: vm.text,
-        });
+        })
 
-        vm.loading = false;
+        vm.loading = false
 
         if (vm.sentimentResult) {
-          let pos = vm.sentimentResult.data.result["not-offensive"];
-          let neg = vm.sentimentResult.data.result["offensive"];
+          let pos = vm.sentimentResult.data.result['not-offensive']
+          let neg = vm.sentimentResult.data.result['offensive']
           if (
-            parseFloat(vm.sentimentResult.data.result["offensive"]) >
-            parseFloat(vm.sentimentResult.data.result["not-offensive"])
+            parseFloat(vm.sentimentResult.data.result['offensive']) >
+            parseFloat(vm.sentimentResult.data.result['not-offensive'])
           ) {
-            (vm.lottieOptions = { animationData: negativeAnimation.default }),
-              (vm.sentimentMessage = "That's not a very nice thing to say 😾 ");
+            ;(vm.lottieOptions = { animationData: negativeAnimation.default }),
+              (vm.sentimentMessage = "That's not a very nice thing to say 😾 ")
           } else {
-            (vm.lottieOptions = { animationData: positiveAnimation.default }),
-              (vm.sentimentMessage = "Great, you can post that!");
-              vm.positive=true;
+            ;(vm.lottieOptions = { animationData: positiveAnimation.default }),
+              (vm.sentimentMessage = 'Great, you can post that!')
+            vm.positive = true
           }
         }
       }
@@ -161,39 +163,39 @@ export default {
     },
 
     openSocialTab(url) {
-      window.open(url, "_blank");
+      window.open(url, '_blank')
     },
 
     initAnimation() {
-      let vm = this;
-      vm.anim = null;
-      vm.positive = false;
-      (vm.lottieOptions = { animationData: loadingAnimation.default }),
-        (vm.sentimentResult = false);
-      vm.sentimentMessage = "";
+      let vm = this
+      vm.anim = null
+      vm.positive = false
+      ;(vm.lottieOptions = { animationData: loadingAnimation.default }),
+        (vm.sentimentResult = false)
+      vm.sentimentMessage = ''
     },
 
     handleAnimation(anim) {
-      this.anim = anim;
+      this.anim = anim
     },
 
     stop() {
-      this.anim.stop();
+      this.anim.stop()
     },
 
     play() {
-      this.anim.play();
+      this.anim.play()
     },
 
     pause() {
-      this.anim.pause();
+      this.anim.pause()
     },
 
     onSpeedChange() {
-      this.anim.setSpeed(this.animationSpeed);
+      this.anim.setSpeed(this.animationSpeed)
     },
   },
-};
+}
 </script>
 <style scoped>
 /* #home {

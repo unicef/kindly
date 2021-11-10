@@ -1,0 +1,13 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es2021": true
+  },
+  "extends": ["plugin:vue/essential", "standard"],
+  "parserOptions": {
+    "ecmaVersion": 13
+  },
+  "plugins": ["vue"],
+  "rules": {}
+}

@@ -61,17 +61,17 @@
 export default {
   data() {
     return {
-      meanStatement: "",
-      niceStatement: "",
+      meanStatement: '',
+      niceStatement: '',
       loading: false,
-    };
+    }
   },
   methods: {
     async submitTrainingDataText() {
-      this.loading = !this.loading;
-      this.niceStatement = "";
-      this.meanStatement = "";
+      this.loading = !this.loading
+      this.niceStatement = ''
+      this.meanStatement = ''
     },
   },
-};
+}
 </script>
