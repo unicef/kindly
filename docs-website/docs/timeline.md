@@ -1,3 +1,7 @@
+---
+sidebar_position: 8
+---
+
 # 📅 Progress Timeline
 
 **2020** 
@@ -28,5 +32,6 @@
 **November 2021**
 - Develop Kindly’s landing page on the UNICEF website: <a href="https://www.unicef.org/innovation/kindly">https://www.unicef.org/innovation/kindly</a>. The demo interface will be integrated into this page. At this stage, no data will be collected from any submission.
 - Establish a process to collect, store, review, anonymize, and sanitize training data provided by children. A <a href="https://kindly.unicef.io/contribute">Contribute page</a> is added to <a href="https://kindly.unicef.io/">https://kindly.unicef.io/</a> to this end.
+- Kindly's [documentation site](https://unicef.github.io/kindly) is launched to provide an easy onboarding to new contributors.
 - Conduct soft outreach for training data collection through schools so that students can contribute to the training dataset, and improve the machine learning model that powers Kindly. 
 
