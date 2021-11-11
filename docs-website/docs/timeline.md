@@ -6,6 +6,7 @@ sidebar_position: 8
 
 **2020** 
   - Gitanjali Rao launches her proof-of-concept for Kindly, an AI-based, anti-cyberbullying service. Her initial work included a Natural Language Processing (NLP) model developed using Microsoft Azure's Language Understanding (LUIS) cloud-based engine. The data is manually reviewed and added to LUIS. The proof of concept includes an API, a Chrome Extension, and a standalone app.
+  - A small dataset was collected directly from contributions by children who learned about Kindly through Gitanjali’s social media outreach and local community launch of the beta version of the product.
   - UNICEF <a href = "https://www.google.com/url?q=https://www.voicesofyouth.org/blog/future-internet-safety-reimagined&sa=D&source=docs&ust=1636499706053000&usg=AOvVaw1ABIoLrLJPwocJDeJ6NKFL"> profiles Gitanjali Rao</a> in the Voices of Youth global community, where Gitanjali blogs about Internet safety, protection against discrimination, and protection against cyberbullying.
 
 
