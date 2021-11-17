@@ -12,9 +12,17 @@ In Machine Learning (ML) and Natural Language Processing (NLP), data is sorted i
 
 Kindly is currently compiling a training dataset to both [tranfer learning](prebuilt#transfer-learning) from the current model (see [cardiffnlp/twitter-roberta-base-offensive](https://github.com/cardiffnlp/tweeteval)) using data submitted by children, and [to build a new model from scratch](./build-from-scratch).
 
+Once data is started to be compiled, it will be split into the three groups mentioned above to create the model. You can refer to the notebook [`KindlyModel.ipynb`](https://github.com/unicef/kindly/blob/main/modeling/KindlyModel.ipynb) as a reference on how this split is currently being done with the initial dataset.
+
 ## Initial Dataset
 
 The [initial dataset](https://github.com/unicef/kindly/tree/main/modeling/dataset) comes from the data provided by Gitanjali Rao (see [Acknowledgements](../acknowledgements)), which was exported from the proof-of-concept NLP model developed using Microsoft Azure's Language Understanding (LUIS) cloud-based engine.
+
+This initial data was extracted from it's original JSON format and put in to two text files, `modeling/dataset/offensive_train_text.txt` and `modeling/dataset/offensive_train_labels.txt`. These two files are the initial format which will be used to build the final model for kindly. 
+
+The data is tagged in the file `modeling/dataset/offensive_train_labels.txt` to know which submissions are offensive or not to help the model learn. The numbers `1` and `0` in the labels file correspond to `offensive` and `non-offensive` respectively. 
+The number on each line in the file directly corresponds to the sentence or phrase in each line of the training text file `offensive_train_text.txt`.
+These numerical tags will be validated as more data comes in through the *Data Colection* process mentioned below.
 
 ## Data Collection
 
