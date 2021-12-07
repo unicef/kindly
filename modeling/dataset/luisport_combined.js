@@ -5,9 +5,9 @@ let louis = require('./kindly_luis_export.json')
 let utterances = louis.utterances;
 let resultString = ''
 for (index in utterances){
-    ignore = ["ignore", "none"]
+    ignore = ["ignore", "None"]
     bully = ["bully", "insult", "teasing"]
-    label = (bully.includes(utterances[index].intent)) ? '1' : '0';
+    label = (ignore.includes(utterances[index].intent)) ? 0 : 1;
     resultString = '[' + utterances[index].text + '],' + ' [' + label + ']\n'
     fs.writeFileSync('training_data.txt', resultString, { flag: 'a+' }, err => {
         console.log("Something went wrong while writing to file ",err)
