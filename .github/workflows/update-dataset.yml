@@ -1,0 +1,17 @@
+name: Dataset Updates
+
+on:
+  push:
+    paths:
+      - modeling/dataset/dataset_updates.json'
+
+jobs:
+  get_updates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+      - name: Change into modeling/dataset folder
+        run: cd modeling/dataset
+      - name: Run training_data.js script
+        run: node training_data.js
