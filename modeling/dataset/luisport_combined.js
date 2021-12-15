@@ -11,18 +11,10 @@ let louis = require('./kindly_luis_export.json')
 let utterances = louis.utterances;
 let resultString = ''
 for (index in utterances){
-    ignore = ["ignore", "none"]
+    ignore = ["ignore", "None"]
     label = (ignore.includes(utterances[index].intent)) ? 0 : 1;
-    var data = fs.readFileSync('modeling/dataset/training_data.json')
-    var fileContents = JSON.parse(data)
-    let result = {
-        "text": utterances[index].text,
-        "intent": label
-    }
-    fileContents.push(result)
-    var newData = JSON.stringify(fileContents, null, 4)
-    fs.writeFileSync('modeling/dataset/training_data.json', newData, err => {
-        if(err) throw err;
-        console.log("new data added");
+    resultString = '[' + utterances[index].text + '],' + ' [' + label + ']\n'
+    fs.writeFileSync('modeling/dataset/training_data.txt', resultString, { flag: 'a+' }, err => {
+        console.log("Something went wrong while writing to file ",err)
     })
 }
