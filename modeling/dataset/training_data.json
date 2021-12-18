@@ -1,0 +1,250 @@
+[
+    {
+        "text": "back off",
+        "intent": 1
+    },
+    {
+        "text": "baseball was horrible",
+        "intent": 0
+    },
+    {
+        "text": "don't come to school, will kill you",
+        "intent": 1
+    },
+    {
+        "text": "go kill yourself",
+        "intent": 1
+    },
+    {
+        "text": "haha",
+        "intent": 0
+    },
+    {
+        "text": "haha you're such a ugly little kid",
+        "intent": 1
+    },
+    {
+        "text": "hello",
+        "intent": 0
+    },
+    {
+        "text": "how are you",
+        "intent": 0
+    },
+    {
+        "text": "i don't like the game",
+        "intent": 0
+    },
+    {
+        "text": "i hate that movie",
+        "intent": 0
+    },
+    {
+        "text": "i hate you",
+        "intent": 1
+    },
+    {
+        "text": "i have gun",
+        "intent": 1
+    },
+    {
+        "text": "i have so much homework im going to die",
+        "intent": 0
+    },
+    {
+        "text": "i hope you die",
+        "intent": 1
+    },
+    {
+        "text": "i love hanging out with you. want to hang out next week? we could go bowling, or to the mall. whatever you want to do!",
+        "intent": 0
+    },
+    {
+        "text": "i love you",
+        "intent": 0
+    },
+    {
+        "text": "i loved movie, hero was fat",
+        "intent": 1
+    },
+    {
+        "text": "i was watching movie yesterday",
+        "intent": 0
+    },
+    {
+        "text": "i will hurt you in school today.",
+        "intent": 1
+    },
+    {
+        "text": "i will not leave you",
+        "intent": 1
+    },
+    {
+        "text": "idiot",
+        "intent": 1
+    },
+    {
+        "text": "it is absolutely amazing learning more about you. but i have so much homework so i have to finish that as soon as possible. maybe we can hang out another time? it's fine if you can't, we'll see each other at school anyway!",
+        "intent": 0
+    },
+    {
+        "text": "late bloomer",
+        "intent": 1
+    },
+    {
+        "text": "leave me alone",
+        "intent": 1
+    },
+    {
+        "text": "movie",
+        "intent": 0
+    },
+    {
+        "text": "movie sucks",
+        "intent": 0
+    },
+    {
+        "text": "movies suck",
+        "intent": 0
+    },
+    {
+        "text": "really? i d",
+        "intent": 0
+    },
+    {
+        "text": "sleepyhead",
+        "intent": 1
+    },
+    {
+        "text": "sports",
+        "intent": 0
+    },
+    {
+        "text": "that movie was nor good",
+        "intent": 0
+    },
+    {
+        "text": "that movie was so bad. it sucked so much. i don't even understand why they killed that guy, he deserved to live/",
+        "intent": 0
+    },
+    {
+        "text": "wake up",
+        "intent": 1
+    },
+    {
+        "text": "we will have more people come on shortly",
+        "intent": 0
+    },
+    {
+        "text": "well that is still shitty of him",
+        "intent": 1
+    },
+    {
+        "text": "you are",
+        "intent": 0
+    },
+    {
+        "text": "you are a fool",
+        "intent": 1
+    },
+    {
+        "text": "you are a moron",
+        "intent": 1
+    },
+    {
+        "text": "you are always a late bloomer",
+        "intent": 1
+    },
+    {
+        "text": "you are an idiot",
+        "intent": 1
+    },
+    {
+        "text": "you are annoying",
+        "intent": 1
+    },
+    {
+        "text": "you are big jerk",
+        "intent": 1
+    },
+    {
+        "text": "you are fat",
+        "intent": 1
+    },
+    {
+        "text": "you are fat and ugly",
+        "intent": 1
+    },
+    {
+        "text": "you are fat, i hate you",
+        "intent": 1
+    },
+    {
+        "text": "you are finished",
+        "intent": 1
+    },
+    {
+        "text": "you are nice",
+        "intent": 0
+    },
+    {
+        "text": "you are not funny",
+        "intent": 1
+    },
+    {
+        "text": "you are really fat",
+        "intent": 1
+    },
+    {
+        "text": "you are rude",
+        "intent": 1
+    },
+    {
+        "text": "you are stupid",
+        "intent": 1
+    },
+    {
+        "text": "you blacky",
+        "intent": 1
+    },
+    {
+        "text": "you deserve to die",
+        "intent": 1
+    },
+    {
+        "text": "you deserve to go out and play",
+        "intent": 0
+    },
+    {
+        "text": "you fat",
+        "intent": 1
+    },
+    {
+        "text": "you look like an idiot",
+        "intent": 1
+    },
+    {
+        "text": "you make me laugh a lot",
+        "intent": 0
+    },
+    {
+        "text": "you nut",
+        "intent": 1
+    },
+    {
+        "text": "you silly",
+        "intent": 1
+    },
+    {
+        "text": "you suck so much",
+        "intent": 1
+    },
+    {
+        "text": "you're ugly and fat",
+        "intent": 1
+    },
+    {
+        "text": "you're ugly and stupid",
+        "intent": 1
+    }
+]
