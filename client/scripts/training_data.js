@@ -6,7 +6,7 @@ const fs = require('fs')
 const { google } = require('googleapis')
 const sheets = google.sheets('v4')
 
-const trainingDataFile = '../modeling/dataset/training_data.txt'
+const trainingDataFile = '../modeling/dataset/training_data.json'
 
 async function main () {
   const authClient = await authorize()
@@ -19,23 +19,29 @@ async function main () {
   try {
     const response = (await sheets.spreadsheets.values.get(request)).data
 
-    const data = response
-    const phrases = data.values
-    let resultString = ''
+    const phrases = response.values
+    const data = fs.readFileSync(trainingDataFile)
+    const fileContents = JSON.parse(data)
     for (value in phrases) {
-      resultString = '[' + phrases[value][1] + '],' + ' [' + phrases[value][0] + ']\n'
-      fs.writeFileSync(trainingDataFile, resultString, { flag: 'a+' }, err => {
-        console.log('Something went wrong while writing to file ', err)
+      let result = {
+        text: phrases[value][1],
+        intent: phrases[value][0]
+      }
+      fileContents.push(result)
+      let newData = JSON.stringify(fileContents, null, 4)
+      fs.writeFileSync('modeling/dataset/training_data.json', newData, err => {
+        if (err) throw err
+        console.log('new data added')
       })
     }
   } catch (err) {
     console.error(err)
   }
   try {
-    const response = (await sheets.spreadsheets.values.clear(request)).data;
-    console.log(JSON.stringify(response, null, 2));
+    const response = (await sheets.spreadsheets.values.clear(request)).data
+    console.log(JSON.stringify(response, null, 2))
   } catch (err) {
-    console.error(err);
+    console.error(err)
   }
 }
 main()

@@ -1,17 +1,41 @@
 name: Dataset Updates
 
 on:
-  push:
-    paths:
-      - modeling/dataset/dataset_updates.json'
+  schedule:
+    # Runs once a day at 4:15AM UTC
+    # - cron: '15 4 * * *'
 
 jobs:
   get_updates:
+
+    permissions:
+      id-token: write
+      contents: read
+
     runs-on: ubuntu-latest
+
     steps:
-      - name: Check out the repo
-        uses: actions/checkout@v2
-      - name: Change into modeling/dataset folder
-        run: cd modeling/dataset
-      - name: Run training_data.js script
-        run: node training_data.js
+    - name: Check out the repo
+      uses: actions/checkout@v2
+    - id: 'auth'
+      name: 'Authenticate to Google Cloud'
+      uses: 'google-github-actions/auth@v0'
+      with:
+        create_credentials_file: true
+        workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
+        service_account:  ${{ secrets.GOOGLE_SERVICE_ACCOUNT }}
+
+    - id: retrieve_updates
+      name: Retrieve Google Sheet updates
+      uses: jroehl/gsheet.action@v1
+      with:
+        spreadsheetId: ${{ secrets.GOOGLE_SPREADSHEET_ID }}
+        commands: |
+          [
+            { "command": "getData", "args": { "range": "'Output_Sheet'!A1:B1000"}}
+          ]
+
+    - name: Run client/scripts/training_data.js script
+      env:
+        RESULTS: ${{ steps.retrieve_updates.outputs.results }}
+      run: node training_data.js
