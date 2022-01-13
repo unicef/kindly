@@ -2,21 +2,22 @@ name: Dataset Updates
 
 on:
   schedule:
-    # Runs once a day at 4:15AM UTC
-    # - cron: '15 4 * * *'
+    # Runs once a day at midnight UTC
+    # - cron: '0 0 * * *'
 
 jobs:
   get_updates:
 
     permissions:
-      id-token: write
-      contents: read
+      id-token: 'write'
+      contents: 'read'
 
-    runs-on: ubuntu-latest
+    runs-on: 'ubuntu-latest'
 
     steps:
-    - name: Check out the repo
-      uses: actions/checkout@v2
+    - name: 'Check out the repo'
+      uses: 'actions/checkout@v2'
+
     - id: 'auth'
       name: 'Authenticate to Google Cloud'
       uses: 'google-github-actions/auth@v0'
@@ -25,17 +26,26 @@ jobs:
         workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
         service_account:  ${{ secrets.GOOGLE_SERVICE_ACCOUNT }}
 
-    - id: retrieve_updates
-      name: Retrieve Google Sheet updates
-      uses: jroehl/gsheet.action@v1
-      with:
-        spreadsheetId: ${{ secrets.GOOGLE_SPREADSHEET_ID }}
-        commands: |
-          [
-            { "command": "getData", "args": { "range": "'Output_Sheet'!A1:B1000"}}
-          ]
+    - name: 'Run trainingData.js script'
+      id: 'results'
+      run: |
+        cd client
+        npm i googleapis --silent
+        cd scripts
+        export CREDENTIALS_PATH=${{ steps.auth.outputs.credentials_file_path }}
+        export SPREADSHEET_RANGE=${{ secrets.SPREADSHEET_RANGE }}
+        export SPREADSHEET_ID=${{ secrets.SPREADSHEET_ID }}
+        node trainingData.js
 
-    - name: Run client/scripts/training_data.js script
-      env:
-        RESULTS: ${{ steps.retrieve_updates.outputs.results }}
-      run: node training_data.js
+    - name: 'Get current date'
+      id: 'date'
+      run: echo "::set-output name=today::$(date +'%Y-%m-%d')"
+
+    - name: 'Commit updated file'
+      run: |
+        git config --global user.name 'sabinevidal'
+        git config --global user.email 'sabinevidal@users.noreply.github.com'
+        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/unicef/kindly
+        git add ./modeling/dataset/training_data.json
+        git commit -am "Updated training data - ${{ steps.date.outputs.today }}"
+        git push
