@@ -34,12 +34,12 @@ async function main () {
         intent: phrases[value][0]
       }
       trainingDataFile.push(result)
-      let newData = JSON.stringify(trainingDataFile, null, 4)
+    }
+    let newData = JSON.stringify(trainingDataFile, null, 4)
       fs.writeFileSync(trainingDataFilePath, newData, err => {
         if (err) throw err
         console.log('new data added')
       })
-    }
   } catch (err) {
     console.error(err)
   }
