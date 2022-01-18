@@ -1,9 +1,9 @@
 name: Dataset Updates
 
-on:
-  schedule:
+on: 'push'
+#   schedule:
     # Runs once a day at midnight UTC
-    - cron: '0 0 * * *'
+#     - cron: '0 0 * * *'
 
 jobs:
   get_updates:
@@ -43,8 +43,8 @@ jobs:
 
     - name: 'Commit updated file'
       run: |
-        git config --global user.name 'sabinevidal'
-        git config --global user.email 'sabinevidal@users.noreply.github.com'
+        git config --global user.name 'nathanfletcher'
+        git config --global user.email 'nathanfletcher@users.noreply.github.com'
         git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/unicef/kindly
         git add ./modeling/dataset/training_data.json
         git commit -am "Updated training data - ${{ steps.date.outputs.today }}"
