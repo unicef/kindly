@@ -1,9 +1,9 @@
 name: Dataset Updates
 
-on: 'push'
-#   schedule:
+on:
+   schedule:
     # Runs once a day at midnight UTC
-#     - cron: '0 0 * * *'
+     - cron: '0 0 * * *'
 
 jobs:
   get_updates:
