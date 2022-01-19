@@ -10,6 +10,8 @@ jobs:
 
     permissions:
       id-token: 'write'
+      actions: 'write'
+      contents: 'write'
 
     runs-on: 'ubuntu-latest'
 
