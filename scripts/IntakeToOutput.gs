@@ -8,8 +8,6 @@ function intakeToOutput(){
   var not_bullying = 'no';
   var ss = activeSpreadsheet.getSheetByName('IntakeSheet');
   var targetSheet = activeSpreadsheet.getSheetByName('OutputSheet');
-  var rows = ss.getDataRange().getValues();
-  var headers = rows.shift();
   var nextRow = targetSheet.getLastRow() + 1;
   var endRow = ss.getLastRow();
   var newValues = [];
@@ -18,7 +16,8 @@ function intakeToOutput(){
     for (var row = endRow; row >= 1; row-- ) {
       var reviewedRow = ss.getRange(row, 1, 1, 4);
       var reviewedValues = reviewedRow.getValues()[0];
-      if (reviewedValues[3]) {
+      if (reviewedValues[3]) { // if row has been reviewed
+        // bulling = 1 and not_bulling = 0. Skipping maybe for now
         if (reviewedValues[2] == bullying) {
           var intent = 1;
         } else if (reviewedValues[2] == not_bullying) {
@@ -27,10 +26,10 @@ function intakeToOutput(){
           continue;
         }
         newValues.push([intent, reviewedValues[1]]);
-        ss.deleteRow(row)
+        ss.deleteRow(row) // delete each row from IntakeSheet 
       }
     }   
-    targetSheet.getRange(nextRow, 1, newValues.length, 2).setValues(newValues);
+    targetSheet.getRange(nextRow, 1, newValues.length, 2).setValues(newValues); // add new phrases to OutputSheet in a batch to avoid multiple calls from each iteration
   }
   catch (e) {
     return ContentService
