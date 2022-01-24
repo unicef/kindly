@@ -1,11 +1,20 @@
 <template>
   <div id="home">
-    <v-row justify="center" align="center">
-      <v-col cols="12" sm="8" md="6">
+    <v-row
+      justify="center"
+      align="center"
+    >
+      <v-col
+        cols="12"
+        sm="8"
+        md="6"
+      >
         <v-card>
           <v-card-title class="" />
           <v-card-text>
-            <div class="text-h2 text-center text-md-center">KINDLY</div>
+            <div class="text-h2 text-center text-md-center">
+              KINDLY
+            </div>
             <v-spacer />
             <v-col cols="12">
               <v-textarea
@@ -50,7 +59,10 @@
               </v-col>
             </v-row>
             <v-row>
-              <v-col cols="12" class="justify-center" />
+              <v-col
+                cols="12"
+                class="justify-center"
+              />
             </v-row>
           </v-card-text>
           <v-card-actions>
