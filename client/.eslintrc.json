@@ -4,10 +4,7 @@
     "commonjs": true,
     "es2021": true
   },
-  "extends": ["plugin:vue/essential", "standard"],
-  "parserOptions": {
-    "ecmaVersion": 13
-  },
+  "extends": ["plugin:vue/vue3-recommended"],
   "plugins": ["vue"],
   "rules": {}
 }
