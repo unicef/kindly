@@ -16,6 +16,6 @@ This project consists of three primary building blocks:
 
 Additionally, it also leverages the following complementary infrastructure:
 
-- **Javascript Client**: A very simple user interface (UI) is provided for demonstration purposes, so that users can try out and test the API. This provides a frontend that interacts with the API Server to check whether the input text is offensive or not, and reports the result back to the user. A different client page is set up for children to contribute to the [training dataset](./ml-model/training-data), by sending input data into temporary storage for review, which later gets added to the open dataset.
+- **Web Client**: A very simple user interface (UI) is provided for demonstration purposes, so that users can try out and test the API. This provides a frontend that interacts with the API Server to check whether the input text is offensive or not, and reports the result back to the user. A different client page is set up for children to contribute to the [training dataset](./ml-model/training-data), by sending input data into temporary storage for review, which later gets added to the open dataset.
 
 - **Continuous Integration and Continuous Development (CI/CD) Pipelines** trigger the client website and the API to be rebuilt and deployed whenever code is updated in GitHub. It also passes on updated model training data text files and model updates to the ML Training server.

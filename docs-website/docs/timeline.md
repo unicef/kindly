@@ -35,4 +35,8 @@ sidebar_position: 8
 - Establish a process to collect, store, review, anonymize, and sanitize training data provided by children. A <a href="https://kindly.unicef.io/contribute">Contribute page</a> is added to <a href="https://kindly.unicef.io/">https://kindly.unicef.io/</a> to this end.
 - Kindly's [documentation site](https://unicef.github.io/kindly) is launched to provide an easy onboarding to new contributors.
 - Conduct soft outreach for training data collection through schools so that students can contribute to the training dataset, and improve the machine learning model that powers Kindly. 
+- Conduct soft outreach for training data collection through schools so that students can contribute to the training dataset, and improve the machine learning model that powers Kindly. 
+- Gitanjali spoke about Kindly at World Children's Day (https://www.unicef.org/world-childrens-day) at the Dubai 2020 EXPO. Kindly was also featured in a [Voices of Youth blog post](https://www.voicesofyouth.org/youthadvocates2021) by Gitanjali. 
 
+**December 2021**
+- The team aims to conduct outreach to 600+ students and education leaders through multiple school events and conferences.
