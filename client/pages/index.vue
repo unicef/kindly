@@ -3,7 +3,7 @@
     <v-row justify="center" align="center">
       <v-col cols="12" sm="8" md="6">
         <v-card>
-          <v-card-title class=""> </v-card-title>
+          <v-card-title class="" />
           <v-card-text>
             <div class="text-h2 text-center text-md-center">KINDLY</div>
             <v-spacer />
@@ -12,7 +12,7 @@
                 v-model="text"
                 label="What do you want to say?"
                 outlined
-              ></v-textarea>
+              />
             </v-col>
             <v-row>
               <v-col cols="12">
@@ -21,7 +21,7 @@
                   :width="100"
                   :height="100"
                   :options="lottieOptions"
-                  v-on:animCreated="handleAnimation"
+                  @animCreated="handleAnimation"
                 />
               </v-col>
             </v-row>
@@ -31,8 +31,8 @@
                   {{ sentimentMessage }}
                 </p>
                 <div
-                  class="headline text-center text-md-center justify-center"
                   v-if="sentimentResult && positive"
+                  class="headline text-center text-md-center justify-center"
                 >
                   <v-btn
                     v-for="(social, i) in socials"
@@ -50,7 +50,7 @@
               </v-col>
             </v-row>
             <v-row>
-              <v-col cols="12" class="justify-center"> </v-col>
+              <v-col cols="12" class="justify-center" />
             </v-row>
           </v-card-text>
           <v-card-actions>
@@ -61,14 +61,14 @@
               :width="200"
               :height="200"
               :options="lottieOptions_waiting"
-              v-on:animCreated="handleAnimation"
+              @animCreated="handleAnimation"
             />
             <lottie
               v-if="loading"
               :width="100"
               :height="100"
               :options="lottieOptions"
-              v-on:animCreated="handleAnimation"
+              @animCreated="handleAnimation"
             />
 
             <v-spacer />
@@ -142,8 +142,6 @@ export default {
         vm.loading = false
 
         if (vm.sentimentResult) {
-          let pos = vm.sentimentResult.data.result['not-offensive']
-          let neg = vm.sentimentResult.data.result['offensive']
           if (
             parseFloat(vm.sentimentResult.data.result['offensive']) >
             parseFloat(vm.sentimentResult.data.result['not-offensive'])
