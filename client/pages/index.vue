@@ -142,8 +142,6 @@ export default {
         vm.loading = false
 
         if (vm.sentimentResult) {
-          // let pos = vm.sentimentResult.data.result['not-offensive']
-          // let neg = vm.sentimentResult.data.result['offensive']
           if (
             parseFloat(vm.sentimentResult.data.result['offensive']) >
             parseFloat(vm.sentimentResult.data.result['not-offensive'])
