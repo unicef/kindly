@@ -47,7 +47,7 @@ jobs:
         if git diff --exit-code; then
           git config --global user.name 'nathanfletcher'
           git config --global user.email 'nathanfletcher@users.noreply.github.com'
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/unicef/kindly
+          git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/unicef/kindly
           git add ./modeling/dataset/training_data.json
           git commit -am "Updated training data - ${{ steps.date.outputs.today }}"
           git push
