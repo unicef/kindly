@@ -1,7 +1,8 @@
 // Google Apps Script to process data sent to Google Sheets from the Contribution form on https://kindly.unicef.io/contribute
-// If contributing, ask admin for `SpreadsheetId`, `IntakeSheet` and `OutputSheet`
+// If contributing, ask admin for `SpreadsheetId`, `IntakeSheet`, `OutputSheet` and `CounterCell`
+// example: `e = {parameter:{"text": "You suck", "intent": "yes", "row": 'undefined'}}`
 
-var sheetName = 'OutputSheet'
+var sheetName = 'IntakeSheet'
 var scriptProp = PropertiesService.getScriptProperties()
 
 function intialSetup () {
@@ -9,34 +10,68 @@ function intialSetup () {
   scriptProp.setProperty('key', activeSpreadsheet.getId())
 }
 
-function doPostOutput (request){
-  console.log(request);
+function doPost (e) {
+  var lock = LockService.getScriptLock()
+  lock.tryLock(10000)
 
   try {
     var doc = SpreadsheetApp.openById(scriptProp.getProperty('key'))
     var sheet = doc.getSheetByName(sheetName)
-    
-    var data = getSheetData(sheet)
 
-    var outputString =''
+    // get the sheet's headers (timestamp, text etc)
+    var headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0]
+    var nextRow = sheet.getLastRow() + 1
 
-    data.forEach((row)=>{
-        outputString += row.toString() + '/n';
-    });
+    // rule to create data validation for dropdown yes/no/maybe for bullying detected
+    var dropdownRule = SpreadsheetApp.newDataValidation().requireValueInList(['yes', 'no', 'maybe'], true).build()
 
-    console.log(outputString)
+    // cell with counter to keep track of number of new contributions (resets once review email has been sent)
+    var counterCell = sheet.getRange(counterCell)
+    var counterValue = counterCell.getValue()
+    var counter = 15
 
-    return ContentService.createTextOutput(outputstring).setMimeType(ContentService.MimeType.TEXT);
+    console.log(e)
 
+    if("row" in e.parameter && e.parameter['row']!=='undefined'){
+      nextRow = e.parameter['row']
+    }
+
+    // sets the value for the cell under the 'timestamp' header to the Date
+    // else sets to the value corresponding to the other headers (`text`, `intent`)
+    var newRow = headers.map(function(header) {
+      return header === 'timestamp' ? new Date() : e.parameter[header]
+    })
+
+    // add the new input into the rest of the cells
+    sheet.getRange(nextRow, 1, 1, newRow.length).setValues([newRow]);
+
+    // adds data validation cell to row with dropdownRule
+    sheet.getRange(nextRow, 3).setDataValidation(dropdownRule);
+
+    // adds checkbox for reviewed column
+    sheet.getRange(nextRow, 4).insertCheckboxes();
+
+    // Increments the counter by one for each new row added
+    counterCell.setValue(counterValue + 1);
+
+    // if the counterValue hits the specified amount, triggers reviewAlert() which sends an email and resets the counter
+    if(counterValue >= counter){
+      // see reviewAlert.gs
+      reviewAlert()
+    }
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ 'result': 'success', 'row': nextRow }))
+      .setMimeType(ContentService.MimeType.JSON)
   }
-  catch (e){
+
+  catch (e) {
     return ContentService
       .createTextOutput(JSON.stringify({ 'result': 'error', 'error': e, 'test':true }))
       .setMimeType(ContentService.MimeType.JSON)
   }
-};
 
-function getSheetData(sheetObject) {
-   var sh = sheetObject;
-   return sh.getDataRange().getValues();
+  finally {
+    lock.releaseLock()
+  }
 }
