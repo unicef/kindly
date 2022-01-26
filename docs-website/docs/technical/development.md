@@ -10,7 +10,7 @@ This file documents how to set up and run the code in this repository in your lo
 
 Please make sure that your development environment has the following prerequisites:
 - NodeJS 16
-- Python 3
+- Python 3.8+
 
 ## Installation
 
@@ -54,12 +54,7 @@ Please make sure that your development environment has the following prerequisit
    ```
 
 
-  ⚠️&nbsp;&nbsp;*This configuration is known to work with Python 3.8.0. Other versions of Python may have different dependencies, which will require different versions of `requirements.txt`, for example, if you have Python 3.6, try the following instead:*
-  ```bash
-  pip install -r requirements.python-3.6.8.txt
-  ```
-  *We will add more configuration files as we try other versions.*
-
+  ⚠️&nbsp;&nbsp;*This configuration is known to work with Python 3.8. Other versions of Python may have different dependencies, which will require different versions of `requirements.txt`. We stopped supporting Python 3.6 in January 2022 when Numpy stopped supporting Python 3.6 in their [1.20.0 Release](https://numpy.org/doc/stable/release/1.20.0-notes.html)
 
 6. Change into the client folder to install the client dependencies:
 
