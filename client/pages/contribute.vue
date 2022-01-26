@@ -6,11 +6,7 @@
           <v-subheader>Write something very mean</v-subheader>
         </v-col>
         <v-col cols="8">
-          <v-textarea
-            label="Arrrgh"
-            v-model="meanStatement"
-            prefix="😡"
-          ></v-textarea>
+          <v-textarea v-model="meanStatement" label="Arrrgh" prefix="😡" />
         </v-col>
       </v-row>
 
@@ -19,7 +15,7 @@
           <v-subheader>Write something nice</v-subheader>
         </v-col>
         <v-col cols="8">
-          <v-textarea v-model="niceStatement" prefix="🙂"></v-textarea>
+          <v-textarea v-model="niceStatement" prefix="🙂" />
         </v-col>
       </v-row>
       <v-card-actions>
@@ -27,8 +23,8 @@
         <v-btn
           :loading="loading"
           :disabled="loading"
-          @click="submitTrainingDataText"
           color="primary"
+          @click="submitTrainingDataText"
         >
           Send
         </v-btn>

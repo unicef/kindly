@@ -12,12 +12,12 @@ const spreadsheetId = process.env.SPREADSHEET_ID
 const range = process.env.SPREADSHEET_RANGE
 const credentialsPath = process.env.CREDENTIALS_PATH
 
-async function main () {
+async function main() {
   const auth = new google.auth.GoogleAuth({
     keyFile: credentialsPath,
-    scopes: "https://www.googleapis.com/auth/spreadsheets",
-  });
-  const authClient = await auth.getClient();
+    scopes: 'https://www.googleapis.com/auth/spreadsheets',
+  })
+  const authClient = await auth.getClient()
 
   const request = {
     spreadsheetId: spreadsheetId,
@@ -31,15 +31,15 @@ async function main () {
     for (value in phrases) {
       let result = {
         text: phrases[value][1],
-        intent: phrases[value][0]
+        intent: phrases[value][0],
       }
       trainingDataFile.push(result)
     }
     let newData = JSON.stringify(trainingDataFile, null, 4)
-      fs.writeFileSync(trainingDataFilePath, newData, err => {
-        if (err) throw err
-        console.log('new data added')
-      })
+    fs.writeFileSync(trainingDataFilePath, newData, (err) => {
+      if (err) throw err
+      console.log('new data added')
+    })
   } catch (err) {
     console.error(err)
   }
