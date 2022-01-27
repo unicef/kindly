@@ -25,6 +25,11 @@ function doPost (e) {
     // rule to create data validation for dropdown yes/no/maybe for bullying detected
     var dropdownRule = SpreadsheetApp.newDataValidation().requireValueInList(['yes', 'no', 'maybe'], true).build()
 
+    // cell with counter to keep track of number of new contributions (resets once review email has been sent)
+    var counterCell = sheet.getRange(counterCell)
+    var counterValue = counterCell.getValue()
+    var counter = 15
+
     console.log(e)
 
     if("row" in e.parameter && e.parameter['row']!=='undefined'){
@@ -45,6 +50,15 @@ function doPost (e) {
 
     // adds checkbox for reviewed column
     sheet.getRange(nextRow, 4).insertCheckboxes();
+
+    // Increments the counter by one for each new row added
+    counterCell.setValue(counterValue + 1);
+
+    // if the counterValue hits the specified amount, triggers reviewAlert() which sends an email and resets the counter
+    if(counterValue >= counter){
+      // see reviewAlert.gs
+      reviewAlert()
+    }
 
     return ContentService
       .createTextOutput(JSON.stringify({ 'result': 'success', 'row': nextRow }))
