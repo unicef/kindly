@@ -45,7 +45,7 @@ async function main() {
   }
   try {
     const response = (await sheets.spreadsheets.values.clear(request)).data;
-    console.log('processed data cleared');
+    console.log(JSON.stringify(response, null, 2));
   } catch (err) {
     console.error(err);
   }
