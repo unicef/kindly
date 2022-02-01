@@ -43,5 +43,11 @@ async function main() {
   } catch (err) {
     console.error(err)
   }
+  try {
+    const response = (await sheets.spreadsheets.values.clear(request)).data;
+    console.log('processed data cleared');
+  } catch (err) {
+    console.error(err);
+  }
 }
 main()
