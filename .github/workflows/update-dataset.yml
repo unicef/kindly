@@ -44,7 +44,7 @@ jobs:
 
     - name: 'Commit updated file'
       run: |
-        if git diff --exit-code; then
+        if ! git diff --exit-code; then
           git config --global user.name 'nathanfletcher'
           git config --global user.email 'nathanfletcher@users.noreply.github.com'
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/unicef/kindly
