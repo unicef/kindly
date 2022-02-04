@@ -14,7 +14,7 @@ The [API](https://github.com/unicef/kindly/tree/main/api) includes the [applicat
 There are currently 3 endpoints, with 1 more for ML training which is yet to be completed. The `'/'` route returns the api glossary, with the functional and relevant endpoints. The `'/test-ui'` endpoint renders the [`index.html` template](https://github.com/unicef/kindly/tree/main/api/templates) for testing. The `'/detect'` endpoint is used to process input text.
 
 #### Tests
-The [unit tests](https://github.com/unicef/kindly/blob/main/api/test_api.py) are set up using pytest, and will run with the [`main.yml`](https://github.com/unicef/kindly/blob/main/.github/workflows/main.yml) workflow. They target the API url `http://localhost:8080/` and test for success, 403 error, 404 error and 400 error (see [development docs](technical/development#testing) for a detailed outline).
+The [unit tests](https://github.com/unicef/kindly/blob/main/api/test_api.py) are set up using pytest, and will run with the [`main.yml`](https://github.com/unicef/kindly/blob/main/.github/workflows/main.yml) workflow. They target the API url `localhost:8080/` and test for success, 403 error, 404 error and 400 error (see [development docs](technical/development#testing) for a detailed outline).
 
 ### Web Client
 The [web client](https://github.com/unicef/kindly/tree/main/client) is a basic frontend and is only for demo and development purposes when working on the API and is never used in production. It contains a page to [test](https://github.com/unicef/kindly/blob/main/client/pages/index.vue) the API and a page to [contribute](https://github.com/unicef/kindly/blob/main/client/pages/contribute.vue), although this is not functioning at the moment.
