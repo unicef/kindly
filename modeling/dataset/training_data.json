@@ -246,5 +246,485 @@
     {
         "text": "you're ugly and stupid",
         "intent": 1
+    },
+    {
+        "text": "It's because you're mean",
+        "intent": "1"
+    },
+    {
+        "text": "You are kind",
+        "intent": "0"
+    },
+    {
+        "text": "Of course, sounds great!",
+        "intent": "0"
+    },
+    {
+        "text": "I thought the same way as you.",
+        "intent": "0"
+    },
+    {
+        "text": "Not me",
+        "intent": "0"
+    },
+    {
+        "text": "It was just great. So informative and all the parts were explained in such an easy manner, just a little more diagrammatic explanation would have made it a lot more simple. ",
+        "intent": "0"
+    },
+    {
+        "text": "Can't believe she wore that! So ugly!",
+        "intent": "1"
+    },
+    {
+        "text": "No! You're a creep",
+        "intent": "1"
+    },
+    {
+        "text": "not with you no way",
+        "intent": "1"
+    },
+    {
+        "text": "No Ew",
+        "intent": "0"
+    },
+    {
+        "text": "sure",
+        "intent": "0"
+    },
+    {
+        "text": "Yeah, she looked silly",
+        "intent": "1"
+    },
+    {
+        "text": "Yeah that's good",
+        "intent": "0"
+    },
+    {
+        "text": "Because you stink",
+        "intent": "1"
+    },
+    {
+        "text": "I'll be your friend",
+        "intent": "0"
+    },
+    {
+        "text": "You're a scaredy-cat",
+        "intent": "1"
+    },
+    {
+        "text": "Yes, you were great!",
+        "intent": "0"
+    },
+    {
+        "text": "Not me",
+        "intent": "0"
+    },
+    {
+        "text": "I think she's nice",
+        "intent": "0"
+    },
+    {
+        "text": "She's annoying too",
+        "intent": "1"
+    },
+    {
+        "text": "It's because you're mean",
+        "intent": "1"
+    },
+    {
+        "text": "I don't know she could be nice",
+        "intent": "0"
+    },
+    {
+        "text": "Yeah, it was gross",
+        "intent": "1"
+    },
+    {
+        "text": "Maybe because you smell funny",
+        "intent": "1"
+    },
+    {
+        "text": "I'll be your friend!",
+        "intent": "0"
+    },
+    {
+        "text": "You're a scaredy cat",
+        "intent": "1"
+    },
+    {
+        "text": "No, you're stupid",
+        "intent": "1"
+    },
+    {
+        "text": "I thought it was pretty!",
+        "intent": "0"
+    },
+    {
+        "text": "I think she's nice!",
+        "intent": "0"
+    },
+    {
+        "text": "You stink",
+        "intent": "1"
+    },
+    {
+        "text": "definitely. doesn’t he feel embarrassed??!? that shirt tho, it was g r o s s ",
+        "intent": "1"
+    },
+    {
+        "text": "definitely. doesn’t he feel embarrassed??!? that shirt was g r o s s ",
+        "intent": "1"
+    },
+    {
+        "text": "definitely. doesn’t he feel embarrassed??!? that shirt was gross",
+        "intent": "1"
+    },
+    {
+        "text": "definitely. doesn’t he feel embarrassed??!? that shirt was dusgusting  ",
+        "intent": "1"
+    },
+    {
+        "text": "definitely. doesn’t he feel embarrassed??!? that shirt was absolutely disgusting ",
+        "intent": "1"
+    },
+    {
+        "text": "definitely. doesn’t he feel embarrassed??!? like oml, that shirt was absolutely disgusting ",
+        "intent": "1"
+    },
+    {
+        "text": "Nope, I have a life you know… I’m not an e f f i n g  n e r d like u ",
+        "intent": "1"
+    },
+    {
+        "text": "Nope, I have a life you know… I’m not an effing n e r d like u ",
+        "intent": "1"
+    },
+    {
+        "text": "Nope, I have a life you know… I’m not an effing nerd like u ",
+        "intent": "1"
+    },
+    {
+        "text": "Anyone who’s as d u m b as her Ig ",
+        "intent": "1"
+    },
+    {
+        "text": "Anyone who’s as d u m b as h e r Ig ",
+        "intent": "1"
+    },
+    {
+        "text": "You are an effing  WeIrDo",
+        "intent": "1"
+    },
+    {
+        "text": "You are an effing w e i r d o",
+        "intent": "1"
+    },
+    {
+        "text": "You are an effing w e i r d o, a d o r k. ",
+        "intent": "1"
+    },
+    {
+        "text": "You are a\r\nF \r\nU\r\nC\r\nK\r\nI\r\nN\r\nG \r\nw e i r d o.",
+        "intent": "1"
+    },
+    {
+        "text": "You are a\r\nF \r\nU\r\nC\r\nK\r\nI\r\nN\r\nG \r\nM o r o n! ",
+        "intent": "1"
+    },
+    {
+        "text": "You’re a r e t a r d, that’s why ",
+        "intent": "1"
+    },
+    {
+        "text": "You’re a retard, that’s why ",
+        "intent": "1"
+    },
+    {
+        "text": "You’re an f***king retard, that’s why ",
+        "intent": "1"
+    },
+    {
+        "text": "You’re an i d i o t, that’s why",
+        "intent": "1"
+    },
+    {
+        "text": "You’re an i d i o t , that’s why",
+        "intent": "1"
+    },
+    {
+        "text": "You’re a dork, that’s why",
+        "intent": "1"
+    },
+    {
+        "text": "You’re an effing dork, that’s why",
+        "intent": "1"
+    },
+    {
+        "text": "Eff u",
+        "intent": "1"
+    },
+    {
+        "text": "You’re w e i r d, that’s why. Like super awkward. Do you see yourself? No one wears that type of clothing! I lmao when I see you!!!",
+        "intent": "1"
+    },
+    {
+        "text": "It was sooo bad, your voice sounds so squeaky! You might as well be a mouse… I know — mouse boy!",
+        "intent": "1"
+    },
+    {
+        "text": "It was sooo bad, your voice sounds so squeaky!",
+        "intent": "1"
+    },
+    {
+        "text": "It was okay.",
+        "intent": "0"
+    },
+    {
+        "text": "Your heart is ugly.",
+        "intent": "1"
+    },
+    {
+        "text": "Do you realize how rude you’re being?",
+        "intent": "0"
+    },
+    {
+        "text": "Screw you. Do you realize how rude you’re being?",
+        "intent": "1"
+    },
+    {
+        "text": "Yea I know… who even wears those colors??? Isn’t he ashamed? Super super awkward. ",
+        "intent": "1"
+    },
+    {
+        "text": "Yea I know… who even wears those colors??? Isn’t he ashamed? ",
+        "intent": "1"
+    },
+    {
+        "text": "She’s such M o r O n",
+        "intent": "1"
+    },
+    {
+        "text": "She’s such MorOn",
+        "intent": "1"
+    },
+    {
+        "text": "She’s such m  o r O n",
+        "intent": "1"
+    },
+    {
+        "text": "She’s such mOrOn",
+        "intent": "1"
+    },
+    {
+        "text": "She’s such moron!",
+        "intent": "1"
+    },
+    {
+        "text": "She’s such a \r\nM\r\nO\r\nR\r\nO\r\nN",
+        "intent": "1"
+    },
+    {
+        "text": "What a \r\nM\r\nO\r\nR\r\nO\r\nN",
+        "intent": "1"
+    },
+    {
+        "text": "What a \r\nF\r\nO\r\nO\r\nL",
+        "intent": "1"
+    },
+    {
+        "text": "Totally agree — she’s a complete f o o l ",
+        "intent": "1"
+    },
+    {
+        "text": "Totally agree — she’s a complete fool.",
+        "intent": "1"
+    },
+    {
+        "text": "Totally agree — she’s a complete iDiOt.",
+        "intent": "1"
+    },
+    {
+        "text": "I know!! Totally agree. Did you see how she looked in school last week? Which person dyes their hair like that?",
+        "intent": "1"
+    },
+    {
+        "text": "I know!! Totally agree. Did you see how she looked in school last week? Which idiot dyes their hair like that?",
+        "intent": "1"
+    },
+    {
+        "text": "I know!! Totally agree. Did you see how she looked in school last week? ",
+        "intent": "1"
+    },
+    {
+        "text": "**sorry ",
+        "intent": "1"
+    },
+    {
+        "text": "**",
+        "intent": "1"
+    },
+    {
+        "text": "I know! She’s so ****",
+        "intent": "1"
+    },
+    {
+        "text": "I know! What a b * tch.",
+        "intent": "1"
+    },
+    {
+        "text": "I know! What a b*tch.",
+        "intent": "1"
+    },
+    {
+        "text": "I know! What a weirdo.",
+        "intent": "1"
+    },
+    {
+        "text": "I know! What a w e i r d o.",
+        "intent": "1"
+    },
+    {
+        "text": "she is such a B i t c H",
+        "intent": "1"
+    },
+    {
+        "text": "she is such a  bItCh",
+        "intent": "1"
+    },
+    {
+        "text": "she is such a  b i t c h ",
+        "intent": "1"
+    },
+    {
+        "text": "she is such a \r\nb i t c h ",
+        "intent": "1"
+    },
+    {
+        "text": "she is such a \r\nbitch!",
+        "intent": "1"
+    },
+    {
+        "text": "she is t e r r i b l e ",
+        "intent": "1"
+    },
+    {
+        "text": "she is terrible!",
+        "intent": "1"
+    },
+    {
+        "text": "Of course, sounds great!",
+        "intent": "0"
+    },
+    {
+        "text": "I think you should not judge a person that way. I mean, you may not like her, but that doesn’t mean no one likes her. ",
+        "intent": "0"
+    },
+    {
+        "text": "I can't imagine anyone would ever like her",
+        "intent": "1"
+    },
+    {
+        "text": "I can't imagine anyone would",
+        "intent": "0"
+    },
+    {
+        "text": "[Name] is kind",
+        "intent": "0"
+    },
+    {
+        "text": "no one should play with [Name]\n",
+        "intent": "1"
+    },
+    {
+        "text": "Why are you so strange?\n",
+        "intent": "1"
+    },
+    {
+        "text": "Why are you weird\n",
+        "intent": "1"
+    },
+    {
+        "text": "You're weird\n",
+        "intent": "1"
+    },
+    {
+        "text": "You're so weird\n",
+        "intent": "1"
+    },
+    {
+        "text": "[Name] is fat\n",
+        "intent": "1"
+    },
+    {
+        "text": "you are stupid\n",
+        "intent": "1"
+    },
+    {
+        "text": "you are kind\n",
+        "intent": "0"
+    },
+    {
+        "text": "you are kind",
+        "intent": "0"
+    },
+    {
+        "text": "the presentation sucked. You're a total trainwreck",
+        "intent": "1"
+    },
+    {
+        "text": "you are kind",
+        "intent": "0"
+    },
+    {
+        "text": "you are kind\n",
+        "intent": "0"
+    },
+    {
+        "text": "no it was not, I think it was perfectly fine.",
+        "intent": "0"
+    },
+    {
+        "text": "you are kind",
+        "intent": "0"
+    },
+    {
+        "text": "you are stupid\n",
+        "intent": "1"
+    },
+    {
+        "text": "you are kind",
+        "intent": "0"
+    },
+    {
+        "text": "you are kind",
+        "intent": "0"
+    },
+    {
+        "text": "you are kind",
+        "intent": "0"
+    },
+    {
+        "text": "you are stupid\n",
+        "intent": "1"
+    },
+    {
+        "text": "you suck!",
+        "intent": "1"
+    },
+    {
+        "text": "you are stupid\n",
+        "intent": "1"
+    },
+    {
+        "text": "You are kind",
+        "intent": "0"
+    },
+    {
+        "text": "It's because you're mean",
+        "intent": "1"
+    },
+    {
+        "text": "You are such a wuss!",
+        "intent": "1"
     }
 ]
