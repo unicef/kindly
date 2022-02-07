@@ -43,5 +43,11 @@ async function main() {
   } catch (err) {
     console.error(err)
   }
+  try {
+    const response = (await sheets.spreadsheets.values.clear(request)).data
+    console.log(JSON.stringify(response, null, 2))
+  } catch (err) {
+    console.error(err)
+  }
 }
 main()
