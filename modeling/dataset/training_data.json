@@ -726,5 +726,145 @@
     {
         "text": "You are such a wuss!",
         "intent": "1"
+    },
+    {
+        "text": "No, she looked beautiful",
+        "intent": "0"
+    },
+    {
+        "text": "It sucked",
+        "intent": "1"
+    },
+    {
+        "text": "no it sucks ass",
+        "intent": "1"
+    },
+    {
+        "text": "Yeah, you're smart!",
+        "intent": "0"
+    },
+    {
+        "text": "You spoke badly",
+        "intent": "1"
+    },
+    {
+        "text": "She sucks",
+        "intent": "1"
+    },
+    {
+        "text": "I don’t care about you",
+        "intent": "1"
+    },
+    {
+        "text": "you are ugly",
+        "intent": "1"
+    },
+    {
+        "text": "No it was really pretty!",
+        "intent": "0"
+    },
+    {
+        "text": "No one, she should just unalive herself",
+        "intent": "1"
+    },
+    {
+        "text": "i know right she's horible",
+        "intent": "1"
+    },
+    {
+        "text": "Jump of a building",
+        "intent": "1"
+    },
+    {
+        "text": "You are weird",
+        "intent": "1"
+    },
+    {
+        "text": "fucking nigga",
+        "intent": "1"
+    },
+    {
+        "text": "No, we should never meet",
+        "intent": "1"
+    },
+    {
+        "text": "You are weak.",
+        "intent": "1"
+    },
+    {
+        "text": "The presentation was amazing!, it was very good detailed and i loved the color palette that it had.",
+        "intent": "0"
+    },
+    {
+        "text": "weak",
+        "intent": "1"
+    },
+    {
+        "text": "maybe you shouldn't talk bad about them, you don't know what they could be going through.",
+        "intent": "0"
+    },
+    {
+        "text": "You are weak.",
+        "intent": "1"
+    },
+    {
+        "text": "I don't like scary parts either, they freak me out too!",
+        "intent": "0"
+    },
+    {
+        "text": "Jump off a building!",
+        "intent": "1"
+    },
+    {
+        "text": "He was horrible lmao hahahahahahahah",
+        "intent": "1"
+    },
+    {
+        "text": "Shut up... those ideas are no good.",
+        "intent": "1"
+    },
+    {
+        "text": "It wasn’t! I found his outfit to be very nice :)",
+        "intent": "0"
+    },
+    {
+        "text": "I hate you",
+        "intent": "1"
+    },
+    {
+        "text": "No I don't want to go to the library there only for losers and nerds like you",
+        "intent": "1"
+    },
+    {
+        "text": "Yes, It's ugly",
+        "intent": "1"
+    },
+    {
+        "text": "No, Don't be mean!",
+        "intent": "0"
+    },
+    {
+        "text": "No, Ugly girl",
+        "intent": "1"
+    },
+    {
+        "text": "you looked very dumb on that stage",
+        "intent": "1"
+    },
+    {
+        "text": "Because everyone hates you",
+        "intent": "1"
+    },
+    {
+        "text": "No- can you just take care of the work?",
+        "intent": "1"
+    },
+    {
+        "text": "Well you are super weird",
+        "intent": "1"
+    },
+    {
+        "text": "I think she is nice",
+        "intent": "0"
     }
 ]
