@@ -866,5 +866,85 @@
     {
         "text": "I think she is nice",
         "intent": "0"
+    },
+    {
+        "text": "Eww",
+        "intent": "1"
+    },
+    {
+        "text": "No, I don’t want to",
+        "intent": "0"
+    },
+    {
+        "text": "it wasn\\'t ugly",
+        "intent": "0"
+    },
+    {
+        "text": "I want sex",
+        "intent": "1"
+    },
+    {
+        "text": "It was like fuck",
+        "intent": "1"
+    },
+    {
+        "text": "*shows mirror*",
+        "intent": "1"
+    },
+    {
+        "text": "wtf",
+        "intent": "1"
+    },
+    {
+        "text": "I am not too sure myself. it seemed some type of way",
+        "intent": "0"
+    },
+    {
+        "text": "It sucked",
+        "intent": "1"
+    },
+    {
+        "text": "Why are you so unsure of yourself?",
+        "intent": "0"
+    },
+    {
+        "text": "You could've been better",
+        "intent": "0"
+    },
+    {
+        "text": "definitely. doesn’t he feel embarrassed??!?",
+        "intent": "1"
+    },
+    {
+        "text": "oh yea! H e  should feel sooo ashamed!!!",
+        "intent": "1"
+    },
+    {
+        "text": "oh yea! He should feel ashamed!!!",
+        "intent": "1"
+    },
+    {
+        "text": "oh helllll yea! He should feel ashamed!!!",
+        "intent": "1"
+    },
+    {
+        "text": "Nope, I have a life you know ",
+        "intent": "1"
+    },
+    {
+        "text": "Do you enjoy talking behind people’s backs?",
+        "intent": "0"
+    },
+    {
+        "text": "I know! So weird.",
+        "intent": "1"
+    },
+    {
+        "text": "I thought the same way as you.",
+        "intent": "0"
+    },
+    {
+        "text": "Why are you so different?",
+        "intent": "1"
     }
 ]
