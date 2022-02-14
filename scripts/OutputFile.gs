@@ -25,15 +25,18 @@ function doPost (e) {
   
     console.log('Debug statement')
     var nextRow = sheet.getLastRow() + 1
+    // cell with counter to keep track of number of new contributions (resets once review email has been sent)
     
     var dropdownRule = SpreadsheetApp.newDataValidation().requireValueInList(['yes', 'no', 'maybe'], true).build()
+    // rule to create data validation for dropdown yes/no/maybe for bullying detected
+    
     var counterCell = sheet.getRange("E1")
     var counterValue = counterCell.getValue()
     var counter = 20
     
     var date = new Date();
     var newRow = [date, e.parameter["text"], e.parameter["intent"]]
-
+    
     // Updating row if row number is present in the payload, elase append new row
     if(e.parameter['row']){
       console.log('row is present')
