@@ -18,6 +18,8 @@ jobs:
     steps:
     - name: 'Check out the repo'
       uses: 'actions/checkout@v2'
+      with:
+       token: ${{secrets.GH_ACTION_PAT}}
 
     - id: 'auth'
       name: 'Authenticate to Google Cloud'
@@ -44,9 +46,11 @@ jobs:
 
     - name: 'Commit updated file'
       run: |
-        git config --global user.name 'nathanfletcher'
-        git config --global user.email 'nathanfletcher@users.noreply.github.com'
-        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/unicef/kindly
-        git add ./modeling/dataset/training_data.json
-        git commit -am "Updated training data - ${{ steps.date.outputs.today }}"
-        git push
+        if ! git diff --exit-code; then
+          git config --global user.name 'nathanfletcher'
+          git config --global user.email 'nathanfletcher@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${{ secrets.GH_ACTION_PAT }}@github.com/unicef/kindly
+          git add ./modeling/dataset/training_data.json
+          git commit -am "Updated training data - ${{ steps.date.outputs.today }}"
+          git push
+        fi

@@ -1,42 +1,79 @@
 // Google Apps Script to process data sent to Google Sheets from the Contribution form on https://kindly.unicef.io/contribute
-// If contributing, ask admin for `SpreadsheetId`, `IntakeSheet` and `OutputSheet`
+// If contributing, ask admin for `SpreadsheetId`, `IntakeSheet`, `OutputSheet` and `CounterCell`
+// example: `e = {parameter:{"text": "You suck", "intent": "yes", "row": 'undefined'}}`
 
-var sheetName = 'OutputSheet'
 var scriptProp = PropertiesService.getScriptProperties()
+var sheetID = "GOOGLE SHEET ID HERE"
 
 function intialSetup () {
-  var activeSpreadsheet = SpreadsheetApp.getActiveSpreadsheet()
+  var activeSpreadsheet = SpreadsheetApp.openById(sheetID)
   scriptProp.setProperty('key', activeSpreadsheet.getId())
 }
 
-function doPostOutput (request){
-  console.log(request);
+function doGet() {
+  return ContentService.createTextOutput('Kindly Data Intake Script!');
+}
 
+function doPost (e) {
+  //var lock = LockService.getDocumentLock()
+  //lock.tryLock(10000)
+  console.log(e)
   try {
-    var doc = SpreadsheetApp.openById(scriptProp.getProperty('key'))
-    var sheet = doc.getSheetByName(sheetName)
     
-    var data = getSheetData(sheet)
+    var doc = SpreadsheetApp.openById(sheetID)
+    var sheet = doc.getSheetByName('Sheet1')
+  
+    console.log('Debug statement')
+    var nextRow = sheet.getLastRow() + 1
+    // cell with counter to keep track of number of new contributions (resets once review email has been sent)
+    
+    var dropdownRule = SpreadsheetApp.newDataValidation().requireValueInList(['yes', 'no', 'maybe'], true).build()
+    // rule to create data validation for dropdown yes/no/maybe for bullying detected
+    
+    var counterCell = sheet.getRange("E1")
+    var counterValue = counterCell.getValue()
+    var counter = 20
+    
+    var date = new Date();
+    var newRow = [date, e.parameter["text"], e.parameter["intent"]]
+    
+    // Updating row if row number is present in the payload, elase append new row
+    if(e.parameter['row']){
+      console.log('row is present')
+      sheet.getRange(e.parameter['row'], 1, 1, newRow.length).setValues([newRow]);
+    }
+    else{
+      //Appends the data to the sheet as a new entry
+      sheet.appendRow(newRow);
 
-    var outputString =''
+      // adds data validation cell to row with dropdownRule
+      sheet.getRange(nextRow, 3).setDataValidation(dropdownRule);
 
-    data.forEach((row)=>{
-        outputString += row.toString() + '/n';
-    });
+      // adds checkbox for reviewed column
+      sheet.getRange(nextRow, 4).insertCheckboxes();
+    }
+    
+    // Increments the counter by one for each new row added
+    counterCell.setValue(counterValue + 1);
 
-    console.log(outputString)
+    // if the counterValue hits the specified amount, triggers reviewAlert() which sends an email and resets the counter
+    if(counterValue >= counter){
+      reviewAlert()
+    }
 
-    return ContentService.createTextOutput(outputstring).setMimeType(ContentService.MimeType.TEXT);
-
+    return ContentService
+      .createTextOutput(JSON.stringify({ 'result': 'success', 'row': nextRow }))
+      .setMimeType(ContentService.MimeType.JSON)
   }
-  catch (e){
+
+  catch (e) {
+
     return ContentService
       .createTextOutput(JSON.stringify({ 'result': 'error', 'error': e, 'test':true }))
       .setMimeType(ContentService.MimeType.JSON)
   }
-};
 
-function getSheetData(sheetObject) {
-   var sh = sheetObject;
-   return sh.getDataRange().getValues();
+  finally {
+    //lock.releaseLock()
+  }
 }

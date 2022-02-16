@@ -7,9 +7,8 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "prepare": "cd .. && husky install client/.husky",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint": "eslint --ext .js,.vue .",
+    "lint:fix": "eslint --ext .js,.vue . --fix",
     "format": "prettier --check \"**/*.+(js|jsx|json|yml|yaml|css|vue)\"",
     "format:fix": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|vue)\""
   },
@@ -29,12 +28,13 @@
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.12.1",
     "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
-    "eslint-plugin-vue": "^7.19.1",
-    "husky": "^7.0.2",
+    "eslint-plugin-vue": "^7.20.0",
+    "husky": "^4.2.3",
     "lint-staged": "^11.2.3",
     "prettier": "^2.4.1"
   },
@@ -44,7 +44,7 @@
     }
   },
   "lint-staged": {
-    "*.+(js|jsx)": [
+    "*.+(js|jsx|vue)": [
       "eslint --fix",
       "git add"
     ],

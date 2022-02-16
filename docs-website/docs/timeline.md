@@ -40,3 +40,8 @@ sidebar_position: 9
 
 **December 2021**
 - The team aims to conduct outreach to 600+ students and education leaders through multiple school events and conferences.
+
+**January 2022**
+- Outreach to additional 100+ students through school events to raise awareness around Kindly (received  [200+ contributions](https://github.com/unicef/kindly/blob/main/modeling/dataset/training_data.json)).
+- Introductory conversations with schools and education technology product leads.
+- Enhancements to the website (including [Counter](https://kindly.unicef.io/contribute) functionality), back-end processes, and contribution guidelines.
