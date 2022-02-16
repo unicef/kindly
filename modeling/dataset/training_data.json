@@ -946,5 +946,13 @@
     {
         "text": "Why are you so different?",
         "intent": "1"
+    },
+    {
+        "text": "Nah, ur stupid",
+        "intent": "1"
+    },
+    {
+        "text": "Definitely no one. Who wants to play with a stupid person?",
+        "intent": "1"
     }
 ]
