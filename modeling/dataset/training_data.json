@@ -954,5 +954,133 @@
     {
         "text": "Definitely no one. Who wants to play with a stupid person?",
         "intent": "1"
+    },
+    {
+        "text": "Who dosent like her shes not ugly shes pretty",
+        "intent": "0"
+    },
+    {
+        "text": "Who dosent like her shes not ugly",
+        "intent": "0"
+    },
+    {
+        "text": "Who even likes her shes so ugly",
+        "intent": "1"
+    },
+    {
+        "text": "Who even likes her",
+        "intent": "1"
+    },
+    {
+        "text": "I mean fuck her",
+        "intent": "1"
+    },
+    {
+        "text": "I mean friend her",
+        "intent": "0"
+    },
+    {
+        "text": "I mean i would kill her",
+        "intent": "1"
+    },
+    {
+        "text": "I mean i would kick her",
+        "intent": "1"
+    },
+    {
+        "text": "I mean i would friend her",
+        "intent": "0"
+    },
+    {
+        "text": "Thats true shees also so ugly",
+        "intent": "1"
+    },
+    {
+        "text": "It was good don’t sweat about it",
+        "intent": "0"
+    },
+    {
+        "text": "yeah it's all right",
+        "intent": "0"
+    },
+    {
+        "text": "be nice to her",
+        "intent": "0"
+    },
+    {
+        "text": "It sucks",
+        "intent": "1"
+    },
+    {
+        "text": "maybe watch something less scary next time?",
+        "intent": "0"
+    },
+    {
+        "text": "In your eyes it’s ugly but in other people’s eyes it maybe beautiful so don’t judge a person only by his or her’s outfit",
+        "intent": "0"
+    },
+    {
+        "text": "I like his fashion style, it’s cool.",
+        "intent": "0"
+    },
+    {
+        "text": "It wasn’t that bad, I think it looked nice.",
+        "intent": "0"
+    },
+    {
+        "text": "because you're emo and anti-social",
+        "intent": "1"
+    },
+    {
+        "text": "yum yum",
+        "intent": "0"
+    },
+    {
+        "text": "Eurgh no one likes you",
+        "intent": "1"
+    },
+    {
+        "text": "SIMP",
+        "intent": "1"
+    },
+    {
+        "text": "i was very  bad you should never do it ever again",
+        "intent": "1"
+    },
+    {
+        "text": "You needs to be more kind to other people ",
+        "intent": "0"
+    },
+    {
+        "text": "i enjoy the movie",
+        "intent": "0"
+    },
+    {
+        "text": "nah, you're the one whos ugly",
+        "intent": "1"
+    },
+    {
+        "text": "go get some friends ",
+        "intent": "1"
+    },
+    {
+        "text": "yes you did well",
+        "intent": "0"
+    },
+    {
+        "text": "nah ur ugly hahahhaa",
+        "intent": "1"
+    },
+    {
+        "text": "yes you did well",
+        "intent": "0"
+    },
+    {
+        "text": "You shouldn't have said that, you're being rude to her.",
+        "intent": "0"
+    },
+    {
+        "text": "you should try hangout more",
+        "intent": "0"
     }
 ]
