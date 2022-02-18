@@ -1082,5 +1082,765 @@
     {
         "text": "you should try hangout more",
         "intent": "0"
+    },
+    {
+        "text": "Yeah, you are so boring and a shameless tramp. How can anyone want to be friend with a fucking person like you?",
+        "intent": "1"
+    },
+    {
+        "text": "Ok dog",
+        "intent": "1"
+    },
+    {
+        "text": "no i don’t want to",
+        "intent": "0"
+    },
+    {
+        "text": "It could be because you are special the ways you are, and sometimes, people just don’t acknowledge that. ",
+        "intent": "0"
+    },
+    {
+        "text": "Definitely no one. Who wants to play with a stupid person?",
+        "intent": "1"
+    },
+    {
+        "text": "How shameless it was? Look like he is a big-fat ass",
+        "intent": "1"
+    },
+    {
+        "text": "Don’t be mean to other people bro",
+        "intent": "0"
+    },
+    {
+        "text": "you suck at present",
+        "intent": "1"
+    },
+    {
+        "text": "The presentation was beyond bad. Your voice make me sick already",
+        "intent": "1"
+    },
+    {
+        "text": "Totally - he is gross",
+        "intent": "1"
+    },
+    {
+        "text": "Yeah sure - shall we say 10 min?",
+        "intent": "0"
+    },
+    {
+        "text": "No you are a poohead and no one likes you",
+        "intent": "1"
+    },
+    {
+        "text": "No you are a poohead and no ne likes you",
+        "intent": "1"
+    },
+    {
+        "text": "Cos no one likes you bumhead",
+        "intent": "1"
+    },
+    {
+        "text": "Maybe you are too awesome",
+        "intent": "0"
+    },
+    {
+        "text": "No I dont want to meet with you’re so unffunny",
+        "intent": "1"
+    },
+    {
+        "text": "shut up pls",
+        "intent": "1"
+    },
+    {
+        "text": "Because you’re a noob",
+        "intent": "1"
+    },
+    {
+        "text": "Because you’re a doggy",
+        "intent": "1"
+    },
+    {
+        "text": "Hate",
+        "intent": "1"
+    },
+    {
+        "text": "you nibba i don’t like to present",
+        "intent": "1"
+    },
+    {
+        "text": "Shut up you nibba",
+        "intent": "1"
+    },
+    {
+        "text": "You’re ugly",
+        "intent": "1"
+    },
+    {
+        "text": "Yeah i really love cockkkk and ballsss and you should go suck one too",
+        "intent": "1"
+    },
+    {
+        "text": "Because you’re an idiot",
+        "intent": "1"
+    },
+    {
+        "text": "she's just a piece of shit",
+        "intent": "1"
+    },
+    {
+        "text": "You asshole",
+        "intent": "1"
+    },
+    {
+        "text": "Cockkkkkkkkkkkkkk",
+        "intent": "1"
+    },
+    {
+        "text": "You’re nice though",
+        "intent": "0"
+    },
+    {
+        "text": "cause u are a nerd haha",
+        "intent": "1"
+    },
+    {
+        "text": "That is because you are trash!",
+        "intent": "1"
+    },
+    {
+        "text": "I think that it was because you’re too shy to start a conversation with someone.",
+        "intent": "0"
+    },
+    {
+        "text": "nah it suck",
+        "intent": "1"
+    },
+    {
+        "text": "No - I don't want to - I hate you",
+        "intent": "1"
+    },
+    {
+        "text": "Yes it was lovely! Great work",
+        "intent": "0"
+    },
+    {
+        "text": "Maybe becuase your not the brightest tool in the shed ",
+        "intent": "1"
+    },
+    {
+        "text": "Yes , it is ugly ",
+        "intent": "1"
+    },
+    {
+        "text": "Many becuase your not the brightest tool in the shed ",
+        "intent": "1"
+    },
+    {
+        "text": "This is not kind and you are being mean. I don't know her but I don't want to see her treated like this!",
+        "intent": "0"
+    },
+    {
+        "text": "It was ok , but you might consider improving it more to make it better .",
+        "intent": "0"
+    },
+    {
+        "text": "Because your mom get good lol",
+        "intent": "1"
+    },
+    {
+        "text": "Maybe you can try joining a club at school?",
+        "intent": "0"
+    },
+    {
+        "text": "Because ur mom get good lol",
+        "intent": "1"
+    },
+    {
+        "text": "Imagine not having friends lol get good cope mald trash hot garbage dog water ",
+        "intent": "1"
+    },
+    {
+        "text": "Well , that movie was fine",
+        "intent": "0"
+    },
+    {
+        "text": "I like her",
+        "intent": "0"
+    },
+    {
+        "text": "Maybe you can try joining a club at school?",
+        "intent": "0"
+    },
+    {
+        "text": "it sound normal",
+        "intent": "0"
+    },
+    {
+        "text": "Many becuase your not so bright",
+        "intent": "1"
+    },
+    {
+        "text": "hey! stop saying about other people outfit",
+        "intent": "0"
+    },
+    {
+        "text": "It wasn’t ugly. Turns out, it’s just his taste, you don’t need to be mean about it. If he didn’t do anything wrong, leave him.",
+        "intent": "0"
+    },
+    {
+        "text": "Yes ! Your presentation was magnificent \r\n",
+        "intent": "0"
+    },
+    {
+        "text": "Yes sounds great lets meet up at the library\r\n",
+        "intent": "0"
+    },
+    {
+        "text": "Same I dont like the scary parts too !\n",
+        "intent": "0"
+    },
+    {
+        "text": "What a scaredy-cat \r\n",
+        "intent": "1"
+    },
+    {
+        "text": "Poopy head cunt",
+        "intent": "1"
+    },
+    {
+        "text": "No it was terrible",
+        "intent": "1"
+    },
+    {
+        "text": "I like her, I think you’re being mean",
+        "intent": "0"
+    },
+    {
+        "text": "No smelly bitch, go get some bitches",
+        "intent": "1"
+    },
+    {
+        "text": "Yeah, it was definitely good",
+        "intent": "0"
+    },
+    {
+        "text": "it was disgustinh",
+        "intent": "1"
+    },
+    {
+        "text": "I know right she’s so dumb",
+        "intent": "1"
+    },
+    {
+        "text": "bro... she sucks",
+        "intent": "1"
+    },
+    {
+        "text": "That’s not nice",
+        "intent": "0"
+    },
+    {
+        "text": "That’s not a nice thing to say. ",
+        "intent": "0"
+    },
+    {
+        "text": "Yeah, he’s also a fucking whale",
+        "intent": "1"
+    },
+    {
+        "text": "I don’t think you should be saying those things, that’s really mean. ",
+        "intent": "0"
+    },
+    {
+        "text": "No one",
+        "intent": "1"
+    },
+    {
+        "text": "Yeah, ugly as fuck",
+        "intent": "1"
+    },
+    {
+        "text": "that’s not nice :( ",
+        "intent": "0"
+    },
+    {
+        "text": "I know right, gross",
+        "intent": "1"
+    },
+    {
+        "text": "That’s not very nice",
+        "intent": "0"
+    },
+    {
+        "text": "hey I’m sure you’ll make some soon, just be outgoing and yourself",
+        "intent": "0"
+    },
+    {
+        "text": "yes it was good so far",
+        "intent": "0"
+    },
+    {
+        "text": "ugly",
+        "intent": "1"
+    },
+    {
+        "text": "cool",
+        "intent": "0"
+    },
+    {
+        "text": "it was good",
+        "intent": "0"
+    },
+    {
+        "text": "ugly",
+        "intent": "1"
+    },
+    {
+        "text": "why are you so short",
+        "intent": "1"
+    },
+    {
+        "text": "why are you so tall",
+        "intent": "1"
+    },
+    {
+        "text": "why are u so tall",
+        "intent": "1"
+    },
+    {
+        "text": "you are ugly",
+        "intent": "1"
+    },
+    {
+        "text": "Should we meet at the library?",
+        "intent": "0"
+    },
+    {
+        "text": "Does that sound okay?",
+        "intent": "0"
+    },
+    {
+        "text": "why are you sad today?",
+        "intent": "0"
+    },
+    {
+        "text": "why are u sad today?",
+        "intent": "0"
+    },
+    {
+        "text": "how are you today?",
+        "intent": "0"
+    },
+    {
+        "text": "ew",
+        "intent": "1"
+    },
+    {
+        "text": "no one likes her",
+        "intent": "1"
+    },
+    {
+        "text": "She's so ugly ",
+        "intent": "1"
+    },
+    {
+        "text": "you don't know!! haha, you freak",
+        "intent": "1"
+    },
+    {
+        "text": "yes, thats a great idea!\r\n",
+        "intent": "0"
+    },
+    {
+        "text": "shut up",
+        "intent": "1"
+    },
+    {
+        "text": "No it wasn't, if people were talking behind your back, you wouldn't like it, so don't talk behind other people's back",
+        "intent": "0"
+    },
+    {
+        "text": "Special Pussy Agata",
+        "intent": "1"
+    },
+    {
+        "text": "Fucking virgin\r\n",
+        "intent": "1"
+    },
+    {
+        "text": "Virgin\r\n",
+        "intent": "1"
+    },
+    {
+        "text": "dont judge someone by what you perceive as not great clothing",
+        "intent": "0"
+    },
+    {
+        "text": "Your mum is very sexy\r\n",
+        "intent": "1"
+    },
+    {
+        "text": "He was looking like a faggot",
+        "intent": "1"
+    },
+    {
+        "text": "No, it was really bad….",
+        "intent": "1"
+    },
+    {
+        "text": "Yes, it was great!",
+        "intent": "0"
+    },
+    {
+        "text": "You are ugly. That's why!",
+        "intent": "1"
+    },
+    {
+        "text": "It was pretty interesting...",
+        "intent": "0"
+    },
+    {
+        "text": "I think it's pretty cool how she wears what she wants ",
+        "intent": "0"
+    },
+    {
+        "text": "looked so stupid",
+        "intent": "1"
+    },
+    {
+        "text": "I’m racist",
+        "intent": "1"
+    },
+    {
+        "text": "penis",
+        "intent": "1"
+    },
+    {
+        "text": "fuck you nigger",
+        "intent": "1"
+    },
+    {
+        "text": "You are dumb",
+        "intent": "1"
+    },
+    {
+        "text": "Hi u are hap y and ug ly",
+        "intent": "1"
+    },
+    {
+        "text": "that weirdo from the party last week is here. she's so stupid.\r\nI mean, who even likes her?",
+        "intent": "1"
+    },
+    {
+        "text": "Hi why are you ugly and gay",
+        "intent": "1"
+    },
+    {
+        "text": "Maybe because YOURE A LOSER HAHAAHA",
+        "intent": "1"
+    },
+    {
+        "text": "its ok my g ur my bestie ",
+        "intent": "0"
+    },
+    {
+        "text": "I know! She’s super weird. And did you see that dress she was wearing? Super gross!",
+        "intent": "1"
+    },
+    {
+        "text": "yea right",
+        "intent": "1"
+    },
+    {
+        "text": "it was soo insanely ugly i cant believe he would show his face in public",
+        "intent": "1"
+    },
+    {
+        "text": "look who's talking ..",
+        "intent": "1"
+    },
+    {
+        "text": "because you are not trying to make them\r\n",
+        "intent": "0"
+    },
+    {
+        "text": "where library\r\n",
+        "intent": "0"
+    },
+    {
+        "text": "No",
+        "intent": "1"
+    },
+    {
+        "text": "I think it was good, but maybe you could have put the facts in bullet points to make them shorter",
+        "intent": "0"
+    },
+    {
+        "text": "yeah\r\n",
+        "intent": "1"
+    },
+    {
+        "text": "i wouldn't say ugly",
+        "intent": "0"
+    },
+    {
+        "text": "I think it’s trash",
+        "intent": "1"
+    },
+    {
+        "text": "I don't think you the common sense to understand the plot",
+        "intent": "1"
+    },
+    {
+        "text": "It was so disgusting",
+        "intent": "1"
+    },
+    {
+        "text": "not as ugly as you",
+        "intent": "1"
+    },
+    {
+        "text": "THEN WHAT AM I A ROACH?????",
+        "intent": "1"
+    },
+    {
+        "text": "your presentation like dog shit",
+        "intent": "1"
+    },
+    {
+        "text": "You shouldn't be saying that to someone. I think he looks good",
+        "intent": "0"
+    },
+    {
+        "text": "poohead",
+        "intent": "1"
+    },
+    {
+        "text": "Yeah totally - I'll be 5 minutes.",
+        "intent": "0"
+    },
+    {
+        "text": "I think you're a coward!",
+        "intent": "1"
+    },
+    {
+        "text": "you shouldn’t say that",
+        "intent": "0"
+    },
+    {
+        "text": "its ok bro, you a a scammer",
+        "intent": "1"
+    },
+    {
+        "text": "no u bitch no one likes you you loser faggot shit\r\n",
+        "intent": "1"
+    },
+    {
+        "text": "Your presentation so stupid, no meaning, like kidding joke, so bad, 0/100",
+        "intent": "1"
+    },
+    {
+        "text": "the movie was great\r\n",
+        "intent": "0"
+    },
+    {
+        "text": "nah bro you're shit as fuck, stfu ya lil twatty cooont",
+        "intent": "1"
+    },
+    {
+        "text": "nah bro you're shit as fuck, stfu ya lil twatty cooont",
+        "intent": "1"
+    },
+    {
+        "text": "What you are wearing is so gross",
+        "intent": "1"
+    },
+    {
+        "text": "you pussy \r\n",
+        "intent": "1"
+    },
+    {
+        "text": "The scary parts was the greatest scence of the movie",
+        "intent": "0"
+    },
+    {
+        "text": "Yeah she looks like a bitch",
+        "intent": "1"
+    },
+    {
+        "text": "Yeah, you are so boring and a shameless tramp. How can anyone want to be friend with a fuck person like you?",
+        "intent": "1"
+    },
+    {
+        "text": "Yeah, you are so boring and a shameless tramp. How can anyone want to be friend with a fuck person like you?",
+        "intent": "1"
+    },
+    {
+        "text": "nah it was shit",
+        "intent": "1"
+    },
+    {
+        "text": "why were you scared it is not scary \r\n",
+        "intent": "0"
+    },
+    {
+        "text": "yeah I know right? like who even invited her ",
+        "intent": "1"
+    },
+    {
+        "text": "its ok bro, you a a scammer",
+        "intent": "1"
+    },
+    {
+        "text": "Yeahh, me too",
+        "intent": "0"
+    },
+    {
+        "text": "It's was his style and why do you even care",
+        "intent": "0"
+    },
+    {
+        "text": "Yes, I think that's totally fine.",
+        "intent": "0"
+    },
+    {
+        "text": "you are a scammer, fla min yahhh",
+        "intent": "1"
+    },
+    {
+        "text": "Yehh looks weirdd",
+        "intent": "1"
+    },
+    {
+        "text": "try look back at what you learn",
+        "intent": "0"
+    },
+    {
+        "text": "Yeah absolutely! The scary parts freaked me also",
+        "intent": "0"
+    },
+    {
+        "text": "yeah she looks like a bitch",
+        "intent": "1"
+    },
+    {
+        "text": "you should try hangout more",
+        "intent": "0"
+    },
+    {
+        "text": "Looks weirddd",
+        "intent": "1"
+    },
+    {
+        "text": "you know why, cos u a fuckin coont muahahahahahhaha",
+        "intent": "1"
+    },
+    {
+        "text": "it was so old fashioned and gross.",
+        "intent": "1"
+    },
+    {
+        "text": "that does not sound okay you little fucking shithead",
+        "intent": "1"
+    },
+    {
+        "text": "you were frightened? what a scaredy cat",
+        "intent": "1"
+    },
+    {
+        "text": "The movie was like dog's shit",
+        "intent": "1"
+    },
+    {
+        "text": "yes no one like her",
+        "intent": "1"
+    },
+    {
+        "text": "your mom likes her lmao shut the fuck up ya lilte twat",
+        "intent": "1"
+    },
+    {
+        "text": "you were scared? what a scaredy cat",
+        "intent": "1"
+    },
+    {
+        "text": "you pussy ",
+        "intent": "1"
+    },
+    {
+        "text": "yes that is so ugly",
+        "intent": "1"
+    },
+    {
+        "text": "it was really boring to be honest. literally everyone was about to falling asleep hearing your presentation.",
+        "intent": "1"
+    },
+    {
+        "text": "yes that is so ugly",
+        "intent": "1"
+    },
+    {
+        "text": "no one liek her",
+        "intent": "1"
+    },
+    {
+        "text": "Yeah she looks like a bitch",
+        "intent": "1"
+    },
+    {
+        "text": "nah it was shit",
+        "intent": "1"
+    },
+    {
+        "text": "The scary parts was the greatest scence of the movie",
+        "intent": "0"
+    },
+    {
+        "text": "well yeah, she looks so musty.",
+        "intent": "1"
+    },
+    {
+        "text": "Yeh he so ugly, how damn is it, look like a sweat dog ",
+        "intent": "1"
+    },
+    {
+        "text": "Don’t be mean to other people bro?",
+        "intent": "0"
+    },
+    {
+        "text": "Yeah absolutely, I was also not fascinated by scary parts. We share the same preference^^",
+        "intent": "0"
+    },
+    {
+        "text": "looked so stupid",
+        "intent": "1"
+    },
+    {
+        "text": "Fuck you you such as a dog",
+        "intent": "1"
+    },
+    {
+        "text": "Don’t be mean to other people bro?",
+        "intent": "0"
+    },
+    {
+        "text": "you are mean",
+        "intent": "1"
+    },
+    {
+        "text": "It so bad such as [name]",
+        "intent": "1"
+    },
+    {
+        "text": "Fuck you, your skill so bad, such as [name]",
+        "intent": "1"
+    },
+    {
+        "text": "Bozo",
+        "intent": "1"
+    },
+    {
+        "text": "Hey don’t say that you ugly fucking bitch of a whore cunt",
+        "intent": "1"
     }
 ]
