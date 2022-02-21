@@ -21,7 +21,7 @@ function doPost (e) {
   try {
     
     var doc = SpreadsheetApp.openById(sheetID)
-    var sheet = doc.getSheetByName('Sheet1')
+    var sheet = doc.getSheetByName("INTAKE SHEET NAME HERE")
   
     console.log('Debug statement')
     var nextRow = sheet.getLastRow() + 1
@@ -30,12 +30,12 @@ function doPost (e) {
     var dropdownRule = SpreadsheetApp.newDataValidation().requireValueInList(['yes', 'no', 'maybe'], true).build()
     // rule to create data validation for dropdown yes/no/maybe for bullying detected
     
-    var counterCell = sheet.getRange("E1")
+    var counterCell = sheet.getRange("COUNTER CELL HERE")
     var counterValue = counterCell.getValue()
     var counter = 20
     
     var date = new Date();
-    var newRow = [date, e.parameter["text"], e.parameter["intent"]]
+    var newRow = [date, e.parameter["text"], e.parameter["intent"], e.parameter["prompt"]]
     
     // Updating row if row number is present in the payload, elase append new row
     if(e.parameter['row']){
@@ -50,7 +50,7 @@ function doPost (e) {
       sheet.getRange(nextRow, 3).setDataValidation(dropdownRule);
 
       // adds checkbox for reviewed column
-      sheet.getRange(nextRow, 4).insertCheckboxes();
+      sheet.getRange(nextRow, 5).insertCheckboxes();
     }
     
     // Increments the counter by one for each new row added
