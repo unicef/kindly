@@ -1842,5 +1842,21 @@
     {
         "text": "Hey don’t say that you ugly fucking bitch of a whore cunt",
         "intent": "1"
+    },
+    {
+        "text": "🤢",
+        "intent": "1"
+    },
+    {
+        "text": "No, I'll fail if I work with you",
+        "intent": "1"
+    },
+    {
+        "text": "No it’s dangerous",
+        "intent": "0"
+    },
+    {
+        "text": "It was so horrible i wanted to go to sleep forever",
+        "intent": "1"
     }
 ]
