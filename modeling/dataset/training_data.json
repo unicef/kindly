@@ -1926,5 +1926,17 @@
     {
         "text": "Maybe you just join and maybe you are not communicating to people or trying to make friends ",
         "intent": "0"
+    },
+    {
+        "text": "No it was not so boring it was really interesting.",
+        "intent": "0"
+    },
+    {
+        "text": "No I don’t ",
+        "intent": "0"
+    },
+    {
+        "text": "So stupid",
+        "intent": "1"
     }
 ]
