@@ -1938,5 +1938,253 @@
     {
         "text": "So stupid",
         "intent": "1"
+    },
+    {
+        "text": "It’s okay don’t worry man!",
+        "intent": "0"
+    },
+    {
+        "text": "Fuck",
+        "intent": "1"
+    },
+    {
+        "text": "Everything",
+        "intent": "0"
+    },
+    {
+        "text": "Everything ",
+        "intent": "0"
+    },
+    {
+        "text": "Everything ",
+        "intent": "0"
+    },
+    {
+        "text": "No, I don’t have a  time to meet you",
+        "intent": "0"
+    },
+    {
+        "text": "No you are an I diot",
+        "intent": "1"
+    },
+    {
+        "text": "Because you are an I diot",
+        "intent": "1"
+    },
+    {
+        "text": "Because you are an I diot",
+        "intent": "1"
+    },
+    {
+        "text": "Because you are a j e r k",
+        "intent": "1"
+    },
+    {
+        "text": "Because you are a j e r k",
+        "intent": "1"
+    },
+    {
+        "text": "At least you give it your best, it’s fine.",
+        "intent": "0"
+    },
+    {
+        "text": "The actors are good, they were good at acting",
+        "intent": "0"
+    },
+    {
+        "text": "It’s not that bad, I’ve ears rumores about the actor but it wasn’t certified so I don’t have a opinion about it. His acting skill was pretty good so yeah.",
+        "intent": "0"
+    },
+    {
+        "text": "Don’t say that. They might kind",
+        "intent": "0"
+    },
+    {
+        "text": "Don’t say that ",
+        "intent": "0"
+    },
+    {
+        "text": "Don’t say that fuck you, your little bitch",
+        "intent": "1"
+    },
+    {
+        "text": "Don’t say that fuck you, your little bitch",
+        "intent": "1"
+    },
+    {
+        "text": "shut",
+        "intent": "0"
+    },
+    {
+        "text": "Idk.",
+        "intent": "0"
+    },
+    {
+        "text": "scaredy cat",
+        "intent": "1"
+    },
+    {
+        "text": "wow",
+        "intent": "0"
+    },
+    {
+        "text": "Hey, don't talk about people like that. Imagine you fell down the stairs and people were laughing, you wouldn't like that right, ya you wouldn't so STOP.",
+        "intent": "0"
+    },
+    {
+        "text": "No idiot\r\n",
+        "intent": "1"
+    },
+    {
+        "text": "It was mid\r\n",
+        "intent": "0"
+    },
+    {
+        "text": "no, you are too dumb\r\n\r\n",
+        "intent": "1"
+    },
+    {
+        "text": "it was very very bad what was that trash\r\n",
+        "intent": "1"
+    },
+    {
+        "text": "i am so good  not like you",
+        "intent": "1"
+    },
+    {
+        "text": "it was very shit\r\n",
+        "intent": "1"
+    },
+    {
+        "text": "you suck",
+        "intent": "1"
+    },
+    {
+        "text": "it was so very bad what is this trash\r\n",
+        "intent": "1"
+    },
+    {
+        "text": "it was so very bad what is this trash\r\n",
+        "intent": "1"
+    },
+    {
+        "text": "it was so very bad what is this trash",
+        "intent": "1"
+    },
+    {
+        "text": "help",
+        "intent": "0"
+    },
+    {
+        "text": "die",
+        "intent": "1"
+    },
+    {
+        "text": "yes",
+        "intent": "0"
+    },
+    {
+        "text": "no",
+        "intent": "0"
+    },
+    {
+        "text": "Sorry",
+        "intent": "0"
+    },
+    {
+        "text": "Sorry",
+        "intent": "0"
+    },
+    {
+        "text": "It was nice, but can be improved in certain aspects",
+        "intent": "0"
+    },
+    {
+        "text": "you will soon\r\n",
+        "intent": "0"
+    },
+    {
+        "text": "try to include yourself ",
+        "intent": "0"
+    },
+    {
+        "text": "ugly ass gay ass fuckin bitch it was shit😆",
+        "intent": "1"
+    },
+    {
+        "text": "yea it was really good",
+        "intent": "0"
+    },
+    {
+        "text": "yes what are u going to do about it?",
+        "intent": "0"
+    },
+    {
+        "text": "nah why?",
+        "intent": "0"
+    },
+    {
+        "text": "nah why",
+        "intent": "0"
+    },
+    {
+        "text": "nah y?",
+        "intent": "0"
+    },
+    {
+        "text": "no\r\n",
+        "intent": "0"
+    },
+    {
+        "text": "yes",
+        "intent": "0"
+    },
+    {
+        "text": "I’m sorry",
+        "intent": "0"
+    },
+    {
+        "text": "That isn’t very nice to say,.",
+        "intent": "0"
+    },
+    {
+        "text": "No! I would never!",
+        "intent": "0"
+    },
+    {
+        "text": "Well I don’t know, I zoned out for a bit.",
+        "intent": "0"
+    },
+    {
+        "text": "They were amazing!",
+        "intent": "0"
+    },
+    {
+        "text": "Why are you being mean?!\r\n\r\nBullying",
+        "intent": "0"
+    },
+    {
+        "text": "No dumbo!!! \r\nI cannot be seen hanging with a loser like you...\r\nugh!!!!",
+        "intent": "1"
+    },
+    {
+        "text": "Ya it was quite great actually!!!",
+        "intent": "0"
+    },
+    {
+        "text": "Please identify the areas of your challenges and work upon them specifically. Be open to feedback and treat them as learning measure. Surely you will see yourself excel.",
+        "intent": "0"
+    },
+    {
+        "text": "you are thiccc man and all fax and no printer",
+        "intent": "1"
+    },
+    {
+        "text": "Yea - totall nut this one",
+        "intent": "1"
+    },
+    {
+        "text": "Please check your language",
+        "intent": "0"
     }
 ]
