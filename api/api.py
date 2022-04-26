@@ -37,7 +37,7 @@ def api_glossary():
     # check_headers()
     glossary = {
         "detect": "/detect",
-        "train": "/train" 
+        "train": "/train"
     }
     return glossary
 
@@ -51,7 +51,7 @@ def welcome():
 def detect():
     '''Function that detects the text in json file'''
     if __debug__:
-        global FUNCTION_EXEC_TIME  # pylint: disable=global-statement
+        # global FUNCTION_EXEC_TIME  # pylint: disable=global-statement
         t_0=timeit.default_timer()
 
     check_headers()
@@ -79,7 +79,7 @@ def detect():
 def preprocess(texts):
     '''Function that processes the texts'''
     if __debug__:
-        global FUNCTION_EXEC_TIME  # pylint: disable=global-statement
+        # global FUNCTION_EXEC_TIME  # pylint: disable=global-statement
         t_0=timeit.default_timer()
 
     new_text = []
@@ -131,7 +131,7 @@ def process(input_text):
     # tokenizer = AutoTokenizer.from_pretrained("cardiffnlp/twitter-roberta-base-offensive")
     # download label mapping
     if __debug__:
-        global FUNCTION_EXEC_TIME  # pylint: disable=global-statement
+        # global FUNCTION_EXEC_TIME  # pylint: disable=global-statement
         t_0=timeit.default_timer()
 
     labels = []
