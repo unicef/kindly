@@ -31,13 +31,13 @@ allowed_origins = json.loads(os.environ['ALLOWED_ORIGINS']) if os.getenv('ALLOWE
 cors = CORS(app, resources={r"/*"})
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET'])
 def api_glossary():
     '''function for the api glossary'''
-    check_headers()
+    # check_headers()
     glossary = {
         "detect": "/detect",
-        # "train": "/train" #this is yet to be completed
+        "train": "/train" 
     }
     return glossary
 
