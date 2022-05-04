@@ -2186,5 +2186,33 @@
     {
         "text": "Please check your language",
         "intent": "0"
+    },
+    {
+        "text": "dumbbbb",
+        "intent": "1"
+    },
+    {
+        "text": "stupid face",
+        "intent": "1"
+    },
+    {
+        "text": "because I don't like you at all",
+        "intent": "1"
+    },
+    {
+        "text": "the teacher was really foolish poopoo face lol",
+        "intent": "1"
+    },
+    {
+        "text": "I don’t know, you seem like a nice person, just ignore them.",
+        "intent": "0"
+    },
+    {
+        "text": "undefined",
+        "intent": "0"
+    },
+    {
+        "text": "that is very stupid",
+        "intent": "1"
     }
 ]
