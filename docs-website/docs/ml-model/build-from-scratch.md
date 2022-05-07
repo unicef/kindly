@@ -6,7 +6,7 @@ sidebar_position: 3
 
 Multiple different strategies can be used to build a machine learning model from scratch:
 
-- "Bag-of-words" is one simple strategy. Refer to this Google CodeLab that walks you thorugh the process of building a simple model from scratch.
+- "Bag-of-words" is one simple strategy. Refer to this Google CodeLab that walks you through the process of building a simple model from scratch.
 
 - A model based on the TFIDF Vectorizer strategy was contributed by the community into the project by Emmanuel Djaba. This is new base model would be our second approach to home growing Kindly’s own model using traditional machine learning until such a time where the strategy would have to be changed due to new information.
 
