@@ -3,4 +3,4 @@ Flask-Cors==3.0.10
 python-dotenv==0.19.0
 torch==1.9.0
 transformers==4.9.1
-waitress==2.0.0
+waitress==2.1.1
