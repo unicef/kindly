@@ -23,7 +23,7 @@
     "lottie-web": "^5.7.13",
     "nuxt": "^2.15.7",
     "vue-lottie": "^0.2.1",
-    "vuetify": "^2.5.5"
+    "vuetify": "^2.6.10"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.12.1",
