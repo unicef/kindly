@@ -77,7 +77,7 @@ function wordChanged(content, element, num) {
 function analyzeField(element) {
 
     var content = extractText(element);
-    if (wordChanged(content, element, 5)) {
+    if (wordChanged(content, element, 1)) {
         fetch('https://api.moderatehatespeech.com/api/v1/twitter/', {
             method: 'POST',
             headers: {
@@ -121,6 +121,10 @@ function extractText(element) {
  **/
 function showToxic(element, status) {
     if (status) {
+        var notification = element.parentNode.querySelector(".kindly-notification");
+        if (notification) 
+            return;
+            
         var notification = document.createElement("div");
         notification.setAttribute("class", "kindly-notification");
         notification.setAttribute("contenteditable", "false");
