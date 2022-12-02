@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "Kindly",
+    "description": "Dev Extension",
+    "version": "1.0.0",
+    "icons": {
+        "48": "logo/logo-48.png",
+        "128": "logo/logo-128.png"
+    },
+    "options_page": "settings/settings.html",
+    "action": {
+        "default_title": "Kindly",
+        "default_popup": "popup/popup.html"
+    },
+    "permissions": [
+        "storage"
+    ],
+    "host_permissions": [
+        "*://*/*"
+    ],
+    "background": {
+        "service_worker": "service-worker.js"
+    },
+    "content_scripts": [{
+        "js": ["foreground.js"],
+        "css": ["foreground.css"],
+        "matches": ["https://mail.google.com/*"]
+    }]
+}
