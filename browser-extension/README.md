@@ -1,6 +1,8 @@
 # Browser Extension for Kindly
 
-## Installation instructions
+Built and maintained in partnership with [ModerateHatespeech](https://moderatehatespeech.com)
+
+## Installation instructions (dev.)
 
 - Download tne `browser-extension` folder from the repository
 - Navigate to `chrome://extensions/` in Chrome
@@ -17,9 +19,9 @@
 
 ## Site support
 
-- [X] GMail
-- [ ] Google Classroom
+- [X] GSuite (Chat, Mail)
+- [X] Google Classroom
+- [X] Discord
 - [ ] Moodle
 - [ ] Slack
-- [ ] Discord
 - [ ] FB Messenger

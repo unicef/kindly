@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
     "name": "Kindly",
-    "description": "Dev Extension",
-    "version": "1.0.0",
+    "description": "Client-side hate and cyberbullying filter",
+    "version": "1.0.1",
     "icons": {
         "48": "logo/logo-48.png",
         "128": "logo/logo-128.png"
@@ -24,6 +24,7 @@
     "content_scripts": [{
         "js": ["foreground.js"],
         "css": ["foreground.css"],
-        "matches": ["https://mail.google.com/*"]
+        "matches": ["https://mail.google.com/*", "https://classroom.google.com/*", "https://discord.com/*", "https://chat.google.com/*"],
+        "all_frames":true
     }]
 }

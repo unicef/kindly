@@ -10,13 +10,12 @@ function init() {
     target_fields = [
         'div[role="textbox"]'
     ];
-
     // add event listeners to each selector, which may be multiple elements
     target_fields.forEach((field) => {
         var elements = document.querySelectorAll(field);
         elements.forEach((element) => {
             if (element.getAttribute('data-kindly-listener') !== 'true') {
-                element.addEventListener("input", function () {
+                element.addEventListener("keydown", function () {
                     analyzeField(element);
                 });
                 element.setAttribute('data-kindly-listener', 'true');
@@ -33,7 +32,7 @@ function init() {
  * @param {int} num - The number of words changed to trigger
  */
 function wordChanged(content, element, num) {
-    var word_count = content.split(" ").length;
+    var word_count = content.split(/[\s\n]+/).length;
     var prev_word_count = element.getAttribute("data-kindly-count");
     if (prev_word_count == null) {
         prev_word_count = 0;
@@ -77,7 +76,8 @@ function wordChanged(content, element, num) {
 function analyzeField(element) {
 
     var content = extractText(element);
-    if (wordChanged(content, element, 1)) {
+    console.log(content);
+    if (wordChanged(content, element, 0)) {
         fetch('https://api.moderatehatespeech.com/api/v1/twitter/', {
             method: 'POST',
             headers: {
@@ -129,12 +129,27 @@ function showToxic(element, status) {
         notification.setAttribute("class", "kindly-notification");
         notification.setAttribute("contenteditable", "false");
         notification.innerHTML = "This content contains phrases that could potentially be hurtful. Maybe reconsider before sending? ";
+        var close = document.createElement("div");
+        close.setAttribute("class", "kindly-close");
+        close.innerHTML = "⤬";
+        close.addEventListener("click", function () {
+            showToxic(element, false);
+        });
+        
+        notification.appendChild(close);
         element.parentNode.insertBefore(notification, element.nextSibling);
+        if (element.parentNode.offsetHeight < 90){
+            var mh = element.offsetHeight + notification.offsetHeight + 15;
+            element.parentNode.style.minHeight = mh + "px";
+            element.style.minHeight = mh - 15 + "px";
+        }
     } else {
         var notification = element.parentNode.querySelector(".kindly-notification");
         if (notification) {
             notification.parentNode.removeChild(notification);
         }
+        element.parentNode.style.minHeight = null;
+        element.style.minHeight = null;
     }
 }
 

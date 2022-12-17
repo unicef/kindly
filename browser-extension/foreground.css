@@ -11,3 +11,23 @@
     bottom: 10px;
     font-size: 14px;
 }
+
+.kindly-close{
+    line-height: 16px;
+    height: 18px;
+    width: 18px;
+    display: block;
+    position: absolute;
+    background: #000000;
+    border-radius: 50%;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    top: -5px;
+    right: -5px;
+}
+
+.kindly-close:hover{
+    background: #373737;
+    cursor: pointer;
+}
