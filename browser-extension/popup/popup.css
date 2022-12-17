@@ -42,3 +42,21 @@ h3 {
     margin-bottom: 5px;
     margin-top: 0px;
 }
+
+.inline-logo {
+    width: 14px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 3px;
+}
+
+.main-logo {
+    width: 170px;
+    margin: 0 auto;
+    padding: 9px;
+    margin-left: 10px;
+}
+
+.inline-text {
+    font-size: 13px;
+}
