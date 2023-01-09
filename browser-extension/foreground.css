@@ -10,6 +10,7 @@
     position: absolute;
     bottom: 10px;
     font-size: 14px;
+    max-width: calc(100% - 17px);
 }
 
 .kindly-close{
@@ -29,5 +30,56 @@
 
 .kindly-close:hover{
     background: #373737;
+    cursor: pointer;
+}
+
+.kindly-status-indicator {
+    width: 8px;
+    height: 8px;
+    background: #4caf50;
+    border-radius: 50%;
+    position: absolute;
+    top: 8px;
+    box-shadow: 0 0 2px 0px green;
+}
+
+
+.kindly-status-message {
+    position: absolute;
+    top: -7px;
+    background: #4caf50;
+    color: white;
+    padding: 6px 11px;
+    min-width: 96px;
+    text-align: center;
+    line-height: 12px;
+    padding-top:7px;
+    z-index: 9999; 
+    left: -113px;
+    display: none;
+}
+
+.kindly-status-indicator:hover .kindly-status-message {
+    display: block;
+}
+
+.kindly-conf-value {
+    font-size: 10px;
+    display: block;
+    text-align: center;
+    margin-top: 3px;
+}
+
+.kindly-indicator-message {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 16px;
+}
+
+.kindly-report {
+    color: white;
+    font-size: 9px;
+    vertical-align: 1px;
+    margin-left: 1px;
     cursor: pointer;
 }

@@ -24,7 +24,11 @@
     "content_scripts": [{
         "js": ["foreground.js"],
         "css": ["foreground.css"],
-        "matches": ["https://mail.google.com/*", "https://classroom.google.com/*", "https://discord.com/*", "https://chat.google.com/*"],
+        "matches": ["https://mail.google.com/*", "https://twitter.com/*", "https://classroom.google.com/*", "https://discord.com/*", "https://chat.google.com/*", "https://*.instagram.com/*", "https://*.slack.com/*"],
         "all_frames":true
+    },
+    {
+        "css": ["slack.css"],
+        "matches": ["https://*.slack.com/*"]
     }]
 }

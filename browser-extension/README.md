@@ -22,6 +22,7 @@ Built and maintained in partnership with [ModerateHatespeech](https://moderateha
 - [X] GSuite (Chat, Mail)
 - [X] Google Classroom
 - [X] Discord
-- [ ] Moodle
-- [ ] Slack
+- [X] Slack
+- [X] Instagram
 - [ ] FB Messenger
+- [ ] Moodle
