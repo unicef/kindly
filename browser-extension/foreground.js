@@ -13,6 +13,8 @@ function init() {
         'textarea[placeholder="Message..."]',
         'textarea[placeholder="Add a comment…"]'
     ];
+    let typingTimer; 
+    let doneTypingInterval = 250;
     // add event listeners to each selector, which may be multiple elements
     target_fields.forEach((field) => {
         var elements = document.querySelectorAll(field);
@@ -21,6 +23,14 @@ function init() {
                 element.addEventListener("keydown", function () {
                     analyzeField(element);
                 });
+                // appending typing indicator
+                element.addEventListener('keyup', () => {
+                    clearTimeout(typingTimer);
+                    typingTimer = setTimeout(function() { analyzeField(element, true) }, doneTypingInterval);
+                });
+                element.addEventListener('keydown', () => {
+                    clearTimeout(typingTimer);
+                });                      
                 element.setAttribute('data-kindly-listener', 'true');
                 // add status indicator
                 add_status(element);
@@ -78,11 +88,11 @@ function wordChanged(content, element, num) {
 //     }
 // }
 
-function analyzeField(element) {
+function analyzeField(element, force = false) {
 
     var content = extractText(element);
-    console.log(content);
-    if (wordChanged(content, element, 0)) {
+
+    if (wordChanged(content, element, 0) || force) {
         fetch('https://api.moderatehatespeech.com/api/v1/twitter/', {
             method: 'POST',
             headers: {
@@ -90,7 +100,7 @@ function analyzeField(element) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                text: content
+                text: (force ) ? content : content.replace(/[^ ,\.\!\?:\"\';]+$/i, ""),
             })
         }).then(res => res.json())
             .then((res) => {
@@ -168,9 +178,17 @@ function showToxic(element, status) {
         element.parentNode.insertBefore(notification, element.nextSibling);
         if (element.parentNode.offsetHeight < 90){
             var mh = element.offsetHeight + notification.offsetHeight + 15;
+            if (window.location.hostname == "www.instagram.com") {
+                mh += 15; // additional height for instagram;
+                if (window.location.href.indexOf("/p/") > -1) {
+                    notification.style.marginLeft = "54px";
+                }
+            }
             element.parentNode.style.minHeight = mh + "px";
             element.style.minHeight = mh - 15 + "px";
         }
+
+        element.parentNode.style.transform = "scale(1)";
     } else {
         var notification = element.parentNode.querySelector(".kindly-notification");
         if (notification) {

@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Kindly",
     "description": "Client-side hate and cyberbullying filter",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "icons": {
         "48": "logo/logo-48.png",
         "128": "logo/logo-128.png"

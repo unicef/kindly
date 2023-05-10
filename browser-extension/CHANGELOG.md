@@ -1,5 +1,9 @@
 # Changelog
 
+### [1.0.3] - 5/9/2023
+- (Bug) Fix Instagram, GMail warning notification positioning
+- (Improvement) Improve end-of-input detection
+
 ### [1.0.2] - 1/7/2023
 - (Feature) Permanent status indicator
 - (Feature) Support for Instagram, Slack
