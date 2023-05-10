@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Kindly",
     "description": "Client-side hate and cyberbullying filter",
-    "version": "1.0.3",
+    "version": "1.0.2",
     "icons": {
         "48": "logo/logo-48.png",
         "128": "logo/logo-128.png"
@@ -24,7 +24,7 @@
     "content_scripts": [{
         "js": ["foreground.js"],
         "css": ["foreground.css"],
-        "matches": ["https://mail.google.com/*", "https://twitter.com/*", "https://classroom.google.com/*", "https://discord.com/*", "https://chat.google.com/*", "https://*.instagram.com/*", "https://*.slack.com/*"],
+        "matches": ["https://mail.google.com/*", "https://twitter.com/*", "https://classroom.google.com/*", "https://discord.com/*", "https://chat.google.com/*", "https://*.instagram.com/*", "https://*.slack.com/*", "https://*.facebook.com/*"],
         "all_frames":true
     },
     {

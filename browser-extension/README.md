@@ -24,5 +24,5 @@ Built and maintained in partnership with [ModerateHatespeech](https://moderateha
 - [X] Discord
 - [X] Slack
 - [X] Instagram
-- [ ] FB Messenger
+- [X] FB Messenger
 - [ ] Moodle
