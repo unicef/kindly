@@ -3,7 +3,7 @@ flask==2.0.1
 Flask-Cors==3.0.10
 ipython-autotime==0.3.1
 ipython-beautifulSoup[bs4,notebook]==0.3
-joblib==1.0.1
+joblib==1.2.0
 jupyter==1.0.0
 keras==2.7
 matplotlib==3.4.2
