@@ -1,8 +1,8 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require('prism-react-renderer').themes.github;
+const darkCodeTheme = require('prism-react-renderer').themes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -11,8 +11,12 @@ const config = {
   url: 'https://unicef.github.io',
   baseUrl: '/kindly/',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
   organizationName: 'unicef', // Usually your GitHub org/user name.
   projectName: 'kindly', // Usually your repo name.
 
@@ -45,8 +49,8 @@ const config = {
         // },
         items: [
           // {
-          //   type: 'doc',
-          //   docId: 'intro',
+          //   type: 'docSidebar',
+          //   sidebarId: 'tutorialSidebar',
           //   position: 'left',
           //   label: 'Tutorial',
           // },
