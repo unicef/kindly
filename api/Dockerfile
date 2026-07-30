@@ -1,19 +1,23 @@
-# Using the Python 3.9.1 image as it is a requirement for Tensorflow.
-FROM tensorflow/tensorflow:2.6.0
+# Lightweight Python base — no longer requires TensorFlow as a runtime dependency
+FROM python:3.11-slim
 
-# Change working directory (will create if it does not exist)
+# Change working directory
 WORKDIR /flask
 
-# Copy list of required dependecies to the container image.
+# Copy list of required dependencies to the container image
 ADD requirements.docker.txt /flask
 
-# Install all application dependencies
-RUN pip install -r requirements.docker.txt
+# Upgrade pip to resolve modern package versions
+RUN pip install --upgrade pip
+
+# Install all application dependencies (PyTorch CPU wheel for lightweight container)
+RUN pip install -r requirements.docker.txt \
+    --extra-index-url https://download.pytorch.org/whl/cpu
 
 # Add code to cache ML model inside image
 ADD get_model.py /flask
 
-# Download model into ./model
+# Download model into ./model (from HuggingFace hub)
 RUN python get_model.py
 
 # Download ML mappings
@@ -26,5 +30,5 @@ ADD templates /flask/templates
 # Exposing 8080 because it is the port used for the API
 EXPOSE 8080
 
-# Run the web service on container startup.
+# Run the web service on container startup
 CMD [ "python", "api.py" ]

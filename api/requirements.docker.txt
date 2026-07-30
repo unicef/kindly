@@ -1,6 +1,12 @@
-flask==2.0.1
-Flask-Cors==3.0.10
-python-dotenv==0.19.0
-torch==1.9.0
-transformers==4.9.1
-waitress==2.1.1
+# Production runtime dependencies (match api/requirements.txt exactly)
+# Used inside the Docker build — pin major-minor ranges for stability
+# PyTorch CPU wheel — install with --extra-index-url https://download.pytorch.org/whl/cpu
+
+flask>=3.0,<4.0
+Flask-Cors>=5.0,<6.0
+numpy>=2.0
+python-dotenv>=1.0
+transformers>=4.48.0
+waitress>=3.0
+gunicorn>=23.0
+torch>=2.6.0
