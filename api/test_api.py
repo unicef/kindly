@@ -10,13 +10,13 @@ headers = json.loads(os.environ['HEADERS'])
 def test_api_glossary():
     """ Testing success for '/' endpoint"""
     with app.test_client() as client:
-        response = client.post('/', base_url = 'http://localhost:8080/', headers=headers)
+        response = client.get('/', base_url = 'http://localhost:8080/', headers=headers)
         assert response.status_code == 200
 
 def test_api_glossary_403():
     """ Testing 403 error if unauthorised"""
     with app.test_client() as client:
-        response = client.post('/', base_url = 'http://localhost:8080/')
+        response = client.post('/detect', json={}, base_url = 'http://localhost:8080/')
         assert response.status_code == 403
 
 def test_welcome():

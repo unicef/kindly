@@ -148,9 +148,12 @@ def process(input_text):
     file_path.close()
 
     # pylint: disable=no-value-for-parameter # the class def seems inconsistent
-    model = AutoModelForSequenceClassification.from_pretrained('./model')
+    MODEL_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'model')
+    if not os.path.isdir(MODEL_PATH):
+        raise FileNotFoundError(f"Model directory not found: {MODEL_PATH}")
+    model = AutoModelForSequenceClassification.from_pretrained(MODEL_PATH)
     # model.save_pretrained(MODEL)
-    tokenizer = AutoTokenizer.from_pretrained('./model')
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
     encoded_input = tokenizer(preprocess(input_text), return_tensors='pt')
     output = model(**encoded_input)
 
