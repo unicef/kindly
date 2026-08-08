@@ -13,7 +13,7 @@
     "format:fix": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|vue)\""
   },
   "dependencies": {
-    "@nuxt/content": "^1.14.0",
+    "@nuxt/content": "^3.15.2",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/proxy": "^2.1.0",
     "@nuxtjs/pwa": "^3.3.5",
@@ -21,18 +21,18 @@
     "core-js": "^3.15.1",
     "googleapis": "^92.0.0",
     "lottie-web": "^5.7.13",
-    "nuxt": "^2.15.7",
+    "nuxt": "^2.18.1",
     "vue-lottie": "^0.2.1",
     "vuetify": "^2.5.5"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.12.1",
-    "eslint": "^7.32.0",
+    "eslint": "^10.8.1",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-config-standard": "^16.0.3",
+    "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-promise": "^7.3.0",
     "eslint-plugin-vue": "^7.20.0",
     "husky": "^4.2.3",
     "lint-staged": "^11.2.3",
